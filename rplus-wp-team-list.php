@@ -12,7 +12,7 @@
  * Plugin Name: WP Team List
  * Plugin URI:  http://wp.required.ch/plugin/wp-team-list/
  * Description: Provides you with a Widget <strong>WP Team List Widget</strong> a shortcode <code>[rplus_team_list]</code> and a template function <code>rplus_wp_team_list( $args, $echo = true );</code> to list your authors as a publisher team.
- * Version:     0.1.0
+ * Version:     0.4.0
  * Author:      required+ Silvan Hagen
  * Author URI:  http://required.ch
  * Text Domain: rplus-wp-team-list
