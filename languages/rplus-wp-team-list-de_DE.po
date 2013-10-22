@@ -1,0 +1,161 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Team List v0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-10-22 15:51:15+0000\n"
+"Last-Translator: kathzh_admin <silvan@required.ch>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: class-rplus-wp-team-list.php:269
+#@ rplus-wp-team-list
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: class-rplus-wp-team-list.php:295
+#@ rplus-wp-team-list
+msgid "Team List Settings"
+msgstr "Team Listen Einstellung"
+
+#: class-rplus-wp-team-list.php:299
+#@ rplus-wp-team-list
+msgid "Hide on Team List?"
+msgstr "Von der Team Liste verbergen?"
+
+#: class-rplus-wp-team-list.php:303
+#@ rplus-wp-team-list
+msgid "Hide this user from WP Team List"
+msgstr "Diesen Benutzer nicht in WP Team List darstellen"
+
+#: class-rplus-wp-team-list.php:360
+#@ rplus-wp-team-list
+msgid "Hidden"
+msgstr "Versteckt"
+
+#: class-rplus-wp-team-list.php:363
+#@ rplus-wp-team-list
+msgid "Visible"
+msgstr "Sichtbar"
+
+#: class-rplus-wp-team-list.php:379
+#@ rplus-wp-team-list
+msgid "Team List"
+msgstr "Team Liste"
+
+#. translators: plugin header field 'Name'
+#: rplus-wp-team-list.php:0
+#: widgets/class-rplus-wp-team-list-widget.php:11
+#@ rplus-wp-team-list
+msgid "WP Team List"
+msgstr "WP Team List"
+
+#. translators: plugin header field 'PluginURI'
+#: rplus-wp-team-list.php:0
+#@ rplus-wp-team-list
+msgid "http://wp.required.ch/plugin/wp-team-list/"
+msgstr "http://wp.required.ch/plugin/wp-team-list/"
+
+#. translators: plugin header field 'Description'
+#: rplus-wp-team-list.php:0
+#@ rplus-wp-team-list
+msgid "Provides you with a Widget <strong>WP Team List Widget</strong> a shortcode <code>[rplus_team_list]</code> and a template function <code>rplus_wp_team_list( $args, $echo = true );</code> to list your authors as a publisher team."
+msgstr "Stellt dit ein Widget <strong>WP Team List Widget</strong>, einen Shortcode <code>[rplus_team_list]</code> und eine Template Funktion zur Verfügung <code>rplus_wp_team_list( $args, $echo = true );</code> um deine WP User als Publisher Team darzustellen."
+
+#. translators: plugin header field 'Author'
+#: rplus-wp-team-list.php:0
+#@ rplus-wp-team-list
+msgid "required+ Silvan Hagen"
+msgstr "required+ Silvan Hagen"
+
+#. translators: plugin header field 'AuthorURI'
+#: rplus-wp-team-list.php:0
+#@ rplus-wp-team-list
+msgid "http://required.ch"
+msgstr "http://required.ch"
+
+#. translators: plugin header field 'Version'
+#: rplus-wp-team-list.php:0
+#@ rplus-wp-team-list
+msgid "0.1.0"
+msgstr ""
+
+#: rplus-wp-team-list.php:46
+#: rplus-wp-team-list.php:61
+#@ rplus-wp-team-list
+msgid "Oops, it looks like WP_Team_List doesn't exist!"
+msgstr "Hoppla, es sieht so aus als ob WP_Team_List nicht existiert."
+
+#: templates/rplus-wp-team-list-widget.php:34
+#: templates/rplus-wp-team-list.php:88
+#, php-format
+#@ rplus-wp-team-list
+msgid "View all posts by %s"
+msgstr "Alle Beiträge von %s ansehen"
+
+#: templates/rplus-wp-team-list-widget.php:35
+#, php-format
+#@ rplus-wp-team-list
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] "%s Artikel"
+msgstr[1] "%s Artikel"
+
+#: templates/rplus-wp-team-list.php:89
+#, php-format
+#@ rplus-wp-team-list
+msgid "View all %s articles"
+msgstr "Alle %s Artikel anzeigen"
+
+#: widgets/class-rplus-wp-team-list-widget.php:10
+#@ rplus-wp-team-list
+msgid "Display users as team members."
+msgstr "Benutzer als Teammitglieder darstellen."
+
+#: widgets/class-rplus-wp-team-list-widget.php:38
+#@ rplus-wp-team-list
+msgid "Editors"
+msgstr "Redakteure"
+
+#: widgets/class-rplus-wp-team-list-widget.php:56
+#@ rplus-wp-team-list
+msgid "Show all Team Members"
+msgstr "alle Autoren anzeigen"
+
+#: widgets/class-rplus-wp-team-list-widget.php:97
+#@ rplus-wp-team-list
+msgid "Title:"
+msgstr "Titel:"
+
+#: widgets/class-rplus-wp-team-list-widget.php:100
+#@ rplus-wp-team-list
+msgid "Role:"
+msgstr "Rolle:"
+
+#: widgets/class-rplus-wp-team-list-widget.php:105
+#@ rplus-wp-team-list
+msgid "Number of members to show:"
+msgstr "Anzahl Benutzer:"
+
+#: widgets/class-rplus-wp-team-list-widget.php:109
+#@ rplus-wp-team-list
+msgid "Show link to team page?"
+msgstr "Zeige Link zur Team Page?"
+
+#: widgets/class-rplus-wp-team-list-widget.php:111
+#@ rplus-wp-team-list
+msgid "Link to:"
+msgstr "Link zu:"
+
