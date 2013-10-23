@@ -20,8 +20,31 @@
  * @link      https://github.com/wearerequired/wp-team-list/
  * @copyright 2013 required gmbh
  */
+
+/**
+ * Let's begin shall we?
+ *
+ * You have access to the WP_User object through $user. It's for you to play
+ * and render information about your team member that you want to.
+ *
+ * @param   int     $user      WP_User object for the current team member.
+ *
+ *          Info:   This plugin is targeted to advanced WordPress themers with a
+ *                  good unterstanding of PHP and WordPress. Nevertheless here are a few
+ *                  examples of what you could use in this template:
+ *
+ *          $user:  See what is in the user object <?php var_dump( $user ); ?>
+ *                  $user->data is were most of the useful info lives.
+ *                  $user->roles[0] gives back the user role on this blog.
+ *                  $user->ID should be clear.
+ *
+ *          Meta:   get_user_meta( $user->ID, $key = '', $single = false )
+ *                  All the other meta information about your user is available
+ *                  through get_user_meta() like the author bio:
+ *                  echo get_user_meta( $user->ID, 'description', true );
+ *
+ */
 ?>
-<!-- This file is used to markup the public facing aspect of the plugin. -->
 <!-- START: templates/rplus-wp-team-list-widget -->
 <div class="<?php rplus_wp_team_list_classes( array( 'author-' . $user->ID, 'role-' . $user->roles[0] ) ); ?>">
 
