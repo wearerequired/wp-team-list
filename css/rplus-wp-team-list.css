@@ -1,1 +1,5 @@
 /* This stylesheet is used to style the public view of the plugin. */
+.wp-team-member {
+    margin: 1em 0;
+    padding: 0.25em 0;
+}
