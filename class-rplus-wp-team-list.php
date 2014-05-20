@@ -88,7 +88,7 @@ class WP_Team_List {
 		add_action( 'edit_user_profile_update', array( $this, 'admin_save_profile_fields' ) );
 
 		add_filter( 'manage_users_columns', array( $this, 'admin_add_visibility_column' ) );
-		add_action( 'manage_users_custom_column',  array( $this, 'admin_add_visibility_column_content' ), 10, 3 );
+        add_action( 'manage_users_custom_column',  array( $this, 'admin_add_visibility_column_content' ), 10, 3 );
 
 		add_action( 'user_register', array( $this, 'update_user_meta' ) );
 
@@ -366,6 +366,7 @@ class WP_Team_List {
 
 	            break;
 	    }
+        return $val;
 	}
 
 	/**
@@ -421,6 +422,7 @@ class WP_Team_List {
 	 * or falls back on the templates living in the /rplus-wp-team-list/templates folder.
 	 *
 	 * @param  	string 		$template_file 		name of the template file to load
+     * @param   object      $user
 	 *
 	 * @return 	void                			loads the template
 	 *
