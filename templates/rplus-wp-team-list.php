@@ -27,7 +27,7 @@
  * You have access to the WP_User object through $user. It's for you to play
  * and render information about your team member that you want to.
  *
- * @param   int     $user      WP_User object for the current team member.
+ * @param   int $user WP_User object for the current team member.
  *
  *          Info:   This plugin is targeted to advanced WordPress themers with a
  *                  good unterstanding of PHP and WordPress. Nevertheless here are a few
@@ -48,33 +48,34 @@
 <!-- START: templates/rplus-wp-team-list -->
 <div class="<?php rplus_wp_team_list_classes( array( 'author-' . $user->ID, 'role-' . $user->roles[0] ) ); ?>">
 
-    <figure class="author-image">
-        <?php echo get_avatar( $user->ID, $size = '92', $default = '', $alt = $user->data->display_name ); ?>
-    </figure>
+	<figure class="author-image">
+		<?php echo get_avatar( $user->ID, $size = '92', $default = '', $alt = $user->data->display_name ); ?>
+	</figure>
 
-    <h2><?php echo esc_html( $user->data->display_name ); ?></h2>
-    <p><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
+	<h2><?php echo esc_html( $user->data->display_name ); ?></h2>
 
-    <?php
-        /**
-         * Author description
-         *
-         * Renders the author bio if the user added them in their profile.
-         * Uses the user_meta table to get the info
-         *
-         * @uses get_user_meta( $user_id, $key = '', $single = false )
-         *
-         * @todo Add filter for markup rendering.
-         */
-        if ( '' != get_user_meta( $user->ID, 'description', true ) ) : ?>
-            <p class="team-member-bio"><?php echo get_user_meta( $user->ID, 'description', true ); ?></p><?php
-        endif; ?>
+	<p><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
 
-    <p class="team-member-meta">
-        <a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
-           title="<?php printf( esc_attr__( 'View all posts by %s', 'rplus-wp-team-list' ), $user->display_name ); ?>">
-           <?php printf( esc_html__( 'View all %s articles', 'rplus-wp-team-list' ), count_user_posts( $user->ID ) ); ?>
-        </a>
-    </p>
+	<?php
+	/**
+	 * Author description
+	 *
+	 * Renders the author bio if the user added them in their profile.
+	 * Uses the user_meta table to get the info
+	 *
+	 * @uses get_user_meta( $user_id, $key = '', $single = false )
+	 *
+	 * @todo Add filter for markup rendering.
+	 */
+	if ( '' != get_user_meta( $user->ID, 'description', true ) ) : ?>
+		<p class="team-member-bio"><?php echo get_user_meta( $user->ID, 'description', true ); ?></p><?php
+	endif; ?>
+
+	<p class="team-member-meta">
+		<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
+		   title="<?php printf( esc_attr__( 'View all posts by %s', 'rplus-wp-team-list' ), $user->display_name ); ?>">
+			<?php printf( esc_html__( 'View all %s articles', 'rplus-wp-team-list' ), count_user_posts( $user->ID ) ); ?>
+		</a>
+	</p>
 </div>
 <!-- END: templates/rplus-wp-team-list -->

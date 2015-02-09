@@ -27,7 +27,7 @@
  * You have access to the WP_User object through $user. It's for you to play
  * and render information about your team member that you want to.
  *
- * @param   int     $user      WP_User object for the current team member.
+ * @param   int $user WP_User object for the current team member.
  *
  *          Info:   This plugin is targeted to advanced WordPress themers with a
  *                  good unterstanding of PHP and WordPress. Nevertheless here are a few
@@ -48,15 +48,17 @@
 <!-- START: templates/rplus-wp-team-list-widget -->
 <div class="<?php rplus_wp_team_list_classes( array( 'author-' . $user->ID, 'role-' . $user->roles[0] ) ); ?>">
 
-    <figure class="author-image">
-        <?php echo get_avatar( $user->ID, $size = '92', $default = '', $alt = $user->data->display_name ); ?>
-    </figure>
-    <h5><?php echo esc_html( $user->data->display_name ); ?></h5>
-    <p><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
-    <p><a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
-           title="<?php printf( esc_attr__( 'View all posts by %s', 'rplus-wp-team-list' ), $user->display_name ); ?>">
-           <?php printf( _n( '%s article', '%s articles', count_user_posts( $user->ID ), 'rplus-wp-team-list' ), count_user_posts( $user->ID ) ); ?>
-        </a></p>
+	<figure class="author-image">
+		<?php echo get_avatar( $user->ID, $size = '92', $default = '', $alt = $user->data->display_name ); ?>
+	</figure>
+	<h5><?php echo esc_html( $user->data->display_name ); ?></h5>
+
+	<p><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
+
+	<p><a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
+	      title="<?php printf( esc_attr__( 'View all posts by %s', 'rplus-wp-team-list' ), $user->display_name ); ?>">
+			<?php printf( _n( '%s article', '%s articles', count_user_posts( $user->ID ), 'rplus-wp-team-list' ), count_user_posts( $user->ID ) ); ?>
+		</a></p>
 
 </div>
 <!-- END: templates/rplus-wp-team-list-widget -->
