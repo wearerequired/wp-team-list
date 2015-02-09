@@ -24,7 +24,7 @@ class WP_Team_List {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '0.4.0';
+	const VERSION = '1.0.0';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -345,10 +345,7 @@ class WP_Team_List {
 	}
 
 	/**
-	 * Additional field for the new user column
-	 *
-	 * Shows wether the user is a employee of Kath ZH
-	 * and therefore not a guest author.
+	 * Show the team list visibility in the user list table.
 	 *
 	 * @param  string $val
 	 * @param  string $column_name [Name of the current column]

@@ -1,27 +1,154 @@
-# Copyright (C) 2013 required gmbh
-# This file is distributed under the same license as the WP_Team_List package.
+# Copyright (C) 2015 required+ Silvan Hagen
+# This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Team List 0.1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/plugin-name\n"
-"POT-Creation-Date: 2013-05-10 11:23:19+00:00\n"
+"Project-Id-Version: WP Team List 0.4.0\n"
+"Report-Msgid-Bugs-To: http://required.ch\n"
+"POT-Creation-Date: 2015-02-09 16:49:19+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-05-10 10:37-0500\n"
-"Last-Translator: Silvan Hagen <email@example.com>\n"
-"Language-Team: LANGUAGE <translations@example.com >\n"
-"X-Generator: Poedit 1.5.5\n"
-"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
-"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: required+\n"
+"Language-Team: required+\n"
+"X-Generator: grunt-wp-i18n 0.5.0\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
 
-#: class-plugin-name.php:214
-msgid "Page Title"
+#: class-rplus-wp-team-list.php:270
+msgid "Settings"
 msgstr ""
 
-#: class-plugin-name.php:215
-msgid "Menu Text"
+#: class-rplus-wp-team-list.php:297
+msgid "Team List Settings"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:302
+msgid "Hide on Team List?"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:307
+msgid "Hide this user from WP Team List"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:364
+msgid "Hidden"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:367
+msgid "Visible"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:387 rplus-wp-team-list.php:114
+msgid "Team List"
+msgstr ""
+
+#: rplus-wp-team-list.php:100
+msgid "All"
+msgstr ""
+
+#: rplus-wp-team-list.php:118
+msgid "Role"
+msgstr ""
+
+#: rplus-wp-team-list.php:125
+msgid "Order By"
+msgstr ""
+
+#: rplus-wp-team-list.php:130
+msgid "Post Count"
+msgstr ""
+
+#: rplus-wp-team-list.php:134
+msgid "Order"
+msgstr ""
+
+#: rplus-wp-team-list.php:139
+msgid "Ascending"
+msgstr ""
+
+#: rplus-wp-team-list.php:140
+msgid "Descending"
+msgstr ""
+
+#: templates/rplus-wp-team-list-widget.php:59
+#: templates/rplus-wp-team-list.php:67
+msgid "View all posts by %s"
+msgstr ""
+
+#: templates/rplus-wp-team-list-widget.php:60
+msgid "%s article"
+msgid_plural "%s articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/rplus-wp-team-list.php:69
+msgid "View %d post"
+msgid_plural "View %d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:17
+msgid "Display users as team members."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Team List"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:56
+msgid "Editors"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:99
+msgid "Show all Team Members"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:148
+msgid "Title:"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:153
+msgid "Role:"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:160
+msgid "Number of members to show:"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:166
+msgid "Show link to team page?"
+msgstr ""
+
+#: widgets/class-rplus-wp-team-list-widget.php:170
+msgid "Link to:"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wp.required.ch/plugin/wp-team-list/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Provides you with a Widget <strong>WP Team List Widget</strong> a shortcode "
+"<code>[rplus_team_list]</code> and a template function "
+"<code>rplus_wp_team_list( $args, $echo = true );</code> to list your "
+"authors as a publisher team."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "required+ Silvan Hagen"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://required.ch"
 msgstr ""

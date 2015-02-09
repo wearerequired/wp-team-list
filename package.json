@@ -1,11 +1,11 @@
 {
-  "name": "inline-notes",
+  "name": "rplus-wp-team-list",
   "version": "1.0.0",
-  "description": "Add elegant footnotes that expand directly in the content.",
+  "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com:swissspidy/inline-notes.git"
+    "url": "git@github.com:wearerequired/rplus-wp-team-list.git"
   },
   "devDependencies": {
     "grunt": "*",

@@ -1,7 +1,7 @@
 module.exports = {
   dist: {
     options: {
-      textdomain   : 'inline-notes',
+      textdomain   : 'rplus-wp-team-list',
       updateDomains: []
     },
     target : {
