@@ -1,6 +1,6 @@
 <?php
 /**
- * Fired when the plugin is uninstalled.
+ * Delete all user meta data when the plugin is uninstalled.
  *
  * @package   WP_Team_List
  * @author    Silvan Hagen <silvan@required.ch>
@@ -14,5 +14,9 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// TODO: Define uninstall functionality here
-// TODO: Delete usermeta information
+$query = new WP_User_Query( array( 'meta_key' => 'rplus_wp_team_list_visibility' ) );
+
+/** @var WP_User $user */
+foreach ( $query->get_results() as $user ) {
+	delete_user_meta( $user->ID, 'rplus_wp_team_list_visibility' );
+}
