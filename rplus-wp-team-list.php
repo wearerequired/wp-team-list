@@ -38,33 +38,12 @@ register_deactivation_hook( __FILE__, array( 'WP_Team_List', 'deactivate' ) );
 // As soon as WP is ready we load the instance of the plugin
 add_action( 'plugins_loaded', array( 'WP_Team_List', 'get_instance' ) );
 
-if ( ! function_exists( 'rplus_wp_team_list' ) ) :
+function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-wp-team-list.php' ) {
+	$wp_team_list = WP_Team_List::get_instance();
+	return $wp_team_list->render_team_list( $args, $echo, $template );
+}
 
-	function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-wp-team-list.php' ) {
-
-		if ( ! class_exists( 'WP_Team_List' ) ) {
-			wp_die( __( 'Oops, it looks like WP_Team_List doesn\'t exist!', 'rplus-wp-team-list' ) );
-		}
-
-		$wp_team_list = WP_Team_List::get_instance();
-
-		return $wp_team_list->render_team_list( $args, $echo, $template );
-
-	}
-
-endif; // ( ! function_exists( 'rplus_wp_team_list' ) )
-
-if ( ! function_exists( 'rplus_wp_team_list_classes' ) ) :
-
-	function rplus_wp_team_list_classes( $classes ) {
-
-		if ( ! class_exists( 'WP_Team_List' ) ) {
-			wp_die( __( 'Oops, it looks like WP_Team_List doesn\'t exist!', 'rplus-wp-team-list' ) );
-		}
-
-		$wp_team_list = WP_Team_List::get_instance();
-
-		echo $wp_team_list->item_classes( $classes );
-	}
-
-endif; // ( ! function_exists( 'rplus_wp_team_list_classes' ) )
+function rplus_wp_team_list_classes( $classes ) {
+	$wp_team_list = WP_Team_List::get_instance();
+	echo $wp_team_list->item_classes( $classes );
+}
