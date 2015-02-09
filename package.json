@@ -1,0 +1,21 @@
+{
+  "name": "inline-notes",
+  "version": "1.0.0",
+  "description": "Add elegant footnotes that expand directly in the content.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:swissspidy/inline-notes.git"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-wp-i18n": "*",
+    "grunt-wp-readme-to-markdown": "*",
+    "load-grunt-config": "*",
+    "time-grunt": "*"
+  },
+  "dependencies": {
+    "time-grunt": "*"
+  }
+}
