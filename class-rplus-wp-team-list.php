@@ -76,7 +76,7 @@ class WP_Team_List {
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 
 		// Load public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
 
 		// Add a checkbox to the user profile and edit user screen
 		add_action( 'show_user_profile', array( $this, 'admin_render_profile_fields' ) );
@@ -252,9 +252,9 @@ class WP_Team_List {
 	 *
 	 * @since    0.1.0
 	 */
-	public function enqueue_styles() {
+	public function register_styles() {
 
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/rplus-wp-team-list.css', __FILE__ ), array(), self::VERSION );
+		wp_register_style( 'rplus-wp-team-list-plugin-styles', plugins_url( 'css/rplus-wp-team-list.css', __FILE__ ), array(), self::VERSION );
 
 	}
 
@@ -548,7 +548,7 @@ class WP_Team_List {
 	 * @param  boolean $echo
 	 * @param  string  $template tempalte file name
 	 *
-	 * @return string  renders markup
+	 * @return void|string  renders markup
 	 */
 	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) {
 
@@ -557,6 +557,8 @@ class WP_Team_List {
 		$output = '';
 
 		if ( $users ) {
+
+			wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
 
 			ob_start();
 

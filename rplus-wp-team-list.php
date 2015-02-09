@@ -78,6 +78,8 @@ function rplus_wp_team_list_shortcode( $atts, $content = '' ) {
 	/** @var WP_Team_List $wp_team_list */
 	$wp_team_list = WP_Team_List::get_instance();
 
+	wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
+
 	return $wp_team_list->render_team_list( $atts, false, 'rplus-wp-team-list.php' );
 
 }
