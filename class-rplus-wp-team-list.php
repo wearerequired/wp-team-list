@@ -337,7 +337,7 @@ class WP_Team_List {
 		$maybe_value = 'visible';
 
 		if ( isset( $_POST[ WP_Team_List::$plugin_user_meta_key ] ) ) {
-			$maybe_value = $_POST[ WP_Team_List::$plugin_user_meta_key ];
+			$maybe_value = sanitize_text_field( $_POST[ WP_Team_List::$plugin_user_meta_key ] );
 		}
 
 		update_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $maybe_value );
