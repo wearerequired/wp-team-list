@@ -485,6 +485,10 @@ class WP_Team_List {
 			wp_parse_args( $args, $defaults )
 		);
 
+		if ( 'all' === $args['role'] ) {
+			unset( $args['role'] );
+		}
+
 		// Make sure we always get an array of WP_User objects
 		$args['fields'] = 'ID';
 
@@ -497,7 +501,7 @@ class WP_Team_List {
 			)
 		);
 
-		$query = new WP_User_Query( $args );
+		$query = new WP_User_Query( apply_filters( 'rplus_wp_team_list_args', $args ) );
 
 		return $users = empty( $query->results ) ? false : $query->get_results();
 
@@ -550,17 +554,26 @@ class WP_Team_List {
 
 		$users = $this->get_users( $args );
 
-		if ( $users ) :
+		$output = '';
+
+		if ( $users ) {
+
+			ob_start();
 
 			foreach ( $users as $user_id ) {
-
 				$user = $this->create_user_object( $user_id );
-
 				$this->load_template( $template, $user );
-
 			}
 
-		endif;
+			$output = ob_get_clean();
+
+		}
+
+		if ( $echo ) {
+			echo $output;
+		} else {
+			return $output;
+		}
 
 	}
 
