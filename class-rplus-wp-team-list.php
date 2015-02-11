@@ -68,9 +68,6 @@ class WP_Team_List {
 
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
-		// Activate plugin when new blog is added
-		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
-
 		// Add an action link pointing to profile page.
 		$plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'rplus-wp-team-list.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
@@ -88,9 +85,6 @@ class WP_Team_List {
 
 		add_filter( 'manage_users_columns', array( $this, 'admin_add_visibility_column' ) );
 		add_action( 'manage_users_custom_column', array( $this, 'admin_add_visibility_column_content' ), 10, 3 );
-
-		add_action( 'user_register', array( $this, 'update_user_meta' ) );
-
 	}
 
 	/**
@@ -101,7 +95,6 @@ class WP_Team_List {
 	 * @return    object    A single instance of this class.
 	 */
 	public static function get_instance() {
-
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
 			self::$instance = new self;
@@ -111,135 +104,11 @@ class WP_Team_List {
 	}
 
 	/**
-	 * Fired when the plugin is activated.
-	 *
-	 * @since    0.1.0
-	 *
-	 * @param    boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
-	 */
-	public static function activate( $network_wide ) {
-
-		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			if ( $network_wide ) {
-				// Get all blog ids
-				$blog_ids = self::get_blog_ids();
-
-				foreach ( $blog_ids as $blog_id ) {
-					switch_to_blog( $blog_id );
-					self::single_activate();
-				}
-				restore_current_blog();
-			} else {
-				self::single_activate();
-			}
-		} else {
-			self::single_activate();
-		}
-	}
-
-	/**
-	 * Fired when the plugin is deactivated.
-	 *
-	 * @since    0.1.0
-	 *
-	 * @param    boolean $network_wide True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
-	 */
-	public static function deactivate( $network_wide ) {
-
-		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			if ( $network_wide ) {
-				// Get all blog ids
-				$blog_ids = self::get_blog_ids();
-
-				foreach ( $blog_ids as $blog_id ) {
-					switch_to_blog( $blog_id );
-					self::single_deactivate();
-				}
-				restore_current_blog();
-			} else {
-				self::single_deactivate();
-			}
-		} else {
-			self::single_deactivate();
-		}
-	}
-
-	/**
-	 * Fired when a new site is activated with a WPMU environment.
-	 *
-	 * @since    0.1.0
-	 *
-	 * @param    int $blog_id ID of the new blog.
-	 */
-	public function activate_new_site( $blog_id ) {
-
-		if ( 1 !== did_action( 'wpmu_new_blog' ) ) {
-			return;
-		}
-
-		switch_to_blog( $blog_id );
-		self::single_activate();
-		restore_current_blog();
-	}
-
-	/**
-	 * Get all blog ids of blogs in the current network that are:
-	 * - not archived
-	 * - not spam
-	 * - not deleted
-	 *
-	 * @since    0.1.0
-	 *
-	 * @return    array|false    The blog ids, false if no matches.
-	 */
-	private static function get_blog_ids() {
-
-		global $wpdb;
-
-		// get an array of blog ids
-		$sql = "SELECT blog_id FROM $wpdb->blogs
-			WHERE archived = '0' AND spam = '0'
-			AND deleted = '0'";
-
-		return $wpdb->get_col( $sql );
-	}
-
-	/**
-	 * Fired for each blog when the plugin is activated.
-	 *
-	 * @since    0.1.0
-	 */
-	private static function single_activate() {
-		// TODO: Define activation functionality here
-
-		$users = get_users( array( 'fields' => 'ID' ) );
-
-		if ( $users ) {
-
-			foreach ( $users as $user_id ) {
-				WP_Team_List::update_user_meta( $user_id );
-			}
-
-		}
-
-	}
-
-	/**
-	 * Fired for each blog when the plugin is deactivated.
-	 *
-	 * @since    0.1.0
-	 */
-	private static function single_deactivate() {
-		// TODO: Define deactivation functionality here
-	}
-
-	/**
 	 * Load the plugin text domain for translation.
 	 *
 	 * @since    0.1.0
 	 */
 	public function load_plugin_textdomain() {
-
 		$domain = $this->plugin_slug;
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
@@ -248,14 +117,12 @@ class WP_Team_List {
 	}
 
 	/**
-	 * Register and enqueue public-facing style sheet.
+	 * Register the public-facing stylesheet.
 	 *
 	 * @since    0.1.0
 	 */
 	public function register_styles() {
-
 		wp_register_style( 'rplus-wp-team-list-plugin-styles', plugins_url( 'css/rplus-wp-team-list.css', __FILE__ ), array(), self::VERSION );
-
 	}
 
 	/**
@@ -264,14 +131,12 @@ class WP_Team_List {
 	 * @since    0.1.0
 	 */
 	public function add_action_links( $links ) {
-
 		return array_merge(
 			array(
 				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>'
 			),
 			$links
 		);
-
 	}
 
 	/**
@@ -292,7 +157,6 @@ class WP_Team_List {
 	 * @since    0.1.0
 	 */
 	public function admin_render_profile_fields( $user ) { ?>
-
 		<!-- START: WP_Team_List::render_profile_fields -->
 		<h3><?php _e( 'Team List Settings', 'rplus-wp-team-list' ); ?></h3>
 
@@ -310,7 +174,6 @@ class WP_Team_List {
 			</tr>
 		</table>
 		<!-- END: WP_Team_List::render_profile_fields -->
-
 	<?php }
 
 	/**
@@ -321,17 +184,14 @@ class WP_Team_List {
 	 *
 	 * @param    integer $user_id ID of the currently edited WP_User
 	 *
-	 * @return    void
-	 *
 	 * @uses     update_user_meta( $user_id, $meta_key, $meta_value, $prev_value = '' )
 	 * @link     http://codex.wordpress.org/Function_Reference/update_user_meta
 	 *
 	 * @since    0.1.0
 	 */
 	public function admin_save_profile_fields( $user_id ) {
-
 		if ( ! current_user_can( 'edit_user', $user_id ) ) {
-			return false;
+			return;
 		}
 
 		$maybe_value = 'visible';
@@ -341,35 +201,26 @@ class WP_Team_List {
 		}
 
 		update_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $maybe_value );
-
 	}
 
 	/**
 	 * Show the team list visibility in the user list table.
 	 *
-	 * @param  string $val
-	 * @param  string $column_name [Name of the current column]
-	 * @param  int    $user_id     [ID of the current user]
+	 * @param  string $val The current co
+	 * @param  string $column_name Name of the current column.
+	 * @param  int    $user_id     ID of the current user.
 	 *
-	 * @return string              [Plain text: Yes or No]
+	 * @return string The user's visibility status (visible or hidden).
 	 */
 	public function admin_add_visibility_column_content( $val, $column_name, $user_id ) {
-
 		$visibility = get_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $single = true );
 
-		switch ( $column_name ) {
+		if ( WP_Team_List::$plugin_user_meta_key === $column_name ) {
+				$val = __( 'Visible', 'rplus-wp-team-list' );
 
-			case WP_Team_List::$plugin_user_meta_key:
-
-				$column_content = __( 'Hidden', 'rplus-wp-team-list' );
-
-				if ( 'visible' == $visibility ) {
-					$column_content = __( 'Visible', 'rplus-wp-team-list' );
+				if ( 'hidden' == $visibility ) {
+					$val = __( 'Hidden', 'rplus-wp-team-list' );
 				}
-
-				return $column_content;
-
-				break;
 		}
 
 		return $val;
@@ -383,32 +234,8 @@ class WP_Team_List {
 	 * @return array
 	 */
 	public function admin_add_visibility_column( $columns ) {
-
 		$columns[ WP_Team_List::$plugin_user_meta_key ] = __( 'Team List', 'rplus-wp-team-list' );
-
 		return $columns;
-
-	}
-
-	/**
-	 * Updates the user meta field so it has a valid value.
-	 *
-	 * @param  int $user_id
-	 *
-	 * @return void
-	 */
-	public static function update_user_meta( $user_id ) {
-
-		$maybe_value = 'visible';
-
-		$current_value = get_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $single = true );
-
-		if ( $maybe_value != $current_value && 'hidden' != $current_value ) {
-
-			update_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $maybe_value );
-
-		}
-
 	}
 
 	/**
@@ -417,29 +244,24 @@ class WP_Team_List {
 	 * @return void
 	 */
 	public function register_widgets() {
-
 		if ( class_exists( 'WP_Team_List_Widget' ) ) {
 			register_widget( 'WP_Team_List_Widget' );
 		}
-
 	}
 
 	/**
-	 * Load the frontend template
+	 * Load the frontend template.
 	 *
 	 * This function loads the specific template file from either your theme or child theme
 	 * or falls back on the templates living in the /rplus-wp-team-list/templates folder.
 	 *
-	 * @param    string $template_file name of the template file to load
-	 * @param   object  $user
-	 *
-	 * @return    void                            loads the template
+	 * @param   string  $template_file Name of the template file to load.
+	 * @param   WP_User $user          The user object that is needed by the template.
 	 *
 	 * @since    0.1.0
 	 */
 	public function load_template( $template_file, $user ) {
-
-		// Check if the template file exists in the theme forlder
+		// Check if the template file exists in the theme folder
 		if ( $overridden_template = locate_template( $template_file ) ) {
 			// Load the requested template file from the theme or child theme folder
 			$template_path = $overridden_template;
@@ -451,7 +273,6 @@ class WP_Team_List {
 		}
 
 		include( $template_path );
-
 	}
 
 	/**
@@ -489,33 +310,42 @@ class WP_Team_List {
 		// Make sure we always get an array of WP_User objects
 		$args['fields'] = 'ID';
 
+
 		// Make sure the meta key for hiding isn't set.
 		$args['meta_query'] = array(
+			'relation' => 'OR',
 			array(
 				'key'     => WP_Team_List::$plugin_user_meta_key,
 				'value'   => 'visible',
-				'compare' => '==',
-			)
+				'compare' => '=',
+			),
+			array(
+				'key'     => WP_Team_List::$plugin_user_meta_key,
+				'compare' => 'NOT EXISTS',
+			),
 		);
 
 		$query = new WP_User_Query( apply_filters( 'rplus_wp_team_list_args', $args ) );
+		$users = $query->get_results();
 
-		return $users = empty( $query->results ) ? false : $query->get_results();
+		if ( empty( $users ) ) {
+			return false;
+		}
 
+		return $users;
 	}
 
 	/**
-	 * WP Team List item classes
+	 * WP Team List item classes.
 	 *
-	 * Allows for ' ' seperated string and array as
+	 * Allows for space separated string and array as
 	 * data input.
 	 *
-	 * @param  mixed $classes
+	 * @param  string|array $classes List of class names.
 	 *
-	 * @return string
+	 * @return string The modified class list.
 	 */
 	public function item_classes( $classes ) {
-
 		$defaults = apply_filters(
 			'rplus_wp_team_list_default_classes',
 			array(
@@ -541,31 +371,28 @@ class WP_Team_List {
 	/**
 	 * Renders the template to the page
 	 *
-	 * @param  array   $args     WP_User_Query args
-	 * @param  boolean $echo
-	 * @param  string  $template tempalte file name
+	 * @param  array   $args     WP_User_Query arguments
+	 * @param  boolean $echo     Whether to return the result or echo it.
+	 * @param  string  $template The template file name to include.
 	 *
 	 * @return void|string  renders markup
 	 */
 	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) {
-
 		$users = $this->get_users( $args );
 
 		$output = '';
 
 		if ( $users ) {
-
 			wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
 
 			ob_start();
 
 			foreach ( $users as $user_id ) {
-				$user = $this->create_user_object( $user_id );
+				$user = get_userdata( $user_id );
 				$this->load_template( $template, $user );
 			}
 
 			$output = ob_get_clean();
-
 		}
 
 		if ( $echo ) {
@@ -573,26 +400,5 @@ class WP_Team_List {
 		} else {
 			return $output;
 		}
-
-	}
-
-	/**
-	 * Get the WP_User object for $user_id
-	 *
-	 * @param  int $user_id
-	 *
-	 * @return object
-	 */
-	public function create_user_object( $user_id = null ) {
-
-		global $wpdb;
-
-		if ( null == $user_id ) {
-			return false;
-		}
-
-		$user = get_userdata( $user_id );
-
-		return $user;
 	}
 }
