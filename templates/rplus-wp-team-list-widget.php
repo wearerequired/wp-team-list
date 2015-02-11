@@ -48,17 +48,24 @@
 <!-- START: templates/rplus-wp-team-list-widget -->
 <div class="<?php rplus_wp_team_list_classes( array( 'author-' . $user->ID, 'role-' . $user->roles[0] ) ); ?>">
 
-	<figure class="author-image">
+	<figure class="wp-team-member-avatar author-image">
 		<?php echo get_avatar( $user->ID, $size = '92', $default = '', $alt = $user->data->display_name ); ?>
 	</figure>
-	<h5><?php echo esc_html( $user->data->display_name ); ?></h5>
 
-	<p><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
+	<h5 class="wp-team-member-name"><?php echo esc_html( $user->data->display_name ); ?></h5>
 
-	<p><a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
-	      title="<?php printf( esc_attr__( 'View all posts by %s', 'rplus-wp-team-list' ), $user->display_name ); ?>">
-			<?php printf( _n( '%s article', '%s articles', count_user_posts( $user->ID ), 'rplus-wp-team-list' ), count_user_posts( $user->ID ) ); ?>
-		</a></p>
+	<p class="wp-team-member-role"><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
 
+	<?php if ( 0 < count_user_posts( $user->ID ) ) : ?>
+		<p class="wp-team-member-posts-link">
+			<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
+			   title="<?php printf( esc_attr_e( 'View all posts by %s', 'rplus-wp-team-list' ), $user->display_name ); ?>">
+				<?php printf(
+					esc_html( _n( 'View %d post', 'View %d posts', count_user_posts( $user->ID ), 'rplus-wp-team-list' ) ),
+					count_user_posts( $user->ID )
+				); ?>
+			</a>
+		</p>
+	<?php endif; ?>
 </div>
 <!-- END: templates/rplus-wp-team-list-widget -->

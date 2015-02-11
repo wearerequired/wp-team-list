@@ -133,7 +133,7 @@ class WP_Team_List {
 	public function add_action_links( $links ) {
 		return array_merge(
 			array(
-				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>'
+				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', 'rplus-wp-team-list' ) . '</a>'
 			),
 			$links
 		);

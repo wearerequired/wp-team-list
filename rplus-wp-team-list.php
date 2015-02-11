@@ -100,7 +100,7 @@ function wplus_wp_team_list_shortcode_ui() {
 	// Include this in order to use get_editable_roles()
 	require_once( ABSPATH . 'wp-admin/includes/user.php' );
 
-	$user_roles = array( 'all' => __( 'All' ) );
+	$user_roles = array( 'all' => __( 'All', 'rplus-wp-team-list' ) );
 	foreach ( get_editable_roles() as $role => $data ) {
 		$user_roles[ $role ] = $data['name'];
 	}
@@ -114,11 +114,11 @@ function wplus_wp_team_list_shortcode_ui() {
 		'rplus_team_list',
 		array(
 
-			'label'         => __( 'Team List' ),
+			'label'         => __( 'Team List', 'rplus-wp-team-list' ),
 			'listItemImage' => 'dashicons-groups',
 			'attrs'         => array(
 				array(
-					'label'   => __( 'Role' ),
+					'label'   => __( 'Role', 'rplus-wp-team-list' ),
 					'attr'    => 'role',
 					'type'    => 'select',
 					'value'   => 'administrator',
@@ -130,17 +130,17 @@ function wplus_wp_team_list_shortcode_ui() {
 					'type'    => 'select',
 					'value'   => 'post_count',
 					'options' => array(
-						'post_count' => __( 'Post Count' )
+						'post_count' => __( 'Post Count', 'rplus-wp-team-list' )
 					)
 				),
 				array(
-					'label'   => __( 'Order' ),
+					'label'   => __( 'Order', 'rplus-wp-team-list' ),
 					'attr'    => 'order',
 					'type'    => 'radio',
 					'value'   => 'desc',
 					'options' => array(
-						'asc'  => __( 'Ascending' ),
-						'desc' => __( 'Descending' ),
+						'asc'  => __( 'Ascending', 'rplus-wp-team-list' ),
+						'desc' => __( 'Descending', 'rplus-wp-team-list' ),
 					)
 				),
 			),
