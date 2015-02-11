@@ -1,0 +1,151 @@
+# Copyright (C) 2015 required+
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Team List 1.0.0\n"
+"Report-Msgid-Bugs-To: http://required.ch\n"
+"POT-Creation-Date: 2015-02-11 10:10:26+00:00\n"
+"PO-Revision-Date: 2015-02-11 11:12+0100\n"
+"Last-Translator: \n"
+"Language-Team: required+\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class-rplus-wp-team-list.php:136
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: class-rplus-wp-team-list.php:161
+msgid "Team List Settings"
+msgstr "Team-Liste-Einstellungen"
+
+#: class-rplus-wp-team-list.php:166
+msgid "Hide on Team List?"
+msgstr "In der Team-Liste verstecken?"
+
+#: class-rplus-wp-team-list.php:171
+msgid "Hide this user from WP Team List"
+msgstr "Diesen Benutzer in der Team-Liste verstecken"
+
+#: class-rplus-wp-team-list.php:219
+msgid "Visible"
+msgstr "sichtbar"
+
+#: class-rplus-wp-team-list.php:222
+msgid "Hidden"
+msgstr "versteckt"
+
+#: class-rplus-wp-team-list.php:237 rplus-wp-team-list.php:117
+msgid "Team List"
+msgstr "Team-Liste"
+
+#: rplus-wp-team-list.php:103
+msgid "All"
+msgstr "All"
+
+#: rplus-wp-team-list.php:121
+msgid "Role"
+msgstr "Rolle"
+
+#: rplus-wp-team-list.php:128
+msgid "Order By"
+msgstr "Sortieren nach"
+
+#: rplus-wp-team-list.php:133
+msgid "Post Count"
+msgstr "Anzahl Beiträge"
+
+#: rplus-wp-team-list.php:137
+msgid "Order"
+msgstr "Sortierung"
+
+#: rplus-wp-team-list.php:142
+msgid "Ascending"
+msgstr "aufsteigend"
+
+#: rplus-wp-team-list.php:143
+msgid "Descending"
+msgstr "absteigend"
+
+#: templates/rplus-wp-team-list-widget.php:62
+#: templates/rplus-wp-team-list.php:67
+msgid "View all posts by %s"
+msgstr "Alle Beiträge von %s ansehen"
+
+#: templates/rplus-wp-team-list-widget.php:64
+#: templates/rplus-wp-team-list.php:69
+msgid "View %d post"
+msgid_plural "View %d posts"
+msgstr[0] "%d Beitrag ansehen"
+msgstr[1] "%d Beiträge ansehen"
+
+#: widgets/class-rplus-wp-team-list-widget.php:17
+msgid "Display users as team members."
+msgstr "Benutzer als Team-Mitglieder anzeigen."
+
+#. Plugin Name of the plugin/theme
+msgid "WP Team List"
+msgstr "WP Team List"
+
+#: widgets/class-rplus-wp-team-list-widget.php:56
+msgid "Editors"
+msgstr "Redakteure"
+
+#: widgets/class-rplus-wp-team-list-widget.php:99
+msgid "Show all Team Members"
+msgstr "Alle Team-Mitglieder anzeigen"
+
+#: widgets/class-rplus-wp-team-list-widget.php:148
+msgid "Title:"
+msgstr "Titel:"
+
+#: widgets/class-rplus-wp-team-list-widget.php:153
+msgid "Role:"
+msgstr "Rolle:"
+
+#: widgets/class-rplus-wp-team-list-widget.php:160
+msgid "Number of members to show:"
+msgstr "Anzahl anzuzeigender Mitglieder:"
+
+#: widgets/class-rplus-wp-team-list-widget.php:166
+msgid "Show link to team page?"
+msgstr "Link auf Team-Seite anzeigen?"
+
+#: widgets/class-rplus-wp-team-list-widget.php:170
+msgid "Link to:"
+msgstr "Verlinke:"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/wearerequired/rplus-wp-team-list"
+msgstr "https://github.com/wearerequired/rplus-wp-team-list"
+
+#. Description of the plugin/theme
+msgid ""
+"Display your teammates anywhere on your WordPress site using this easy-to-"
+"use plugin. Provides you with a widget, a shortcode <code>[rplus_team_list]</"
+"code> and a template function <code>rplus_wp_team_list( $args, $echo = "
+"true );</code> to list the blog authors."
+msgstr ""
+"Zeige deine Teammitglieder überall auf deiner WordPress-Seite mit diesem "
+"einfach zu bedienenden Plugin. Entweder via Widget, dem "
+"<code>[rplus_team_list]</code> Shortcode, oder der Template-Funktion "
+"<code>rplus_wp_team_list( $args, $echo = true );</code>."
+
+#. Author of the plugin/theme
+msgid "required+"
+msgstr "required+"
+
+#. Author URI of the plugin/theme
+msgid "http://required.ch"
+msgstr "http://required.ch"
