@@ -6,7 +6,7 @@
  * @author    Silvan Hagen <silvan@required.ch>
  * @license   GPL-2.0+
  * @link      https://github.com/wearerequired/wp-team-list/
- * @copyright 2013 required gmbh
+ * @copyright 2015 required gmbh
  */
 
 // If uninstall, not called from WordPress, then exit

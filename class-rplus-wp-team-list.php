@@ -6,7 +6,7 @@
  * @author    Silvan Hagen <silvan@required.ch>
  * @license   GPL-2.0+
  * @link      https://github.com/wearerequired/wp-team-list/
- * @copyright 2013 required gmbh
+ * @copyright 2015 required gmbh
  */
 
 /**
@@ -261,7 +261,6 @@ class WP_Team_List {
 	 * @since    0.1.0
 	 */
 	public function load_template( $template_file, $user ) {
-
 		/**
 		 * Make template file filterable.
 		 *

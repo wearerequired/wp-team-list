@@ -6,14 +6,14 @@
  * @author    Silvan Hagen <silvan@required.ch>
  * @license   GPL-2.0+
  * @link      https://github.com/wearerequired/wp-team-list/
- * @copyright 2013 required gmbh
+ * @copyright 2015 required gmbh
  *
  * @wordpress-plugin
  * Plugin Name: WP Team List
- * Plugin URI:  http://wp.required.ch/plugin/wp-team-list/
- * Description: Provides you with a Widget <strong>WP Team List Widget</strong> a shortcode <code>[rplus_team_list]</code> and a template function <code>rplus_wp_team_list( $args, $echo = true );</code> to list your authors as a publisher team.
- * Version:     0.4.0
- * Author:      required+ Silvan Hagen
+ * Plugin URI:  https://github.com/wearerequired/rplus-wp-team-list
+ * Description: Display your teammates anywhere on your WordPress site using this easy-to-use plugin. Provides you with a widget, a shortcode <code>[rplus_team_list]</code> and a template function <code>rplus_wp_team_list( $args, $echo = true );</code> to list the blog authors.
+ * Version:     1.0.0
+ * Author:      required+
  * Author URI:  http://required.ch
  * Text Domain: rplus-wp-team-list
  * License:     GPL-2.0+
@@ -39,11 +39,11 @@ register_deactivation_hook( __FILE__, array( 'WP_Team_List', 'deactivate' ) );
 add_action( 'plugins_loaded', array( 'WP_Team_List', 'get_instance' ) );
 
 /**
- * @param array  $args
- * @param bool   $echo
- * @param string $template
+ * @param array  $args     Additional arguments for the WP_User_Query.
+ * @param bool   $echo     Whether to echo the output or just return it.
+ * @param string $template The template file to load for the team list.
  *
- * @return string
+ * @return void|string
  */
 function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-wp-team-list.php' ) {
 	/** @var WP_Team_List $wp_team_list */
@@ -52,6 +52,9 @@ function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-w
 	return $wp_team_list->render_team_list( $args, $echo, $template );
 }
 
+/**
+ * @param string|array $classes List of class names.
+ */
 function rplus_wp_team_list_classes( $classes ) {
 	/** @var WP_Team_List $wp_team_list */
 	$wp_team_list = WP_Team_List::get_instance();
@@ -125,7 +128,7 @@ function wplus_wp_team_list_shortcode_ui() {
 					'label'   => __( 'Order By' ),
 					'attr'    => 'orderby',
 					'type'    => 'select',
-					'value' => 'post_count',
+					'value'   => 'post_count',
 					'options' => array(
 						'post_count' => __( 'Post Count' )
 					)
@@ -134,7 +137,7 @@ function wplus_wp_team_list_shortcode_ui() {
 					'label'   => __( 'Order' ),
 					'attr'    => 'order',
 					'type'    => 'radio',
-					'value' => 'desc',
+					'value'   => 'desc',
 					'options' => array(
 						'asc'  => __( 'Ascending' ),
 						'desc' => __( 'Descending' ),
