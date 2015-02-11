@@ -38,6 +38,8 @@ The `[rplus_team_list]` accepts the same arguments as the template tag. Example:
 
 This returns all admins ordered by the number of posts they've written (descending).
 
+Pro tip: If you use the [Shortcake WordPress plugin](https://github.com/fusioneng/Shortcake "GitHub - Shortcake"), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.
+
 === Widget ===
 
 Want do display the team members in your sidebar? Use the built-in WordPress widget. You can set the role you want, the number of users to show and even link to a separate team page.
@@ -57,11 +59,9 @@ An answer to that question.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. This is how your team list can look like with some additional CSS.
+2. The plugin only provides limited styling. It's up for you to adjust it.
+3. The configuration options of the built-in widget.
 
 == Changelog ==
 

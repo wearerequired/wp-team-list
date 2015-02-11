@@ -38,6 +38,8 @@ The `[rplus_team_list]` accepts the same arguments as the template tag. Example:
 
 This returns all admins ordered by the number of posts they've written (descending).
 
+**Pro tip:** If you use the [Shortcake WordPress plugin](https://github.com/fusioneng/Shortcake "GitHub - Shortcake"), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.  
+
 # Widget #
 
 Want do display the team members in your sidebar? Use the built-in WordPress widget. You can set the role you want, the number of users to show and even link to a separate team page.
@@ -57,14 +59,14 @@ An answer to that question.
 
 ## Screenshots ##
 
-### 1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from ###
-![This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-1.png)
+### 1. This is how your team list can look like with some additional CSS. ###
+![This is how your team list can look like with some additional CSS.](https://raw.githubusercontent.com/wearerequired/rplus-wp-team-list/master/assets/screenshot-1.png)
 
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-### 2. This is the second screen shot ###
-![This is the second screen shot](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-2.png)
+### 2. The plugin only provides limited styling. It's up for you to adjust it. ###
+![The plugin only provides limited styling. It's up for you to adjust it.](https://raw.githubusercontent.com/wearerequired/rplus-wp-team-list/master/assets/screenshot-2.png)
+
+### 3. The configuration options of the built-in widget. ###
+![The configuration options of the built-in widget.](https://raw.githubusercontent.com/wearerequired/rplus-wp-team-list/master/assets/screenshot-3.png)
 
 
 ## Changelog ##
