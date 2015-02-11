@@ -261,15 +261,22 @@ class WP_Team_List {
 	 * @since    0.1.0
 	 */
 	public function load_template( $template_file, $user ) {
+
+		/**
+		 * Make template file filterable.
+		 *
+		 * @param   string  $template_file Name of the template file to load.
+		 * @param   WP_User $user          The user object that is needed by the template.
+		 */
+		$template_file = apply_filters( 'rplus_wp_team_list_template', $template_file, $user );
+
 		// Check if the template file exists in the theme folder
 		if ( $overridden_template = locate_template( $template_file ) ) {
 			// Load the requested template file from the theme or child theme folder
 			$template_path = $overridden_template;
-
 		} else {
 			// Load the requested template file from the plugin folder
 			$template_path = dirname( __FILE__ ) . '/templates/' . $template_file;
-
 		}
 
 		include( $template_path );
@@ -309,7 +316,6 @@ class WP_Team_List {
 
 		// Make sure we always get an array of WP_User objects
 		$args['fields'] = 'ID';
-
 
 		// Make sure the meta key for hiding isn't set.
 		$args['meta_query'] = array(
