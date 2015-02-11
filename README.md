@@ -1,6 +1,6 @@
 # WP Team List #
 **Contributors:** neverything, hubresen, swissspidy  
-Donate link:
+**Donate link:** http://required.ch/  
 **Tags:** authors, widget, users, list, team, shortcode  
 **Requires at least:** 3.5.1  
 **Tested up to:** 4.1  
