@@ -4,7 +4,7 @@ Donate link: http://required.ch/
 Tags: authors, widget, users, list, team, shortcode
 Requires at least: 3.5.1
 Tested up to: 4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ First of all, the plugin adds a small checkbox to the user profile in WordPress 
 
 You can then use one of these ways to display the list anywhere on your site.
 
-=== Template Tag ===
+**Template Tag**
 
 Use the `rplus_wp_team_list($args = array(), $echo = true)` function to directly display the users in your teme. If you use `echo = false`, the output is only returned, not echoed.
 
@@ -30,7 +30,7 @@ For example, you can show users of any role ordered by their name:
 
 Note: WP Team List supports many of the arguments [`WP_User_Query`](http://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.
 
-=== Shortcode ===
+**Shortcode**
 
 The `[rplus_team_list]` accepts the same arguments as the template tag. Example:
 
@@ -40,7 +40,7 @@ This returns all admins ordered by the number of posts they've written (descendi
 
 Pro tip: If you use the [Shortcake WordPress plugin](https://github.com/fusioneng/Shortcake "GitHub - Shortcake"), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.
 
-=== Widget ===
+**Widget**
 
 Want do display the team members in your sidebar? Use the built-in WordPress widget. You can set the role you want, the number of users to show and even link to a separate team page.
 
@@ -53,9 +53,9 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= How do I contribute to WP Team List? =
 
-An answer to that question.
+Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](https://github.com/wearerequired/rplus-wp-team-list).
 
 == Screenshots ==
 
@@ -65,10 +65,16 @@ An answer to that question.
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix: Updated textdomain to match the plugin slug
+
 = 1.0.0 =
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+We changed the plugin's textdomain to improve translation handling.
 
 = 1.0.0 =
 Initial Release
