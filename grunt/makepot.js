@@ -7,7 +7,7 @@ module.exports = {
       include        : [],
       mainFile       : '',
       potComments    : '',
-      potFilename    : 'rplus-wp-team-list.pot',
+      potFilename    : 'wp-team-list.pot',
       potHeaders     : {
         poedit                 : true,
         'x-poedit-keywordslist': true,

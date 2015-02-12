@@ -15,7 +15,7 @@
  * Version:     1.0.0
  * Author:      required+
  * Author URI:  http://required.ch
- * Text Domain: rplus-wp-team-list
+ * Text Domain: wp-team-list
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
@@ -95,7 +95,7 @@ function wplus_wp_team_list_shortcode_ui() {
 	// Include this in order to use get_editable_roles()
 	require_once( ABSPATH . 'wp-admin/includes/user.php' );
 
-	$user_roles = array( 'all' => __( 'All', 'rplus-wp-team-list' ) );
+	$user_roles = array( 'all' => __( 'All', 'wp-team-list' ) );
 	foreach ( get_editable_roles() as $role => $data ) {
 		$user_roles[ $role ] = $data['name'];
 	}
@@ -109,11 +109,11 @@ function wplus_wp_team_list_shortcode_ui() {
 		'rplus_team_list',
 		array(
 
-			'label'         => __( 'Team List', 'rplus-wp-team-list' ),
+			'label'         => __( 'Team List', 'wp-team-list' ),
 			'listItemImage' => 'dashicons-groups',
 			'attrs'         => array(
 				array(
-					'label'   => __( 'Role', 'rplus-wp-team-list' ),
+					'label'   => __( 'Role', 'wp-team-list' ),
 					'attr'    => 'role',
 					'type'    => 'select',
 					'value'   => 'administrator',
@@ -125,17 +125,17 @@ function wplus_wp_team_list_shortcode_ui() {
 					'type'    => 'select',
 					'value'   => 'post_count',
 					'options' => array(
-						'post_count' => __( 'Post Count', 'rplus-wp-team-list' )
+						'post_count' => __( 'Post Count', 'wp-team-list' )
 					)
 				),
 				array(
-					'label'   => __( 'Order', 'rplus-wp-team-list' ),
+					'label'   => __( 'Order', 'wp-team-list' ),
 					'attr'    => 'order',
 					'type'    => 'radio',
 					'value'   => 'desc',
 					'options' => array(
-						'asc'  => __( 'Ascending', 'rplus-wp-team-list' ),
-						'desc' => __( 'Descending', 'rplus-wp-team-list' ),
+						'asc'  => __( 'Ascending', 'wp-team-list' ),
+						'desc' => __( 'Descending', 'wp-team-list' ),
 					)
 				),
 			),

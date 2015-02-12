@@ -46,7 +46,7 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 
 == Installation ==
 
-1. Upload `rplus-wp-team-list` to the `/wp-content/plugins/` directory
+1. Upload `wp-team-list` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Use one of the supported methods (template tag, shortcode, or widget)
 1. Optional: Set the visibility status of your users

@@ -14,10 +14,10 @@ class WP_Team_List_Widget extends WP_Widget {
 
 		$widget_ops = array(
 			'classname'   => 'widget_wp_team_list',
-			'description' => __( "Display users as team members.", "rplus-wp-team-list" )
+			'description' => __( 'Display users as team members.', 'wp-team-list' )
 		);
 
-		parent::__construct( 'wp-team-list', __( 'WP Team List', 'rplus-wp-team-list' ), $widget_ops );
+		parent::__construct( 'wp-team-list', __( 'WP Team List', 'wp-team-list' ), $widget_ops );
 
 		// Our option name
 		$this->alt_option_name = 'widget_wp_team_list';
@@ -53,7 +53,7 @@ class WP_Team_List_Widget extends WP_Widget {
 		extract( $args );
 
 		// Prepare options
-		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Editors', 'rplus-wp-team-list' );
+		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Editors', 'wp-team-list' );
 		$role      = ( ! empty( $instance['role'] ) ) ? $instance['role'] : 'editor';
 		$show_link = isset( $instance['show_link'] ) ? $instance['show_link'] : false;
 		$page_link = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 7;
@@ -96,7 +96,7 @@ class WP_Team_List_Widget extends WP_Widget {
 		rplus_wp_team_list( $team_query_args, $echo = true, $team_widget_template );
 
 		if ( $show_link ) : ?>
-			<a href="<?php echo esc_url( get_permalink( $page_link ) ); ?>" class="show-all"><?php _e( 'Show all Team Members', 'rplus-wp-team-list' ); ?></a><?php
+			<a href="<?php echo esc_url( get_permalink( $page_link ) ); ?>" class="show-all"><?php _e( 'Show all Team Members', 'wp-team-list' ); ?></a><?php
 		endif;
 
 		echo apply_filters( 'rplus_wp_team_list_widget_after', '</div>' );
@@ -145,29 +145,29 @@ class WP_Team_List_Widget extends WP_Widget {
 		$page_link = isset( $instance['page_link'] ) ? (bool) $instance['page_link'] : 7;
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'rplus-wp-team-list' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'wp-team-list' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'role' ); ?>"><?php _e( 'Role:', 'rplus-wp-team-list' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'role' ); ?>"><?php _e( 'Role:', 'wp-team-list' ); ?></label>
 			<select id="<?php echo $this->get_field_id( 'role' ); ?>" name="<?php echo $this->get_field_name( 'role' ); ?>" class="widefat">
 				<?php wp_dropdown_roles( $role ); ?>
 			</select>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of members to show:', 'rplus-wp-team-list' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of members to show:', 'wp-team-list' ); ?></label>
 			<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 		</p>
 
 		<p>
 			<input class="checkbox" type="checkbox" <?php checked( $show_link ); ?> id="<?php echo $this->get_field_id( 'show_link' ); ?>" name="<?php echo $this->get_field_name( 'show_link' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'show_link' ); ?>"><?php _e( 'Show link to team page?', 'rplus-wp-team-list' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'show_link' ); ?>"><?php _e( 'Show link to team page?', 'wp-team-list' ); ?></label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'page_link' ); ?>"><?php _e( 'Link to:', 'rplus-wp-team-list' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'page_link' ); ?>"><?php _e( 'Link to:', 'wp-team-list' ); ?></label>
 			<select id="<?php echo $this->get_field_id( 'page_link' ); ?>" name="<?php echo $this->get_field_name( 'page_link' ); ?>" class="widefat">
 				<?php
 				$pages = get_pages( array( 'orderby' => 'name', 'parent' => 0 ) );

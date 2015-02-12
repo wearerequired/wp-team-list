@@ -36,7 +36,7 @@ class WP_Team_List {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'rplus-wp-team-list';
+	protected $plugin_slug = 'wp-team-list';
 
 	/**
 	 * Instance of this class.
@@ -133,7 +133,7 @@ class WP_Team_List {
 	public function add_action_links( $links ) {
 		return array_merge(
 			array(
-				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', 'rplus-wp-team-list' ) . '</a>'
+				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', 'wp-team-list' ) . '</a>'
 			),
 			$links
 		);
@@ -158,17 +158,17 @@ class WP_Team_List {
 	 */
 	public function admin_render_profile_fields( $user ) { ?>
 		<!-- START: WP_Team_List::render_profile_fields -->
-		<h3><?php _e( 'Team List Settings', 'rplus-wp-team-list' ); ?></h3>
+		<h3><?php _e( 'Team List Settings', 'wp-team-list' ); ?></h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<label for="rplus_wp_team_list_visibility"><?php _e( 'Hide on Team List?', 'rplus-wp-team-list' ); ?></label>
+					<label for="rplus_wp_team_list_visibility"><?php _e( 'Hide on Team List?', 'wp-team-list' ); ?></label>
 				</th>
 				<td>
 					<label for="rplus_wp_team_list_visibility">
 						<input type="checkbox" name="<?php echo WP_Team_List::$plugin_user_meta_key; ?>" id="rplus_wp_team_list_visibility" value="hidden" <?php checked( get_user_meta( $user->ID, WP_Team_List::$plugin_user_meta_key, true ), "hidden" ); ?>>
-						<?php _e( 'Hide this user from WP Team List', 'rplus-wp-team-list' ); ?>
+						<?php _e( 'Hide this user from WP Team List', 'wp-team-list' ); ?>
 					</label>
 				</td>
 			</tr>
@@ -216,10 +216,10 @@ class WP_Team_List {
 		$visibility = get_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $single = true );
 
 		if ( WP_Team_List::$plugin_user_meta_key === $column_name ) {
-				$val = __( 'Visible', 'rplus-wp-team-list' );
+				$val = __( 'Visible', 'wp-team-list' );
 
 				if ( 'hidden' == $visibility ) {
-					$val = __( 'Hidden', 'rplus-wp-team-list' );
+					$val = __( 'Hidden', 'wp-team-list' );
 				}
 		}
 
@@ -234,7 +234,7 @@ class WP_Team_List {
 	 * @return array
 	 */
 	public function admin_add_visibility_column( $columns ) {
-		$columns[ WP_Team_List::$plugin_user_meta_key ] = __( 'Team List', 'rplus-wp-team-list' );
+		$columns[ WP_Team_List::$plugin_user_meta_key ] = __( 'Team List', 'wp-team-list' );
 		return $columns;
 	}
 
@@ -253,7 +253,7 @@ class WP_Team_List {
 	 * Load the frontend template.
 	 *
 	 * This function loads the specific template file from either your theme or child theme
-	 * or falls back on the templates living in the /rplus-wp-team-list/templates folder.
+	 * or falls back on the templates living in the /wp-team-list/templates folder.
 	 *
 	 * @param   string  $template_file Name of the template file to load.
 	 * @param   WP_User $user          The user object that is needed by the template.

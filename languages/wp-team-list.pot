@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Team List 1.0.0\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
-"POT-Creation-Date: 2015-02-11 10:10:26+00:00\n"
+"POT-Creation-Date: 2015-02-12 13:32:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,35 +48,35 @@ msgstr ""
 msgid "Hidden"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:237 rplus-wp-team-list.php:117
+#: class-rplus-wp-team-list.php:237 rplus-wp-team-list.php:112
 msgid "Team List"
 msgstr ""
 
-#: rplus-wp-team-list.php:103
+#: rplus-wp-team-list.php:98
 msgid "All"
 msgstr ""
 
-#: rplus-wp-team-list.php:121
+#: rplus-wp-team-list.php:116
 msgid "Role"
 msgstr ""
 
-#: rplus-wp-team-list.php:128
+#: rplus-wp-team-list.php:123
 msgid "Order By"
 msgstr ""
 
-#: rplus-wp-team-list.php:133
+#: rplus-wp-team-list.php:128
 msgid "Post Count"
 msgstr ""
 
-#: rplus-wp-team-list.php:137
+#: rplus-wp-team-list.php:132
 msgid "Order"
 msgstr ""
 
-#: rplus-wp-team-list.php:142
+#: rplus-wp-team-list.php:137
 msgid "Ascending"
 msgstr ""
 
-#: rplus-wp-team-list.php:143
+#: rplus-wp-team-list.php:138
 msgid "Descending"
 msgstr ""
 
