@@ -32,7 +32,7 @@ Note: WP Team List supports many of the arguments [`WP_User_Query`](http://codex
 
 **Shortcode**
 
-The `[rplus_team_list]` accepts the same arguments as the template tag. Example:
+The `[rplus_team_list]` shortcode accepts the same arguments as the template tag. Example:
 
 `[rplus_team_list role="Administrator" orderby="post_count" order="desc"]`
 
