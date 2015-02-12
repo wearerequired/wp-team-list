@@ -1,5 +1,5 @@
 === WP Team List ===
-Contributors: neverything, hubresen, swissspidy
+Contributors: wearerequired, swissspidy, neverything, hubersen
 Donate link: http://required.ch/
 Tags: authors, widget, users, list, team, shortcode
 Requires at least: 3.5.1
