@@ -54,7 +54,7 @@
 
 	<h5 class="wp-team-member-name"><?php echo esc_html( $user->data->display_name ); ?></h5>
 
-	<p class="wp-team-member-role"><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
+	<p class="wp-team-member-role"><?php echo esc_html( translate_with_gettext_context( $GLOBALS['wp_roles']->roles[ $user->roles[0] ]['name'], 'User role', 'wp-team-list' ) ); ?></p>
 
 	<?php if ( 0 < count_user_posts( $user->ID ) ) : ?>
 		<p class="wp-team-member-posts-link">
