@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Team List 1.0.1\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
-"POT-Creation-Date: 2015-02-12 13:43:25+00:00\n"
+"POT-Creation-Date: 2015-02-24 07:56:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,31 +24,31 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: class-rplus-wp-team-list.php:136
+#: class-rplus-wp-team-list.php:148
 msgid "Settings"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:161
+#: class-rplus-wp-team-list.php:173
 msgid "Team List Settings"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:166
+#: class-rplus-wp-team-list.php:178
 msgid "Hide on Team List?"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:171
+#: class-rplus-wp-team-list.php:183
 msgid "Hide this user from WP Team List"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:219
+#: class-rplus-wp-team-list.php:231
 msgid "Visible"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:222
+#: class-rplus-wp-team-list.php:234
 msgid "Hidden"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:237 rplus-wp-team-list.php:112
+#: class-rplus-wp-team-list.php:249 rplus-wp-team-list.php:112
 msgid "Team List"
 msgstr ""
 
@@ -81,12 +81,12 @@ msgid "Descending"
 msgstr ""
 
 #: templates/rplus-wp-team-list-widget.php:62
-#: templates/rplus-wp-team-list.php:67
+#: templates/rplus-wp-team-list.php:70
 msgid "View all posts by %s"
 msgstr ""
 
 #: templates/rplus-wp-team-list-widget.php:64
-#: templates/rplus-wp-team-list.php:69
+#: templates/rplus-wp-team-list.php:72
 msgid "View %d post"
 msgid_plural "View %d posts"
 msgstr[0] ""
@@ -147,4 +147,34 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://required.ch"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:120
+#. translators: user role
+msgctxt "User role"
+msgid "Administrator"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:122
+#. translators: user role
+msgctxt "User role"
+msgid "Editor"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:124
+#. translators: user role
+msgctxt "User role"
+msgid "Author"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:126
+#. translators: user role
+msgctxt "User role"
+msgid "Contributor"
+msgstr ""
+
+#: class-rplus-wp-team-list.php:128
+#. translators: user role
+msgctxt "User role"
+msgid "Subscriber"
 msgstr ""

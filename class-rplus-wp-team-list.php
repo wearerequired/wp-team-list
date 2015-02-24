@@ -106,6 +106,8 @@ class WP_Team_List {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
+	 * Makes dummy gettext calls to get user role strings in the catalog.
+	 *
 	 * @since    0.1.0
 	 */
 	public function load_plugin_textdomain() {
@@ -114,6 +116,17 @@ class WP_Team_List {
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
 		load_plugin_textdomain( $domain, false, basename( dirname( __FILE__ ) ) . '/languages' );
+
+		/* translators: user role */
+		_x('Administrator', 'User role', 'wp-team-list');
+		/* translators: user role */
+		_x('Editor', 'User role', 'wp-team-list');
+		/* translators: user role */
+		_x('Author', 'User role', 'wp-team-list');
+		/* translators: user role */
+		_x('Contributor', 'User role', 'wp-team-list');
+		/* translators: user role */
+		_x('Subscriber', 'User role', 'wp-team-list');
 	}
 
 	/**

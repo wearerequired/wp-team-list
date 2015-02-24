@@ -53,8 +53,7 @@
 	</figure>
 
 	<h2 class="wp-team-member-name"><?php echo esc_html( $user->data->display_name ); ?></h2>
-
-	<p class="wp-team-member-role"><?php echo esc_html( ucfirst( $user->roles[0] ) ); ?></p>
+	<p class="wp-team-member-role"><?php echo esc_html( translate_with_gettext_context( $GLOBALS['wp_roles']->roles[ $user->roles[0] ]['name'], 'User role', 'wp-team-list' ) ); ?></p>
 
 	<?php
 	if ( '' != get_user_meta( $user->ID, 'description', true ) ) : ?>
