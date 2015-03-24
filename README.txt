@@ -4,7 +4,7 @@ Donate link: http://required.ch/
 Tags: authors, widget, users, list, team, shortcode
 Requires at least: 3.5.1
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix: Correctly translate the user roles
+* New: Added German (Switzerland) translation (de_CH)
+
 = 1.0.1 =
 * Fix: Updated textdomain to match the plugin slug
 
@@ -72,6 +76,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+
+Thanks for using our plugin! This update properly translates user roles. de_CH translation included.
 
 = 1.0.1 =
 We changed the plugin's textdomain to improve translation handling.

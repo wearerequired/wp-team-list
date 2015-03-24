@@ -4,7 +4,7 @@
 **Tags:** authors, widget, users, list, team, shortcode  
 **Requires at least:** 3.5.1  
 **Tested up to:** 4.1  
-**Stable tag:** 1.0.1  
+**Stable tag:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -32,7 +32,7 @@ For example, you can show users of any role ordered by their name:
 
 **Shortcode**
 
-The `[rplus_team_list]` accepts the same arguments as the template tag. Example:
+The `[rplus_team_list]` shortcode accepts the same arguments as the template tag. Example:
 
 `[rplus_team_list role="Administrator" orderby="post_count" order="desc"]`
 
@@ -60,16 +60,20 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 ## Screenshots ##
 
 ### 1. This is how your team list can look like with some additional CSS. ###
-![This is how your team list can look like with some additional CSS.](https://raw.githubusercontent.com/wearerequired/rplus-wp-team-list/master/assets/screenshot-1.png)
+![This is how your team list can look like with some additional CSS.](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-1.png)
 
 ### 2. The plugin only provides limited styling. It's up for you to adjust it. ###
-![The plugin only provides limited styling. It's up for you to adjust it.](https://raw.githubusercontent.com/wearerequired/rplus-wp-team-list/master/assets/screenshot-2.png)
+![The plugin only provides limited styling. It's up for you to adjust it.](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-2.png)
 
 ### 3. The configuration options of the built-in widget. ###
-![The configuration options of the built-in widget.](hhttps://raw.githubusercontent.com/wearerequired/rplus-wp-team-list/master/assets/screenshot-3.png)
+![The configuration options of the built-in widget.](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-3.png)
 
 
 ## Changelog ##
+
+### 1.0.2 ###
+* Fix: Correctly translate the user roles
+* New: Added German (Switzerland) translation (de_CH)
 
 ### 1.0.1 ###
 * Fix: Updated textdomain to match the plugin slug
@@ -78,6 +82,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.0.2 ###
+
+Thanks for using our plugin! This update properly translates user roles. de_CH translation included.
 
 ### 1.0.1 ###
 We changed the plugin's textdomain to improve translation handling.
