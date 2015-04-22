@@ -3,7 +3,7 @@
 **Donate link:** http://required.ch/  
 **Tags:** authors, widget, users, list, team, shortcode  
 **Requires at least:** 3.5.1  
-**Tested up to:** 4.1  
+**Tested up to:** 4.2  
 **Stable tag:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -60,13 +60,13 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 ## Screenshots ##
 
 ### 1. This is how your team list can look like with some additional CSS. ###
-![This is how your team list can look like with some additional CSS.](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-1.png)
+![This is how your team list can look like with some additional CSS.](http://ps.w.org/wp-team-list/assets/screenshot-1.png)
 
 ### 2. The plugin only provides limited styling. It's up for you to adjust it. ###
-![The plugin only provides limited styling. It's up for you to adjust it.](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-2.png)
+![The plugin only provides limited styling. It's up for you to adjust it.](http://ps.w.org/wp-team-list/assets/screenshot-2.png)
 
 ### 3. The configuration options of the built-in widget. ###
-![The configuration options of the built-in widget.](http://s.wordpress.org/extend/plugins/wp-team-list/screenshot-3.png)
+![The configuration options of the built-in widget.](http://ps.w.org/wp-team-list/assets/screenshot-3.png)
 
 
 ## Changelog ##
