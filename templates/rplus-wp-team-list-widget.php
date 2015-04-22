@@ -59,7 +59,7 @@
 	<?php if ( 0 < count_user_posts( $user->ID ) ) : ?>
 		<p class="wp-team-member-posts-link">
 			<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>"
-			   title="<?php printf( esc_attr_e( 'View all posts by %s', 'wp-team-list' ), $user->display_name ); ?>">
+			   title="<?php printf( esc_attr__( 'View all posts by %s', 'wp-team-list' ), $user->data->display_name ); ?>">
 				<?php printf(
 					esc_html( _n( 'View %d post', 'View %d posts', count_user_posts( $user->ID ), 'wp-team-list' ) ),
 					count_user_posts( $user->ID )
