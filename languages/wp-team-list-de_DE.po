@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Team List 1.0.1\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
-"POT-Creation-Date: 2015-02-24 07:56:46+00:00\n"
-"PO-Revision-Date: 2015-02-24 08:58+0100\n"
+"POT-Creation-Date: 2015-03-24 08:44:49+00:00\n"
+"PO-Revision-Date: 2015-04-22 13:15+0100\n"
 "Last-Translator: Pascal Birchler <pascal@required.ch>\n"
 "Language-Team: required+\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
@@ -22,31 +22,31 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-rplus-wp-team-list.php:148
+#: class-rplus-wp-team-list.php:149
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: class-rplus-wp-team-list.php:173
+#: class-rplus-wp-team-list.php:174
 msgid "Team List Settings"
 msgstr "Team-Liste-Einstellungen"
 
-#: class-rplus-wp-team-list.php:178
+#: class-rplus-wp-team-list.php:179
 msgid "Hide on Team List?"
 msgstr "In der Team-Liste verstecken?"
 
-#: class-rplus-wp-team-list.php:183
+#: class-rplus-wp-team-list.php:184
 msgid "Hide this user from WP Team List"
 msgstr "Diesen Benutzer in der Team-Liste verstecken"
 
-#: class-rplus-wp-team-list.php:231
+#: class-rplus-wp-team-list.php:232
 msgid "Visible"
 msgstr "sichtbar"
 
-#: class-rplus-wp-team-list.php:234
+#: class-rplus-wp-team-list.php:235
 msgid "Hidden"
 msgstr "versteckt"
 
-#: class-rplus-wp-team-list.php:249 rplus-wp-team-list.php:112
+#: class-rplus-wp-team-list.php:250 rplus-wp-team-list.php:112
 msgid "Team List"
 msgstr "Team-Liste"
 
@@ -79,12 +79,12 @@ msgid "Descending"
 msgstr "absteigend"
 
 #: templates/rplus-wp-team-list-widget.php:62
-#: templates/rplus-wp-team-list.php:70
+#: templates/rplus-wp-team-list.php:66
 msgid "View all posts by %s"
 msgstr "Alle Beiträge von %s ansehen"
 
 #: templates/rplus-wp-team-list-widget.php:64
-#: templates/rplus-wp-team-list.php:72
+#: templates/rplus-wp-team-list.php:68
 msgid "View %d post"
 msgid_plural "View %d posts"
 msgstr[0] "%d Beitrag ansehen"
@@ -151,31 +151,31 @@ msgid "http://required.ch"
 msgstr "http://required.ch"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:120
+#: class-rplus-wp-team-list.php:121
 msgctxt "User role"
 msgid "Administrator"
 msgstr "Administrator"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:122
+#: class-rplus-wp-team-list.php:123
 msgctxt "User role"
 msgid "Editor"
 msgstr "Redakteur"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:124
+#: class-rplus-wp-team-list.php:125
 msgctxt "User role"
 msgid "Author"
 msgstr "Autor"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:126
+#: class-rplus-wp-team-list.php:127
 msgctxt "User role"
 msgid "Contributor"
 msgstr "Mitarbeiter"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:128
+#: class-rplus-wp-team-list.php:129
 msgctxt "User role"
 msgid "Subscriber"
 msgstr "Abonnent"

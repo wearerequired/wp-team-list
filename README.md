@@ -63,13 +63,17 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 ![This is how your team list can look like with some additional CSS.](http://ps.w.org/wp-team-list/assets/screenshot-1.png)
 
 ### 2. The plugin only provides limited styling. It's up for you to adjust it. ###
-![The plugin only provides limited styling. It's up for you to adjust it.](http://ps.w.org/wp-team-list/assets/screenshot-2.png)
+![The plugin only provides limited styling. It’s up for you to adjust it.](http://ps.w.org/wp-team-list/assets/screenshot-2.png)
 
 ### 3. The configuration options of the built-in widget. ###
 ![The configuration options of the built-in widget.](http://ps.w.org/wp-team-list/assets/screenshot-3.png)
 
 
 ## Changelog ##
+
+### 1.0.3 ###
+* Successfully tested with WordPress 4.2
+* Fix: Properly translate the link title attributes
 
 ### 1.0.2 ###
 * Fix: Correctly translate the user roles
@@ -82,6 +86,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.0.3 ###
+
+This update includes a small translation fix in the templates.
 
 ### 1.0.2 ###
 

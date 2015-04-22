@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Team List 1.0.2\n"
+"Project-Id-Version: WP Team List 1.0.3\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
 "POT-Creation-Date: 2015-03-24 08:44:49+00:00\n"
 "MIME-Version: 1.0\n"

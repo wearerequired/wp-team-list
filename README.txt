@@ -4,7 +4,7 @@ Donate link: http://required.ch/
 Tags: authors, widget, users, list, team, shortcode
 Requires at least: 3.5.1
 Tested up to: 4.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 == Changelog ==
 
+= 1.0.3 =
+* Successfully tested with WordPress 4.2
+* Fix: Properly translate the link title attributes
+
 = 1.0.2 =
 * Fix: Correctly translate the user roles
 * New: Added German (Switzerland) translation (de_CH)
@@ -76,6 +80,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+
+This update includes a small translation fix in the templates.
 
 = 1.0.2 =
 
