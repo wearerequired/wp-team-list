@@ -118,15 +118,15 @@ class WP_Team_List {
 		load_plugin_textdomain( $domain, false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 		/* translators: user role */
-		_x('Administrator', 'User role', 'wp-team-list');
+		_x( 'Administrator', 'User role', 'wp-team-list' );
 		/* translators: user role */
-		_x('Editor', 'User role', 'wp-team-list');
+		_x( 'Editor', 'User role', 'wp-team-list' );
 		/* translators: user role */
-		_x('Author', 'User role', 'wp-team-list');
+		_x( 'Author', 'User role', 'wp-team-list' );
 		/* translators: user role */
-		_x('Contributor', 'User role', 'wp-team-list');
+		_x( 'Contributor', 'User role', 'wp-team-list' );
 		/* translators: user role */
-		_x('Subscriber', 'User role', 'wp-team-list');
+		_x( 'Subscriber', 'User role', 'wp-team-list' );
 	}
 
 	/**
@@ -219,7 +219,7 @@ class WP_Team_List {
 	/**
 	 * Show the team list visibility in the user list table.
 	 *
-	 * @param  string $val The current co
+	 * @param  string $val         The current column value.
 	 * @param  string $column_name Name of the current column.
 	 * @param  int    $user_id     ID of the current user.
 	 *
@@ -229,11 +229,11 @@ class WP_Team_List {
 		$visibility = get_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $single = true );
 
 		if ( WP_Team_List::$plugin_user_meta_key === $column_name ) {
-				$val = __( 'Visible', 'wp-team-list' );
+			$val = __( 'Visible', 'wp-team-list' );
 
-				if ( 'hidden' == $visibility ) {
-					$val = __( 'Hidden', 'wp-team-list' );
-				}
+			if ( 'hidden' == $visibility ) {
+				$val = __( 'Hidden', 'wp-team-list' );
+			}
 		}
 
 		return $val;
@@ -248,6 +248,7 @@ class WP_Team_List {
 	 */
 	public function admin_add_visibility_column( $columns ) {
 		$columns[ WP_Team_List::$plugin_user_meta_key ] = __( 'Team List', 'wp-team-list' );
+
 		return $columns;
 	}
 
