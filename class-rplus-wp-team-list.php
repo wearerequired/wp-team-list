@@ -326,6 +326,11 @@ class WP_Team_List {
 			unset( $args['role'] );
 		}
 
+		if ( 'last_name' === $args['orderby'] || 'first_name' === $args['orderby'] ) {
+			$args['meta_key'] = $args['orderby'];
+			$args['orderby']  = 'meta_value';
+		}
+
 		// Make sure we always get an array of WP_User objects
 		$args['fields'] = 'ID';
 
