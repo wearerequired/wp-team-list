@@ -350,7 +350,11 @@ class WP_Team_List {
 		);
 
 		$query = new WP_User_Query( apply_filters( 'rplus_wp_team_list_args', $args ) );
-		$users = $query->get_results();
+		/**
+		 * Use array_unique, because WordPress somehow doesn't add a DISTINCT to the query.
+		 * There were some changes in this regard in 4.3.0, so mabye it's working now.
+		 */
+		$users = array_unique( $query->get_results() );
 
 		if ( empty( $users ) ) {
 			return false;
