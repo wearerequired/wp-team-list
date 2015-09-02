@@ -1,12 +1,12 @@
 # WP Team List #
-**Contributors:** wearerequired, swissspidy, neverything, hubersen  
-**Donate link:** http://required.ch/  
-**Tags:** authors, widget, users, list, team, shortcode  
-**Requires at least:** 3.5.1  
-**Tested up to:** 4.3  
-**Stable tag:** 1.0.4  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+* Contributors: wearerequired, swissspidy, neverything, hubersen
+* Donate link: http://required.ch/
+* Tags: authors, widget, users, list, team, shortcode
+* Requires at least: 3.5.1
+* Tested up to: 4.3
+* Stable tag: 1.0.5
+* License: GPLv2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Display your teammates anywhere on your WordPress site using this easy-to-use plugin.
 
@@ -51,7 +51,7 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 1. Upload `wp-team-list` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Use one of the supported methods (template tag, shortcode, or widget)
-**4. Optional:** Set the visibility status of your users  
+4. **Optional:** Set the visibility status of your users  
 
 ## Frequently Asked Questions ##
 
