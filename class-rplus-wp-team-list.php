@@ -16,13 +16,12 @@
  * @author  Silvan Hagen <silvan@required.ch>
  */
 class WP_Team_List {
-
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 *
-	 * @since   0.1.0
+	 * @since 0.1.0
 	 *
-	 * @var     string
+	 * @var string
 	 */
 	const VERSION = '1.0.3';
 
@@ -32,38 +31,37 @@ class WP_Team_List {
 	 * The variable name is used as the text domain when internationalizing strings of text.
 	 * Its value should match the Text Domain file header in the main plugin file.
 	 *
-	 * @since    0.1.0
+	 * @since 0.1.0
 	 *
-	 * @var      string
+	 * @var string
 	 */
 	protected $plugin_slug = 'wp-team-list';
 
 	/**
 	 * Instance of this class.
 	 *
-	 * @since    0.1.0
+	 * @since 0.1.0
 	 *
-	 * @var      object
+	 * @var WP_Team_List
 	 */
 	protected static $instance = null;
 
 	/**
 	 * Meta Key name of the profile setting.
 	 *
-	 * @since    0.1.0
+	 * @since 0.1.0
 	 *
-	 * @var    string
+	 * @var string
 	 */
 	protected static $plugin_user_meta_key = 'rplus_wp_team_list_visibility';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
 	 *
-	 * @since     0.1.0
+	 * @since 0.1.0
 	 */
 	private function __construct() {
-
-		// Load plugin text domain
+		// Load plugin text domain.
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
@@ -75,11 +73,11 @@ class WP_Team_List {
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
 
-		// Add a checkbox to the user profile and edit user screen
+		// Add a checkbox to the user profile and edit user screen.
 		add_action( 'show_user_profile', array( $this, 'admin_render_profile_fields' ) );
 		add_action( 'edit_user_profile', array( $this, 'admin_render_profile_fields' ) );
 
-		// Save additional user profile and user edit infos
+		// Save additional user profile and user edit infos.
 		add_action( 'personal_options_update', array( $this, 'admin_save_profile_fields' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'admin_save_profile_fields' ) );
 
@@ -90,9 +88,9 @@ class WP_Team_List {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since     0.1.0
+	 * @since 0.1.0
 	 *
-	 * @return    object    A single instance of this class.
+	 * @return  WP_Team_List
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
@@ -108,7 +106,7 @@ class WP_Team_List {
 	 *
 	 * Makes dummy gettext calls to get user role strings in the catalog.
 	 *
-	 * @since    0.1.0
+	 * @since 0.1.0
 	 */
 	public function load_plugin_textdomain() {
 		$domain = $this->plugin_slug;
@@ -132,7 +130,7 @@ class WP_Team_List {
 	/**
 	 * Register the public-facing stylesheet.
 	 *
-	 * @since    0.1.0
+	 * @since 0.1.0
 	 */
 	public function register_styles() {
 		wp_register_style( 'rplus-wp-team-list-plugin-styles', plugins_url( 'css/rplus-wp-team-list.css', __FILE__ ), array(), self::VERSION );
@@ -141,12 +139,16 @@ class WP_Team_List {
 	/**
 	 * Add settings action link to the plugins page.
 	 *
-	 * @since    0.1.0
+	 * @since 0.1.0
+	 *
+	 * @param array $links Plugin action links.
+	 *
+	 * @return array
 	 */
 	public function add_action_links( $links ) {
 		return array_merge(
 			array(
-				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', 'wp-team-list' ) . '</a>'
+				'profile' => '<a href="' . admin_url( 'profile.php' ) . '">' . __( 'Settings', 'wp-team-list' ) . '</a>',
 			),
 			$links
 		);
@@ -160,27 +162,26 @@ class WP_Team_List {
 	 * WP Team List might creating using either the Shortcode, Widget or Template
 	 * Tag available.
 	 *
-	 * @param  object $user WP_User
+	 * @since 0.1.0
 	 *
-	 * @return string        Renders the checkbox
-	 *
-	 * @uses     get_user_meta( $user_id, $key = '', $single = false )
-	 * @link     http://codex.wordpress.org/Function_Reference/get_user_meta
-	 *
-	 * @since    0.1.0
+	 * @param  WP_User $user User object.
 	 */
-	public function admin_render_profile_fields( $user ) { ?>
+	public function admin_render_profile_fields( $user ) {
+		?>
 		<!-- START: WP_Team_List::render_profile_fields -->
 		<h3><?php _e( 'Team List Settings', 'wp-team-list' ); ?></h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<label for="rplus_wp_team_list_visibility"><?php _e( 'Hide on Team List?', 'wp-team-list' ); ?></label>
+					<label
+						for="rplus_wp_team_list_visibility"><?php _e( 'Hide on Team List?', 'wp-team-list' ); ?></label>
 				</th>
 				<td>
 					<label for="rplus_wp_team_list_visibility">
-						<input type="checkbox" name="<?php echo WP_Team_List::$plugin_user_meta_key; ?>" id="rplus_wp_team_list_visibility" value="hidden" <?php checked( get_user_meta( $user->ID, WP_Team_List::$plugin_user_meta_key, true ), "hidden" ); ?>>
+						<input type="checkbox" name="<?php echo WP_Team_List::$plugin_user_meta_key; ?>"
+						       id="rplus_wp_team_list_visibility"
+						       value="hidden" <?php checked( get_user_meta( $user->ID, WP_Team_List::$plugin_user_meta_key, true ), 'hidden' ); ?>>
 						<?php _e( 'Hide this user from WP Team List', 'wp-team-list' ); ?>
 					</label>
 				</td>
@@ -195,12 +196,9 @@ class WP_Team_List {
 	 * Updates the user meta information for the specific user or your profile
 	 * when saved from the /wp-admin user profile or user edit screen.
 	 *
-	 * @param    integer $user_id ID of the currently edited WP_User
+	 * @since 0.1.0
 	 *
-	 * @uses     update_user_meta( $user_id, $meta_key, $meta_value, $prev_value = '' )
-	 * @link     http://codex.wordpress.org/Function_Reference/update_user_meta
-	 *
-	 * @since    0.1.0
+	 * @param int $user_id ID of the user currently being edited.
 	 */
 	public function admin_save_profile_fields( $user_id ) {
 		if ( ! current_user_can( 'edit_user', $user_id ) ) {
@@ -223,10 +221,10 @@ class WP_Team_List {
 	 * @param  string $column_name Name of the current column.
 	 * @param  int    $user_id     ID of the current user.
 	 *
-	 * @return string The user's visibility status (visible or hidden).
+	 * @return string
 	 */
 	public function admin_add_visibility_column_content( $val, $column_name, $user_id ) {
-		$visibility = get_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, $single = true );
+		$visibility = get_user_meta( $user_id, WP_Team_List::$plugin_user_meta_key, true );
 
 		if ( WP_Team_List::$plugin_user_meta_key === $column_name ) {
 			$val = __( 'Visible', 'wp-team-list' );
@@ -242,7 +240,7 @@ class WP_Team_List {
 	/**
 	 * Add additional column to the user table in wp-admin.
 	 *
-	 * @param  array $columns
+	 * @param array $columns List table columns.
 	 *
 	 * @return array
 	 */
@@ -264,48 +262,16 @@ class WP_Team_List {
 	}
 
 	/**
-	 * Load the frontend template.
-	 *
-	 * This function loads the specific template file from either your theme or child theme
-	 * or falls back on the templates living in the /wp-team-list/templates folder.
-	 *
-	 * @param   string  $template_file Name of the template file to load.
-	 * @param   WP_User $user          The user object that is needed by the template.
-	 *
-	 * @since    0.1.0
-	 */
-	public function load_template( $template_file, $user ) {
-		/**
-		 * Make template file filterable.
-		 *
-		 * @param   string  $template_file Name of the template file to load.
-		 * @param   WP_User $user          The user object that is needed by the template.
-		 */
-		$template_file = apply_filters( 'rplus_wp_team_list_template', $template_file, $user );
-
-		// Check if the template file exists in the theme folder
-		if ( $overridden_template = locate_template( $template_file ) ) {
-			// Load the requested template file from the theme or child theme folder
-			$template_path = $overridden_template;
-		} else {
-			// Load the requested template file from the plugin folder
-			$template_path = dirname( __FILE__ ) . '/templates/' . $template_file;
-		}
-
-		include( $template_path );
-	}
-
-	/**
 	 * Get Users
 	 *
 	 * Returns an array of WP_User objects if we found some from the $args delivered or (bool)
 	 * false if we can't find any users.
 	 *
-	 * @param    array $args Array of User Query args
+	 * @since 0.1.0
 	 *
-	 * @return    mixed    false|array     Returns false or an array of WP_User objects
+	 * @param array $args User query arguments.
 	 *
-	 * @since    0.1.0
+	 * @return array|false
 	 */
 	public function get_users( $args ) {
 
@@ -332,7 +298,7 @@ class WP_Team_List {
 			$args['orderby']  = 'meta_value';
 		}
 
-		// Make sure we always get an array of WP_User objects
+		// Make sure we always get an array of WP_User objects.
 		$args['fields'] = 'ID';
 
 		// Make sure the meta key for hiding isn't set.
@@ -350,6 +316,7 @@ class WP_Team_List {
 		);
 
 		$query = new WP_User_Query( apply_filters( 'rplus_wp_team_list_args', $args ) );
+
 		/**
 		 * Use array_unique, because WordPress somehow doesn't add a DISTINCT to the query.
 		 * There were some changes in this regard in 4.3.0, so mabye it's working now.
@@ -361,6 +328,38 @@ class WP_Team_List {
 		}
 
 		return $users;
+	}
+
+	/**
+	 * Load the frontend template.
+	 *
+	 * This function loads the specific template file from either your theme or child theme
+	 * or falls back on the templates living in the /wp-team-list/templates folder.
+	 *
+	 * @since 0.1.0
+	 *
+	 * @param string  $template_file Name of the template file to load.
+	 * @param WP_User $user          The user object that is needed by the template.
+	 */
+	public function load_template( $template_file, $user ) {
+		/**
+		 * Make template file filterable.
+		 *
+		 * @param   string  $template_file Name of the template file to load.
+		 * @param   WP_User $user          The user object that is needed by the template.
+		 */
+		$template_file = apply_filters( 'rplus_wp_team_list_template', $template_file, $user );
+
+		// Check if the template file exists in the theme folder.
+		if ( $overridden_template = locate_template( $template_file ) ) {
+			// Load the requested template file from the theme or child theme folder.
+			$template_path = $overridden_template;
+		} else {
+			// Load the requested template file from the plugin folder.
+			$template_path = dirname( __FILE__ ) . '/templates/' . $template_file;
+		}
+
+		include( $template_path );
 	}
 
 	/**
@@ -378,7 +377,7 @@ class WP_Team_List {
 			'rplus_wp_team_list_default_classes',
 			array(
 				'wp-team-member',
-				'wp-team-list-item'
+				'wp-team-list-item',
 			)
 		);
 
@@ -399,11 +398,11 @@ class WP_Team_List {
 	/**
 	 * Renders the template to the page
 	 *
-	 * @param  array   $args     WP_User_Query arguments
+	 * @param  array   $args     WP_User_Query arguments.
 	 * @param  boolean $echo     Whether to return the result or echo it.
 	 * @param  string  $template The template file name to include.
 	 *
-	 * @return void|string  renders markup
+	 * @return void|string
 	 */
 	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) {
 		$users = $this->get_users( $args );

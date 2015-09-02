@@ -9,14 +9,14 @@
  * @copyright 2015 required gmbh
  */
 
-// If uninstall, not called from WordPress, then exit
+// If uninstall, not called from WordPress, then exit.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
 $query = new WP_User_Query( array( 'meta_key' => 'rplus_wp_team_list_visibility' ) );
 
-/** @var WP_User $user */
+/* @var WP_User $user */
 foreach ( $query->get_results() as $user ) {
 	delete_user_meta( $user->ID, 'rplus_wp_team_list_visibility' );
 }

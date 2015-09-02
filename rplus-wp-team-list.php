@@ -41,19 +41,21 @@ add_action( 'plugins_loaded', array( 'WP_Team_List', 'get_instance' ) );
  * @return void|string
  */
 function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-wp-team-list.php' ) {
-	/** @var WP_Team_List $wp_team_list */
+	/* @var WP_Team_List $wp_team_list */
 	$wp_team_list = WP_Team_List::get_instance();
 
 	return $wp_team_list->render_team_list( $args, $echo, $template );
 }
 
 /**
+ * Display classes for use in an item's HTML class attribute.
+ *
  * @param string|array $classes List of class names.
  */
 function rplus_wp_team_list_classes( $classes ) {
-	/** @var WP_Team_List $wp_team_list */
+	/* @var WP_Team_List $wp_team_list */
 	$wp_team_list = WP_Team_List::get_instance();
-	echo $wp_team_list->item_classes( $classes );
+	echo esc_attr( $wp_team_list->item_classes( $classes ) );
 }
 
 /**
