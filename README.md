@@ -3,8 +3,8 @@
 **Donate link:** http://required.ch/  
 **Tags:** authors, widget, users, list, team, shortcode  
 **Requires at least:** 3.5.1  
-**Tested up to:** 4.2  
-**Stable tag:** 1.0.2  
+**Tested up to:** 4.3  
+**Stable tag:** 1.0.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,7 +22,7 @@ You can then use one of these ways to display the list anywhere on your site.
 
 **Template Tag**
 
-Use the `rplus_wp_team_list($args = array(), $echo = true)` function to directly display the users in your teme. If you use `echo = false`, the output is only returned, not echoed.
+Use the `rplus_wp_team_list($args = array(), $echo = true)` function to directly display the users in your theme. If you use `echo = false`, the output is only returned, not echoed.
 
 For example, you can show users of any role ordered by their name:
 
@@ -47,9 +47,9 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 ## Installation ##
 
 1. Upload `wp-team-list` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Use one of the supported methods (template tag, shortcode, or widget)
-**1. Optional:** Set the visibility status of your users  
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Use one of the supported methods (template tag, shortcode, or widget)
+**4. Optional:** Set the visibility status of your users  
 
 ## Frequently Asked Questions ##
 
@@ -59,17 +59,14 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 ## Screenshots ##
 
-### 1. This is how your team list can look like with some additional CSS. ###
-![This is how your team list can look like with some additional CSS.](http://ps.w.org/wp-team-list/assets/screenshot-1.png)
-
-### 2. The plugin only provides limited styling. It's up for you to adjust it. ###
-![The plugin only provides limited styling. It’s up for you to adjust it.](http://ps.w.org/wp-team-list/assets/screenshot-2.png)
-
-### 3. The configuration options of the built-in widget. ###
-![The configuration options of the built-in widget.](http://ps.w.org/wp-team-list/assets/screenshot-3.png)
-
+1. This is how your team list can look like with some additional CSS.
+2. The plugin only provides limited styling. It's up for you to adjust it.
+3. The configuration options of the built-in widget.
 
 ## Changelog ##
+
+### 1.0.4 ###
+* Fix: Support ordering by `last_name` and `first_name` columns.
 
 ### 1.0.3 ###
 * Successfully tested with WordPress 4.2
@@ -86,6 +83,9 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.0.4 ###
+Supports ordering by last and first names.
 
 ### 1.0.3 ###
 
