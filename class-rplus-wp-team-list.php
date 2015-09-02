@@ -23,7 +23,7 @@ class WP_Team_List {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0.3';
+	const VERSION = '1.0.4';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -133,7 +133,15 @@ class WP_Team_List {
 	 * @since 0.1.0
 	 */
 	public function register_styles() {
-		wp_register_style( 'rplus-wp-team-list-plugin-styles', plugins_url( 'css/rplus-wp-team-list.css', __FILE__ ), array(), self::VERSION );
+		// Use minified libraries if SCRIPT_DEBUG is turned off.
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+		wp_enqueue_style(
+			'wp-team-list',
+			plugins_url( 'css/rplus-wp-team-list.' . $suffix . 'css', __FILE__ ),
+			array(),
+			self::VERSION
+		);
 	}
 
 	/**
