@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Team List 1.0.3\n"
+"Project-Id-Version: WP Team List 1.0.4\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
 "POT-Creation-Date: 2015-03-24 08:44:49+00:00\n"
 "MIME-Version: 1.0\n"
@@ -10,73 +10,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: required+\n"
-"Language-Team: required+\n"
+"Language-Team: required+ <support@required.ch>\n"
 "X-Generator: grunt-wp-i18n 0.5.0\n"
 "X-Poedit-KeywordsList: "
 "__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
+"X-Poedit-Country: Switzerland\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: class-rplus-wp-team-list.php:149
+#: class-rplus-wp-team-list.php:159
 msgid "Settings"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:174
+#: class-rplus-wp-team-list.php:180
 msgid "Team List Settings"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:179
+#: class-rplus-wp-team-list.php:186
 msgid "Hide on Team List?"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:184
+#: class-rplus-wp-team-list.php:193
 msgid "Hide this user from WP Team List"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:232
+#: class-rplus-wp-team-list.php:238
 msgid "Visible"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:235
+#: class-rplus-wp-team-list.php:241
 msgid "Hidden"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:250 rplus-wp-team-list.php:112
+#: class-rplus-wp-team-list.php:256 rplus-wp-team-list.php:114
 msgid "Team List"
 msgstr ""
 
-#: rplus-wp-team-list.php:98
+#: rplus-wp-team-list.php:100
 msgid "All"
 msgstr ""
 
-#: rplus-wp-team-list.php:116
+#: rplus-wp-team-list.php:118
 msgid "Role"
 msgstr ""
 
-#: rplus-wp-team-list.php:123
+#: rplus-wp-team-list.php:125
 msgid "Order By"
 msgstr ""
 
-#: rplus-wp-team-list.php:128
+#: rplus-wp-team-list.php:130
 msgid "Post Count"
 msgstr ""
 
-#: rplus-wp-team-list.php:132
+#: rplus-wp-team-list.php:134
 msgid "Order"
 msgstr ""
 
-#: rplus-wp-team-list.php:137
+#: rplus-wp-team-list.php:139
 msgid "Ascending"
 msgstr ""
 
-#: rplus-wp-team-list.php:138
+#: rplus-wp-team-list.php:140
 msgid "Descending"
 msgstr ""
 
@@ -149,31 +149,31 @@ msgstr ""
 msgid "http://required.ch"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:121
+#: class-rplus-wp-team-list.php:119
 #. translators: user role
 msgctxt "User role"
 msgid "Administrator"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:123
+#: class-rplus-wp-team-list.php:121
 #. translators: user role
 msgctxt "User role"
 msgid "Editor"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:125
+#: class-rplus-wp-team-list.php:123
 #. translators: user role
 msgctxt "User role"
 msgid "Author"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:127
+#: class-rplus-wp-team-list.php:125
 #. translators: user role
 msgctxt "User role"
 msgid "Contributor"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:129
+#: class-rplus-wp-team-list.php:127
 #. translators: user role
 msgctxt "User role"
 msgid "Subscriber"

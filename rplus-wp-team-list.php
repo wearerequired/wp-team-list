@@ -122,7 +122,7 @@ function wplus_wp_team_list_shortcode_ui() {
 					'options' => $user_roles,
 				),
 				array(
-					'label'   => __( 'Order By' ),
+					'label'   => __( 'Order By', 'wp-team-list' ),
 					'attr'    => 'orderby',
 					'type'    => 'select',
 					'value'   => 'post_count',
