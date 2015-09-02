@@ -34,11 +34,11 @@ For example, you can show users of any role ordered by their name:
 
 The `[rplus_team_list]` shortcode accepts the same arguments as the template tag. Example:
 
-`[rplus_team_list role="Author" orderby="last_name" order="desc"]`
+`[rplus_team_list role="author" orderby="last_name" order="desc"]`
 
 This returns all authors ordered by the number of posts they've written (descending).
 
-The `role` parameter defaults to `Administrator`. Use `all` to list all users regardless of their role. Also, the users are ordered by `post_count` in descending order by default.
+The `role` parameter defaults to `administrator`. Use `all` to list all users regardless of their role. Also, the users are ordered by `post_count` in descending order by default.
 
 **Pro tip:** If you use the [Shortcake WordPress plugin](https://github.com/fusioneng/Shortcake "GitHub - Shortcake"), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.  
 

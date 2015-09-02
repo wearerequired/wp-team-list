@@ -278,7 +278,7 @@ class WP_Team_List {
 		$defaults = apply_filters(
 			'rplus_wp_team_list_default_args',
 			array(
-				'role'    => 'Administrator',
+				'role'    => 'administrator',
 				'orderby' => 'post_count',
 				'order'   => 'DESC',
 			)
