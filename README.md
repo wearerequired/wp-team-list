@@ -67,6 +67,11 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 ## Changelog ##
 
+### 1.0.5 ###
+* Fix: Make 'Order By' string translatable.
+* Enhancement: Lots of improvements under the hood.
+* 100% compatible with WordPress 4.3.
+
 ### 1.0.4 ###
 * Fix: Support ordering by `last_name` and `first_name` columns.
 
@@ -85,6 +90,9 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.0.5 ###
+Some small improvements under the hood. Also, 100% compatible with WordPress 4.3.
 
 ### 1.0.4 ###
 Supports ordering by last and first names.
