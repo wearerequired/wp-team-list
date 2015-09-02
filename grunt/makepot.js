@@ -3,11 +3,11 @@ module.exports = {
 		options: {
 			cwd            : '',
 			domainPath     : '/languages',
-			exclude        : ['release/.*', 'includes/pluggable.php'],
+			exclude        : ['release/.*'],
 			include        : [],
-			mainFile       : 'digest.php',
+			mainFile       : 'rplus-wp-team-list.php',
 			potComments    : '',
-			potFilename    : 'digest.pot',
+			potFilename    : 'wp-team-list.pot',
 			potHeaders     : {
 				poedit                 : true,
 				'x-poedit-keywordslist': true,
