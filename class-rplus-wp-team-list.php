@@ -138,7 +138,7 @@ class WP_Team_List {
 
 		wp_enqueue_style(
 			'wp-team-list',
-			plugins_url( 'css/rplus-wp-team-list.' . $suffix . 'css', __FILE__ ),
+			plugins_url( 'css/rplus-wp-team-list' . $suffix . '.css', __FILE__ ),
 			array(),
 			self::VERSION
 		);
