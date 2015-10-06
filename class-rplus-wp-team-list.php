@@ -323,6 +323,25 @@ class WP_Team_List {
 			),
 		);
 
+		// WP_User_Query doesn't support multiple roles yet. See #22212.
+		$roles = array();
+		if ( isset( $args['role'] ) ) {
+			$roles = array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
+		}
+
+		if ( 1 < count( $roles ) ) {
+			global $wpdb;
+			foreach ( $roles as $role ) {
+				$args['meta_query'][] = array(
+					'key'     => $wpdb->get_blog_prefix( get_current_blog_id() ) . 'capabilities',
+					'value'   => $role,
+					'compare' => 'LIKE',
+				);
+			}
+
+			unset( $args['role'] );
+		}
+
 		$query = new WP_User_Query( apply_filters( 'rplus_wp_team_list_args', $args ) );
 
 		/**
