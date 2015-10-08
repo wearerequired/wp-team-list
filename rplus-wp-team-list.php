@@ -70,10 +70,11 @@ function rplus_wp_team_list_shortcode( $atts, $content = '' ) {
 	global $post;
 
 	$atts = shortcode_atts( array(
-		'role'    => 'Administrator',
-		'orderby' => 'post_count',
-		'order'   => 'DESC',
-		'include' => '',
+		'role'                => 'Administrator',
+		'orderby'             => 'post_count',
+		'order'               => 'DESC',
+		'include'             => '',
+		'has_published_posts' => null,
 	), $atts, 'rplus_team_list' );
 
 	/* @var WP_Team_List $wp_team_list */

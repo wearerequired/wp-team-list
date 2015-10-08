@@ -286,10 +286,11 @@ class WP_Team_List {
 		$defaults = apply_filters(
 			'rplus_wp_team_list_default_args',
 			array(
-				'role'    => 'administrator',
-				'orderby' => 'post_count',
-				'order'   => 'DESC',
-				'include' => '',
+				'role'                => 'administrator',
+				'orderby'             => 'post_count',
+				'order'               => 'DESC',
+				'include'             => '',
+				'has_published_posts' => null,
 			)
 		);
 
@@ -328,6 +329,10 @@ class WP_Team_List {
 		$roles = array();
 		if ( isset( $args['role'] ) ) {
 			$roles = array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
+		}
+
+		if ( isset( $args['has_published_posts'] ) && 'true' != $args['has_published_posts'] ) {
+			$args['has_published_posts'] = array_filter( array_map( 'trim', explode( ',', $args['has_published_posts'] ) ) );
 		}
 
 		if ( 1 < count( $roles ) ) {
