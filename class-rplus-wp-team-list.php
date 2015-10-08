@@ -289,6 +289,7 @@ class WP_Team_List {
 				'role'    => 'administrator',
 				'orderby' => 'post_count',
 				'order'   => 'DESC',
+				'include' => '',
 			)
 		);
 
