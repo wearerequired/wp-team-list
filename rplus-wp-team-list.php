@@ -73,9 +73,10 @@ function rplus_wp_team_list_shortcode( $atts, $content = '' ) {
 		'role'    => 'Administrator',
 		'orderby' => 'post_count',
 		'order'   => 'DESC',
-	), $atts, 'note' );
+		'include' => '',
+	), $atts, 'rplus_team_list' );
 
-	/** @var WP_Team_List $wp_team_list */
+	/* @var WP_Team_List $wp_team_list */
 	$wp_team_list = WP_Team_List::get_instance();
 
 	wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
@@ -94,7 +95,7 @@ function wplus_wp_team_list_shortcode_ui() {
 		return;
 	}
 
-	// Include this in order to use get_editable_roles()
+	// Include this in order to use get_editable_roles().
 	require_once( ABSPATH . 'wp-admin/includes/user.php' );
 
 	$user_roles = array( 'all' => __( 'All', 'wp-team-list' ) );
