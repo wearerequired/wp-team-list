@@ -3,8 +3,8 @@
 * Donate link: http://required.ch/
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 3.5.1
-* Tested up to: 4.3
-* Stable tag: 1.0.5
+* Tested up to: 4.4
+* Stable tag: 1.1.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,12 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 ## Changelog ##
 
+### 1.1.0 ###
+* Fix: Correct stylesheet URL.
+* Enhancement: Support multiple roles in the shortcode (comma-separated).
+* Enhancement: Enable only displaying users with specific IDs (? include` shortcode attribute).
+* Enhancement: Allow querying by users which have published posts (`has_published_posts` shortcode attribute).
+
 ### 1.0.5 ###
 * Fix: Make 'Order By' string translatable.
 * Enhancement: Lots of improvements under the hood.
@@ -90,6 +96,9 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.1.0 ###
+Supports multiple user roles und listing only specific users.
 
 ### 1.0.5 ###
 Some small improvements under the hood. Also, 100% compatible with WordPress 4.3.
