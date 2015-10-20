@@ -48,35 +48,35 @@ msgstr ""
 msgid "Hidden"
 msgstr ""
 
-#: class-rplus-wp-team-list.php:256 rplus-wp-team-list.php:114
+#: class-rplus-wp-team-list.php:256 rplus-wp-team-list.php:116
 msgid "Team List"
 msgstr ""
 
-#: rplus-wp-team-list.php:100
+#: rplus-wp-team-list.php:102
 msgid "All"
 msgstr ""
 
-#: rplus-wp-team-list.php:118
+#: rplus-wp-team-list.php:120
 msgid "Role"
 msgstr ""
 
-#: rplus-wp-team-list.php:125
+#: rplus-wp-team-list.php:127
 msgid "Order By"
 msgstr ""
 
-#: rplus-wp-team-list.php:130
+#: rplus-wp-team-list.php:132
 msgid "Post Count"
 msgstr ""
 
-#: rplus-wp-team-list.php:134
+#: rplus-wp-team-list.php:136
 msgid "Order"
 msgstr ""
 
-#: rplus-wp-team-list.php:139
+#: rplus-wp-team-list.php:141
 msgid "Ascending"
 msgstr ""
 
-#: rplus-wp-team-list.php:140
+#: rplus-wp-team-list.php:142
 msgid "Descending"
 msgstr ""
 
