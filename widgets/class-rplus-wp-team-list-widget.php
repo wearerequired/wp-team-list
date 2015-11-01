@@ -167,6 +167,7 @@ class WP_Team_List_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'role' ) ); ?>"><?php esc_html_e( 'Role:', 'wp-team-list' ); ?></label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'role' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'role' ) ); ?>" class="widefat">
+				<option value="all" <?php selected( 'all', $role ); ?>><?php esc_html_e( 'All', 'wp-team-list' ); ?></option>
 				<?php wp_dropdown_roles( $role ); ?>
 			</select>
 		</p>
