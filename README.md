@@ -68,6 +68,9 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 ## Changelog ##
 
 ### 1.1.0 ###
+* Enhancement: Allows role 'All' in the widget to display users with any role.
+
+### 1.1.0 ###
 * Fix: Correct stylesheet URL.
 * Enhancement: Support multiple roles in the shortcode (comma-separated).
 * Enhancement: Enable only displaying users with specific IDs (? include` shortcode attribute).
@@ -96,6 +99,9 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.1.1 ###
+Allows role 'All' in the widget to display users with any role.
 
 ### 1.1.0 ###
 Supports multiple user roles und listing only specific users.
