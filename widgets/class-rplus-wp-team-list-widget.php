@@ -86,7 +86,7 @@ class WP_Team_List_Widget extends WP_Widget {
 		echo $args['before_widget'];
 
 		if ( $title ) {
-			echo $args['before_title'] . $args['title'] . $args['after_title'];
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
 		echo apply_filters( 'rplus_wp_team_list_widget_before', '<div class="mini-team-list">' );
