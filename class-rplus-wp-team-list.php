@@ -23,7 +23,7 @@ class WP_Team_List {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.1.1';
+	const VERSION = '1.1.2';
 
 	/**
 	 * Unique identifier for your plugin.

@@ -4,7 +4,7 @@
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 3.5.1
 * Tested up to: 4.4
-* Stable tag: 1.1.1
+* Stable tag: 1.1.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,7 +67,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 ## Changelog ##
 
-### 1.1.0 ###
+### 1.1.2 ###
+* Fix: A small error in the previous release.
+
+### 1.1.1 ###
 * Enhancement: Allows role 'All' in the widget to display users with any role.
 
 ### 1.1.0 ###
@@ -99,6 +102,9 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * Initial Release
 
 ## Upgrade Notice ##
+
+### 1.1.2 ###
+Fixes a small bug in the previous release.
 
 ### 1.1.1 ###
 Allows role 'All' in the widget to display users with any role.

@@ -12,7 +12,7 @@
  * Plugin Name: WP Team List
  * Plugin URI:  https://github.com/wearerequired/rplus-wp-team-list
  * Description: Display your teammates anywhere on your WordPress site using this easy-to-use plugin. Provides you with a widget, a shortcode <code>[rplus_team_list]</code> and a template function <code>rplus_wp_team_list( $args, $echo = true );</code> to list the blog authors.
- * Version:     1.1.1
+ * Version:     1.1.2
  * Author:      required+
  * Author URI:  http://required.ch
  * Text Domain: wp-team-list
