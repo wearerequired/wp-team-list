@@ -52,7 +52,7 @@ msgstr ""
 msgid "Team List"
 msgstr ""
 
-#: rplus-wp-team-list.php:102
+#: rplus-wp-team-list.php:102 widgets/class-rplus-wp-team-list-widget.php:170
 msgid "All"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgid_plural "View %d posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:17
+#: widgets/class-rplus-wp-team-list-widget.php:21
 msgid "Display users as team members."
 msgstr ""
 
@@ -100,31 +100,31 @@ msgstr ""
 msgid "WP Team List"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:56
+#: widgets/class-rplus-wp-team-list-widget.php:63
 msgid "Editors"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:99
+#: widgets/class-rplus-wp-team-list-widget.php:105
 msgid "Show all Team Members"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:148
+#: widgets/class-rplus-wp-team-list-widget.php:163
 msgid "Title:"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:153
+#: widgets/class-rplus-wp-team-list-widget.php:168
 msgid "Role:"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:160
+#: widgets/class-rplus-wp-team-list-widget.php:176
 msgid "Number of members to show:"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:166
+#: widgets/class-rplus-wp-team-list-widget.php:182
 msgid "Show link to team page?"
 msgstr ""
 
-#: widgets/class-rplus-wp-team-list-widget.php:170
+#: widgets/class-rplus-wp-team-list-widget.php:186
 msgid "Link to:"
 msgstr ""
 

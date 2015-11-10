@@ -184,7 +184,7 @@ class WP_Team_List_Widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'page_link' ) ); ?>"><?php esc_html_e( 'Link to:', 'wp-team-list' ); ?></label>
-			<select id="<?php echo esc_attr( $this->get_field_id( 'page_link' ) ); ?>" name="<?php esc_html_e( $this->get_field_name( 'page_link' ) ); ?>" class="widefat">
+			<select id="<?php echo esc_attr( $this->get_field_id( 'page_link' ) ); ?>" name="<?php esc_html( $this->get_field_name( 'page_link' ) ); ?>" class="widefat">
 				<?php
 				$pages = get_pages( array( 'orderby' => 'name', 'parent' => 0 ) );
 				foreach ( $pages as $page ) {
