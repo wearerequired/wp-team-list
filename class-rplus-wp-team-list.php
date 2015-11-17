@@ -282,22 +282,15 @@ class WP_Team_List {
 	 * @return array|false
 	 */
 	public function get_users( $args ) {
-
-		$defaults = apply_filters(
-			'rplus_wp_team_list_default_args',
-			array(
-				'role'                => 'administrator',
-				'orderby'             => 'post_count',
-				'order'               => 'DESC',
-				'include'             => '',
-				'has_published_posts' => null,
-			)
+		$defaults = array(
+			'role'                => 'administrator',
+			'orderby'             => 'post_count',
+			'order'               => 'DESC',
+			'include'             => '',
+			'has_published_posts' => null,
 		);
 
-		$args = apply_filters(
-			'rplus_wp_team_list_args',
-			wp_parse_args( $args, $defaults )
-		);
+		$args = wp_parse_args( $args, $defaults );
 
 		if ( 'all' === $args['role'] ) {
 			unset( $args['role'] );
@@ -348,12 +341,14 @@ class WP_Team_List {
 			unset( $args['role'] );
 		}
 
+		/**
+		 * Filter the team list user query arguments.
+		 *
+		 * @param array $args WP_User_Query arguments.
+		 */
 		$query = new WP_User_Query( apply_filters( 'rplus_wp_team_list_args', $args ) );
 
-		/**
-		 * Use array_unique, because WordPress somehow doesn't add a DISTINCT to the query.
-		 * There were some changes in this regard in 4.3.0, so mabye it's working now.
-		 */
+		// Needed because WordPress does not add a DISTINCT to the query all the time.
 		$users = array_unique( $query->get_results() );
 
 		if ( empty( $users ) ) {
