@@ -77,6 +77,7 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * `wp_team_list_query_args` - Filter the `WP_User_Query` arguments.
 * `wp_team_list_template` - Change the team list template.
  Note: You can also put a `rplus-wp-team-list.php` file in your theme folder.
+* `wp_team_list_avatar_size` - Filter the default avatar size.
 
 ## Screenshots ##
 

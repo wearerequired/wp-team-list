@@ -15,7 +15,7 @@ $description = get_user_meta( $user->ID, 'description', true );
 ?>
 <div class="wp-team-member wp-team-list-item author-<?php esc_attr( $user->ID ); ?> role-<?php echo esc_attr( $role ); ?>">
 	<figure class="wp-team-member-avatar author-image">
-		<?php echo get_avatar( $user->ID, $size = '92', $default = '', $alt = $user->data->display_name ); ?>
+		<?php echo wp_team_list()->get_avatar( $user ); ?>
 	</figure>
 
 	<h2 class="wp-team-member-name"><?php echo esc_html( $user->data->display_name ); ?></h2>

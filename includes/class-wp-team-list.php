@@ -498,4 +498,16 @@ class WP_Team_List {
 
 		return implode( ',', $stylesheets );
 	}
+
+	/**
+	 * Get a user's avatar.
+	 *
+	 * @param \WP_User $user User object.
+	 * @return false|string User avatar or false on failure.
+	 */
+	public function get_avatar( WP_User $user ) {
+		$size = apply_filters( 'wp_team_list_avatar_size', 90, $user );
+
+		return get_avatar( $user->ID, $size );
+	}
 }
