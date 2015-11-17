@@ -1,5 +1,5 @@
 {
-  "name": "wearerequired/rplus-wp-team-list",
+  "name": "wearerequired/wp-team-list",
   "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
   "version": "1.0.3",
   "type": "wordpress-plugin",
