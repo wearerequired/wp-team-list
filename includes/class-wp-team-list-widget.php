@@ -56,25 +56,20 @@ class WP_Team_List_Widget extends WP_Widget {
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
 		}
-
-		echo '<div class="wp-team-list-widget-content';
-
-		/*
-		 * Renders each individual team member.
-		 *
-		 * This is the basic template function or call it template tag to render the
-		 * team list according to the args set.
-		 *
-		 * @uses WP_Team_List->render_team_list( $args, $echo, $template );
-		 */
-		rplus_wp_team_list( $team_query_args, true, 'rplus-wp-team-list-widget.php' );
-
-		if ( $show_link && $page_link ) : ?>
-			<a href="<?php echo esc_url( get_permalink( $page_link ) ); ?>" class="show-all"><?php esc_html_e( 'Show all Team Members', 'wp-team-list' ); ?></a><?php
-		endif;
-
-		echo '</div>';
-
+		?>
+		<div class="wp-team-list-widget-content">
+			<?php
+			echo wp_team_list()->render( $team_query_args ); // WPCS: XSS ok.
+			if ( $show_link && $page_link ) {
+				printf(
+					'<a href="%s" class="show-all">%s</a>',
+					esc_url( get_permalink( $page_link ) ),
+					esc_html__( 'Show all team members', 'wp-team-list' )
+				);
+			}
+			?>
+		</div>
+		<?php
 		echo $args['after_widget']; // WPCS: XSS ok.
 	}
 
