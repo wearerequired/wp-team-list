@@ -4,93 +4,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Team List 1.0.1\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
-"POT-Creation-Date: 2015-03-24 08:44:49+00:00\n"
-"PO-Revision-Date: 2015-04-22 13:15+0100\n"
+"POT-Creation-Date: 2015-11-17 18:16+0100\n"
+"PO-Revision-Date: 2015-11-17 18:16+0100\n"
 "Last-Translator: Pascal Birchler <pascal@required.ch>\n"
 "Language-Team: required+\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-rplus-wp-team-list.php:149
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: class-rplus-wp-team-list.php:174
-msgid "Team List Settings"
-msgstr "Team-Liste-Einstellungen"
-
-#: class-rplus-wp-team-list.php:179
-msgid "Hide on Team List?"
-msgstr "In der Team-Liste verstecken?"
-
-#: class-rplus-wp-team-list.php:184
-msgid "Hide this user from WP Team List"
-msgstr "Diesen Benutzer in der Team-Liste verstecken"
-
-#: class-rplus-wp-team-list.php:232
-msgid "Visible"
-msgstr "sichtbar"
-
-#: class-rplus-wp-team-list.php:235
-msgid "Hidden"
-msgstr "versteckt"
-
-#: class-rplus-wp-team-list.php:250 rplus-wp-team-list.php:112
-msgid "Team List"
-msgstr "Team-Liste"
-
-#: rplus-wp-team-list.php:98
-msgid "All"
-msgstr "All"
-
-#: rplus-wp-team-list.php:116
-msgid "Role"
-msgstr "Rolle"
-
-#: rplus-wp-team-list.php:123
-msgid "Order By"
-msgstr "Sortieren nach"
-
-#: rplus-wp-team-list.php:128
-msgid "Post Count"
-msgstr "Anzahl Beiträge"
-
-#: rplus-wp-team-list.php:132
-msgid "Order"
-msgstr "Sortierung"
-
-#: rplus-wp-team-list.php:137
-msgid "Ascending"
-msgstr "aufsteigend"
-
-#: rplus-wp-team-list.php:138
-msgid "Descending"
-msgstr "absteigend"
-
-#: templates/rplus-wp-team-list-widget.php:62
-#: templates/rplus-wp-team-list.php:66
-msgid "View all posts by %s"
-msgstr "Alle Beiträge von %s ansehen"
-
-#: templates/rplus-wp-team-list-widget.php:64
-#: templates/rplus-wp-team-list.php:68
-msgid "View %d post"
-msgid_plural "View %d posts"
-msgstr[0] "%d Beitrag ansehen"
-msgstr[1] "%d Beiträge ansehen"
-
-#: widgets/class-rplus-wp-team-list-widget.php:17
+#: includes/class-wp-team-list-widget.php:21
 msgid "Display users as team members."
 msgstr "Benutzer als Team-Mitglieder anzeigen."
 
@@ -98,33 +30,100 @@ msgstr "Benutzer als Team-Mitglieder anzeigen."
 msgid "WP Team List"
 msgstr "WP Team List"
 
-#: widgets/class-rplus-wp-team-list-widget.php:56
+#: includes/class-wp-team-list-widget.php:39
 msgid "Editors"
 msgstr "Redakteure"
 
-#: widgets/class-rplus-wp-team-list-widget.php:99
-msgid "Show all Team Members"
+#: includes/class-wp-team-list-widget.php:73
+msgid "Show all team members"
 msgstr "Alle Team-Mitglieder anzeigen"
 
-#: widgets/class-rplus-wp-team-list-widget.php:148
+#: includes/class-wp-team-list-widget.php:114
 msgid "Title:"
 msgstr "Titel:"
 
-#: widgets/class-rplus-wp-team-list-widget.php:153
+#: includes/class-wp-team-list-widget.php:119
 msgid "Role:"
 msgstr "Rolle:"
 
-#: widgets/class-rplus-wp-team-list-widget.php:160
+#: includes/class-wp-team-list-widget.php:121
+#: includes/class-wp-team-list.php:426
+msgid "All"
+msgstr "All"
+
+#: includes/class-wp-team-list-widget.php:127
 msgid "Number of members to show:"
 msgstr "Anzahl anzuzeigender Mitglieder:"
 
-#: widgets/class-rplus-wp-team-list-widget.php:166
+#: includes/class-wp-team-list-widget.php:133
 msgid "Show link to team page?"
 msgstr "Link auf Team-Seite anzeigen?"
 
-#: widgets/class-rplus-wp-team-list-widget.php:170
+#: includes/class-wp-team-list-widget.php:137
 msgid "Link to:"
 msgstr "Verlinke:"
+
+#: includes/class-wp-team-list.php:99
+msgid "Team List Settings"
+msgstr "Team-Liste-Einstellungen"
+
+#: includes/class-wp-team-list.php:105
+msgid "Team list"
+msgstr "Team-Liste"
+
+#: includes/class-wp-team-list.php:116
+msgid "Hide this user from the team list"
+msgstr "Diesen Benutzer in der Team-Liste verstecken"
+
+#: includes/class-wp-team-list.php:153
+msgid "Visible"
+msgstr "sichtbar"
+
+#: includes/class-wp-team-list.php:156
+msgid "Hidden"
+msgstr "versteckt"
+
+#: includes/class-wp-team-list.php:170 includes/class-wp-team-list.php:432
+msgid "Team List"
+msgstr "Team-Liste"
+
+#: includes/class-wp-team-list.php:279
+msgid "Use the %s filter instead."
+msgstr "Benutze stattdessen den %s Filter."
+
+#: includes/class-wp-team-list.php:436
+msgid "Role"
+msgstr "Rolle"
+
+#: includes/class-wp-team-list.php:443
+msgid "Order By"
+msgstr "Sortieren nach"
+
+#: includes/class-wp-team-list.php:448
+msgid "Post Count"
+msgstr "Anzahl Beiträge"
+
+#: includes/class-wp-team-list.php:452
+msgid "Order"
+msgstr "Sortierung"
+
+#: includes/class-wp-team-list.php:457
+msgid "Ascending"
+msgstr "aufsteigend"
+
+#: includes/class-wp-team-list.php:458
+msgid "Descending"
+msgstr "absteigend"
+
+#: includes/rplus-wp-team-list.php:36
+msgid "View all posts by %s"
+msgstr "Alle Beiträge von %s ansehen"
+
+#: includes/rplus-wp-team-list.php:39
+msgid "View %d post"
+msgid_plural "View %d posts"
+msgstr[0] "%d Beitrag ansehen"
+msgstr[1] "%d Beiträge ansehen"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/wearerequired/rplus-wp-team-list"
@@ -151,31 +150,37 @@ msgid "http://required.ch"
 msgstr "http://required.ch"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:121
+#: includes/class-wp-team-list.php:66
 msgctxt "User role"
 msgid "Administrator"
 msgstr "Administrator"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:123
+#: includes/class-wp-team-list.php:68
 msgctxt "User role"
 msgid "Editor"
 msgstr "Redakteur"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:125
+#: includes/class-wp-team-list.php:70
 msgctxt "User role"
 msgid "Author"
 msgstr "Autor"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:127
+#: includes/class-wp-team-list.php:72
 msgctxt "User role"
 msgid "Contributor"
 msgstr "Mitarbeiter"
 
 #. translators: user role
-#: class-rplus-wp-team-list.php:129
+#: includes/class-wp-team-list.php:74
 msgctxt "User role"
 msgid "Subscriber"
 msgstr "Abonnent"
+
+#~ msgid "Settings"
+#~ msgstr "Einstellungen"
+
+#~ msgid "Hide on Team List?"
+#~ msgstr "In der Team-Liste verstecken?"
