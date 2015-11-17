@@ -60,7 +60,7 @@ class WP_Team_List {
 	 * Makes dummy gettext calls to get user role strings in the catalog.
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wp-team-list', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'wp-team-list', false, basename( dirname( __DIR__ ) ) . '/languages' );
 
 		/* translators: user role */
 		_x( 'Administrator', 'User role', 'wp-team-list' );
