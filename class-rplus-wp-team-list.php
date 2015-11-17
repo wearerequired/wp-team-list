@@ -88,9 +88,7 @@ class WP_Team_List {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since 0.1.0
-	 *
-	 * @return  WP_Team_List
+	 * @return WP_Team_List
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.

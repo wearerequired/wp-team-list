@@ -37,7 +37,6 @@ add_action( 'plugins_loaded', array( 'WP_Team_List', 'get_instance' ) );
  * @param array  $args     Additional arguments for the WP_User_Query.
  * @param bool   $echo     Whether to echo the output or just return it.
  * @param string $template The template file to load for the team list.
- *
  * @return void|string
  */
 function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-wp-team-list.php' ) {
@@ -74,10 +73,7 @@ function rplus_wp_team_list_shortcode( $atts ) {
 		'has_published_posts' => null,
 	), $atts, 'rplus_team_list' );
 
-	/* @var WP_Team_List $wp_team_list */
 	$wp_team_list = WP_Team_List::get_instance();
-
-	wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
 
 	return $wp_team_list->render_team_list( $atts, false, 'rplus-wp-team-list.php' );
 }
