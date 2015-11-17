@@ -387,8 +387,26 @@ class WP_Team_List {
 	 * Add the team list shortcode.
 	 */
 	public function add_shortcode() {
-		add_shortcode( 'rplus_team_list', 'rplus_wp_team_list_shortcode' );
-		add_shortcode( 'wp_team_list', 'rplus_wp_team_list_shortcode' );
+		add_shortcode( 'rplus_team_list', array( $this, 'render_shortcode' ) );
+		add_shortcode( 'wp_team_list', array( $this, 'render_shortcode' ) );
+	}
+
+	/**
+	 *  Shortcode callback to render the team list.
+	 *
+	 * @param array $atts Shortcode attributes.
+	 * @return string The rendered team list.
+	 */
+	public function render_shortcode( array $atts ) {
+		$args = shortcode_atts( array(
+			'role'                => 'Administrator',
+			'orderby'             => 'post_count',
+			'order'               => 'DESC',
+			'include'             => '',
+			'has_published_posts' => null,
+		), $atts, 'wp_team_list' );
+
+		return $this->render( $args );
 	}
 
 	/**
@@ -407,46 +425,41 @@ class WP_Team_List {
 			$user_roles[ $role ] = $data['name'];
 		}
 
-		/**
-		 * Register a UI for the Shortcode.
-		 * Pass the shortcode tag (string)
-		 * and an array or args.
-		 */
-		shortcode_ui_register_for_shortcode(
-			'rplus_team_list',
-			array(
-				'label'         => __( 'Team List', 'wp-team-list' ),
-				'listItemImage' => 'dashicons-groups',
-				'attrs'         => array(
-					array(
-						'label'   => __( 'Role', 'wp-team-list' ),
-						'attr'    => 'role',
-						'type'    => 'select',
-						'value'   => 'administrator',
-						'options' => $user_roles,
-					),
-					array(
-						'label'   => __( 'Order By', 'wp-team-list' ),
-						'attr'    => 'orderby',
-						'type'    => 'select',
-						'value'   => 'post_count',
-						'options' => array(
-							'post_count' => __( 'Post Count', 'wp-team-list' )
-						)
-					),
-					array(
-						'label'   => __( 'Order', 'wp-team-list' ),
-						'attr'    => 'order',
-						'type'    => 'radio',
-						'value'   => 'desc',
-						'options' => array(
-							'asc'  => __( 'Ascending', 'wp-team-list' ),
-							'desc' => __( 'Descending', 'wp-team-list' ),
-						)
+		$shortcode_ui_args = array(
+			'label'         => __( 'Team List', 'wp-team-list' ),
+			'listItemImage' => 'dashicons-groups',
+			'attrs'         => array(
+				array(
+					'label'   => __( 'Role', 'wp-team-list' ),
+					'attr'    => 'role',
+					'type'    => 'select',
+					'value'   => 'administrator',
+					'options' => $user_roles,
+				),
+				array(
+					'label'   => __( 'Order By', 'wp-team-list' ),
+					'attr'    => 'orderby',
+					'type'    => 'select',
+					'value'   => 'post_count',
+					'options' => array(
+						'post_count' => __( 'Post Count', 'wp-team-list' ),
 					),
 				),
-			)
+				array(
+					'label'   => __( 'Order', 'wp-team-list' ),
+					'attr'    => 'order',
+					'type'    => 'radio',
+					'value'   => 'desc',
+					'options' => array(
+						'asc'  => __( 'Ascending', 'wp-team-list' ),
+						'desc' => __( 'Descending', 'wp-team-list' ),
+					),
+				),
+			),
 		);
+
+		shortcode_ui_register_for_shortcode( 'rplus_team_list', $shortcode_ui_args );
+		shortcode_ui_register_for_shortcode( 'wp_team_list', $shortcode_ui_args );
 	}
 
 	/**

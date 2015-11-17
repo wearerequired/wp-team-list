@@ -60,21 +60,3 @@ function rplus_wp_team_list_classes( $classes ) {
 	_deprecated_function( __FUNCTION__, '2.0.0' );
 	echo wp_team_list()->item_classes( $classes ); // WPCS: XSS ok.
 }
-
-/**
- *  Shortcode callback to render the team list.
- *
- * @param array $atts Shortcode attributes.
- * @return string The rendered team list.
- */
-function rplus_wp_team_list_shortcode( array $atts ) {
-	$args = shortcode_atts( array(
-		'role'                => 'Administrator',
-		'orderby'             => 'post_count',
-		'order'               => 'DESC',
-		'include'             => '',
-		'has_published_posts' => null,
-	), $atts, 'wp_team_list' );
-
-	return wp_team_list()->render( $args );
-}
