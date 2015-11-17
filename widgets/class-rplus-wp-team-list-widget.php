@@ -51,9 +51,6 @@ class WP_Team_List_Widget extends WP_Widget {
 			'number' => $number,
 		), $instance, $this->id_base );
 
-		// Allows you to filter the template file name.
-		$team_widget_template = apply_filters( 'rplus_wp_team_list_widget_template', 'rplus-wp-team-list-widget.php', $instance, $this->id_base );
-
 		echo $args['before_widget']; // WPCS: XSS ok.
 
 		if ( $title ) {
@@ -70,7 +67,7 @@ class WP_Team_List_Widget extends WP_Widget {
 		 *
 		 * @uses WP_Team_List->render_team_list( $args, $echo, $template );
 		 */
-		rplus_wp_team_list( $team_query_args, true, $team_widget_template );
+		rplus_wp_team_list( $team_query_args, true, 'rplus-wp-team-list-widget.php' );
 
 		if ( $show_link && $page_link ) : ?>
 			<a href="<?php echo esc_url( get_permalink( $page_link ) ); ?>" class="show-all"><?php esc_html_e( 'Show all Team Members', 'wp-team-list' ); ?></a><?php
@@ -103,7 +100,6 @@ class WP_Team_List_Widget extends WP_Widget {
 	 * Display the widget's form.
 	 *
 	 * @param array $instance Current widget instance.
-	 *
 	 * @return void
 	 */
 	public function form( $instance ) {
