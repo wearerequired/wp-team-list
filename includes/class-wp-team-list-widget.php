@@ -42,14 +42,20 @@ class WP_Team_List_Widget extends WP_Widget {
 		$page_link = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 0;
 		$number    = ( ! empty( $instance['number'] ) ) ? max( 1, absint( $instance['number'] ) ) : 3;
 
-		// Filter the title.
+		/**
+		 * Filter the team list widget title.
+		 *
+		 * @param string  $title    The widget title.
+		 * @param   array $instance An array of the widget's settings.
+		 * @param string  $id_base  The widget ID.
+		 */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 		// A filter for all instances of this widget.
-		$team_query_args = apply_filters( 'rplus_wp_team_list_widget_args', array(
+		$team_query_args = array(
 			'role'   => $role,
 			'number' => $number,
-		), $instance, $this->id_base );
+		);
 
 		echo $args['before_widget']; // WPCS: XSS ok.
 

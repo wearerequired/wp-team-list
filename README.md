@@ -53,7 +53,6 @@ Example:
 
 `[rplus_team_list role="author" orderby="last_name" order="desc"]`
 
-
 **Pro tip:** If you use the [Shortcake WordPress plugin](https://github.com/fusioneng/Shortcake "GitHub - Shortcake"), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.
 
 **Widget**
@@ -62,16 +61,22 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 
 ## Installation ##
 
-1. Upload `wp-team-list` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Use one of the supported methods (template tag, shortcode, or widget)
-4. **Optional:** Set the visibility status of your users  
+1. Upload `wp-team-list` to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Use one of the supported methods (hook, shortcode, or widget) to display a team list.
+4. **Optional:** Set the visibility status of your users in their profiles.  
 
 ## Frequently Asked Questions ##
 
 ### How do I contribute to WP Team List? ###
 
 Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](https://github.com/wearerequired/rplus-wp-team-list).
+
+### What kind of filters / hooks are available? ###
+* `wp_team_list_user_role` - Customize or disable the user roles displayed in the team list.
+* `wp_team_list_query_args` - Filter the `WP_User_Query` arguments.
+* `wp_team_list_template` - Change the team list template.
+ Note: You can also put a `rplus-wp-team-list.php` file in your theme folder.
 
 ## Screenshots ##
 
