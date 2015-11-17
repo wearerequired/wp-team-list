@@ -49,6 +49,9 @@ class WP_Team_List {
 
 		// Support displaying the team list using an action.
 		add_action( 'wp_team_list', array( $this, 'render' ) );
+
+		// Load stylesheet in the editor.
+		add_filter( 'mce_css', array( $this, 'filter_mce_css' ) );
 	}
 
 	/**
@@ -78,9 +81,9 @@ class WP_Team_List {
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		wp_enqueue_style(
+		wp_register_style(
 			'wp-team-list',
-			plugins_url( 'css/wp-team-list' . $suffix . '.css', __FILE__ ),
+			plugins_url( 'css/wp-team-list' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			self::VERSION
 		);
@@ -338,7 +341,7 @@ class WP_Team_List {
 			return '';
 		}
 
-		wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
+		wp_enqueue_style( 'wp-team-list' );
 
 		ob_start();
 
@@ -364,7 +367,7 @@ class WP_Team_List {
 		$output = '';
 
 		if ( $users ) {
-			wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
+			wp_enqueue_style( 'wp-team-list' );
 
 			ob_start();
 
@@ -478,5 +481,21 @@ class WP_Team_List {
 		 * @param WP_User $user User object.
 		 */
 		return apply_filters( 'wp_team_list_user_role', $role, $user );
+	}
+
+	/**
+	 * Filter the list of stylesheets enqueued in the editor.
+	 *
+	 * @param string $stylesheets Comma-separated list of editor stylesheets.
+	 * @return string Modified stylesheet list.
+	 */
+	public function filter_mce_css( $stylesheets ) {
+		$stylesheets = explode( ',', $stylesheets );
+
+		// Use minified libraries if SCRIPT_DEBUG is turned off.
+		$suffix        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		$stylesheets[] = plugins_url( 'css/wp-team-list' . $suffix . '.css', plugin_dir_path( __FILE__ ) );
+
+		return implode( ',', $stylesheets );
 	}
 }
