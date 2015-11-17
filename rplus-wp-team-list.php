@@ -62,13 +62,10 @@ function rplus_wp_team_list_classes( $classes ) {
  * Render the shortcode.
  *
  * @param array  $atts    Shortcode attributes.
- * @param string $content The encapsuled text.
  *
  * @return string
  */
-function rplus_wp_team_list_shortcode( $atts, $content = '' ) {
-	global $post;
-
+function rplus_wp_team_list_shortcode( $atts ) {
 	$atts = shortcode_atts( array(
 		'role'                => 'Administrator',
 		'orderby'             => 'post_count',
@@ -83,7 +80,6 @@ function rplus_wp_team_list_shortcode( $atts, $content = '' ) {
 	wp_enqueue_style( 'rplus-wp-team-list-plugin-styles' );
 
 	return $wp_team_list->render_team_list( $atts, false, 'rplus-wp-team-list.php' );
-
 }
 
 add_shortcode( 'rplus_team_list', 'rplus_wp_team_list_shortcode' );
@@ -91,7 +87,7 @@ add_shortcode( 'rplus_team_list', 'rplus_wp_team_list_shortcode' );
 /**
  * Register a UI for the Shortcode using Shortcake
  */
-function wplus_wp_team_list_shortcode_ui() {
+function wp_team_list_shortcode_ui() {
 	if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 		return;
 	}
@@ -147,4 +143,4 @@ function wplus_wp_team_list_shortcode_ui() {
 	);
 }
 
-add_action( 'init', 'wplus_wp_team_list_shortcode_ui' );
+add_action( 'init', 'wp_team_list_shortcode_ui' );
