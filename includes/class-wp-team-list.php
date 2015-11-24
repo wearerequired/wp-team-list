@@ -122,7 +122,7 @@ class WP_Team_List {
 	/**
 	 * Save team list profile fields.
 	 *
-	 * @param int $user_id ID of the user currently being edited.
+	 * @param int $user_id The current user's ID.
 	 */
 	public function admin_save_profile_fields( $user_id ) {
 		if ( ! current_user_can( 'edit_user', $user_id ) ) {
@@ -143,18 +143,14 @@ class WP_Team_List {
 	 *
 	 * @param  string $val         The current column value.
 	 * @param  string $column_name Name of the current column.
-	 * @param  int    $user_id     ID of the current user.
-	 * @return string
+	 * @param  int    $user_id     The current user's ID.
+	 * @return string The column content. Either 'Visible' or 'Hidden'.
 	 */
 	public function admin_add_visibility_column_content( $val, $column_name, $user_id ) {
 		$visibility = get_user_meta( $user_id, 'rplus_wp_team_list_visibility', true );
 
-		if ( 'rplus_wp_team_list_visibility' === $column_name ) {
-			$val = __( 'Visible', 'wp-team-list' );
-
-			if ( 'hidden' === $visibility ) {
-				$val = __( 'Hidden', 'wp-team-list' );
-			}
+		if ( 'wp_team_list_visibility' === $column_name ) {
+			return ( 'hidden' === $visibility ) ? __( 'Hidden', 'wp-team-list' ) : __( 'Visible', 'wp-team-list' );
 		}
 
 		return $val;
@@ -167,7 +163,7 @@ class WP_Team_List {
 	 * @return array The modified columns list.
 	 */
 	public function admin_add_visibility_column( $columns ) {
-		$columns['rplus_wp_team_list_visibility'] = __( 'Team List', 'wp-team-list' );
+		$columns['wp_team_list_visibility'] = __( 'Team List', 'wp-team-list' );
 
 		return $columns;
 	}
@@ -276,7 +272,7 @@ class WP_Team_List {
 			_deprecated_argument(
 				__FUNCTION__,
 				'2.0.0',
-				printf( __( 'Use the %s filter instead.', 'wp-team-list' ), '<code>rplus_wp_team_list_template</code>' )
+				printf( __( 'Use the %s filter instead.', 'wp-team-list' ), '<code>wp_team_list_template</code>' )
 			);
 		}
 
@@ -506,6 +502,12 @@ class WP_Team_List {
 	 * @return false|string User avatar or false on failure.
 	 */
 	public function get_avatar( WP_User $user ) {
+		/**
+		 * Filter the team list avatar size.
+		 *
+		 * @param int     $size Avatar size. Default 50.
+		 * @param WP_User $user Current user object.
+		 */
 		$size = apply_filters( 'wp_team_list_avatar_size', 90, $user );
 
 		return get_avatar( $user->ID, $size );
