@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Team List 1.0.1\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
-"POT-Creation-Date: 2015-11-17 18:16+0100\n"
-"PO-Revision-Date: 2015-11-17 18:17+0100\n"
+"POT-Creation-Date: 2015-11-24 16:17+0100\n"
+"PO-Revision-Date: 2015-11-24 16:17+0100\n"
 "Last-Translator: Pascal Birchler <pascal@required.ch>\n"
 "Language-Team: required+\n"
 "Language: de_CH\n"
@@ -47,7 +47,7 @@ msgid "Role:"
 msgstr "Rolle:"
 
 #: includes/class-wp-team-list-widget.php:121
-#: includes/class-wp-team-list.php:426
+#: includes/class-wp-team-list.php:422
 msgid "All"
 msgstr "All"
 
@@ -76,42 +76,42 @@ msgid "Hide this user from the team list"
 msgstr "Diesen Benutzer in der Team-Liste verstecken"
 
 #: includes/class-wp-team-list.php:153
-msgid "Visible"
-msgstr "sichtbar"
-
-#: includes/class-wp-team-list.php:156
 msgid "Hidden"
 msgstr "versteckt"
 
-#: includes/class-wp-team-list.php:170 includes/class-wp-team-list.php:432
+#: includes/class-wp-team-list.php:153
+msgid "Visible"
+msgstr "sichtbar"
+
+#: includes/class-wp-team-list.php:166 includes/class-wp-team-list.php:428
 msgid "Team List"
 msgstr "Team-Liste"
 
-#: includes/class-wp-team-list.php:279
+#: includes/class-wp-team-list.php:275
 msgid "Use the %s filter instead."
 msgstr "Benutze stattdessen den %s Filter."
 
-#: includes/class-wp-team-list.php:436
+#: includes/class-wp-team-list.php:432
 msgid "Role"
 msgstr "Rolle"
 
-#: includes/class-wp-team-list.php:443
+#: includes/class-wp-team-list.php:439
 msgid "Order By"
 msgstr "Sortieren nach"
 
-#: includes/class-wp-team-list.php:448
+#: includes/class-wp-team-list.php:444
 msgid "Post Count"
 msgstr "Anzahl Beiträge"
 
-#: includes/class-wp-team-list.php:452
+#: includes/class-wp-team-list.php:448
 msgid "Order"
 msgstr "Sortierung"
 
-#: includes/class-wp-team-list.php:457
+#: includes/class-wp-team-list.php:453
 msgid "Ascending"
 msgstr "aufsteigend"
 
-#: includes/class-wp-team-list.php:458
+#: includes/class-wp-team-list.php:454
 msgid "Descending"
 msgstr "absteigend"
 

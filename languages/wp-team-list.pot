@@ -49,7 +49,7 @@ msgid "Role:"
 msgstr ""
 
 #: includes/class-wp-team-list-widget.php:121
-#: includes/class-wp-team-list.php:426
+#: includes/class-wp-team-list.php:422
 msgid "All"
 msgstr ""
 
@@ -78,42 +78,42 @@ msgid "Hide this user from the team list"
 msgstr ""
 
 #: includes/class-wp-team-list.php:153
-msgid "Visible"
-msgstr ""
-
-#: includes/class-wp-team-list.php:156
 msgid "Hidden"
 msgstr ""
 
-#: includes/class-wp-team-list.php:170 includes/class-wp-team-list.php:432
+#: includes/class-wp-team-list.php:153
+msgid "Visible"
+msgstr ""
+
+#: includes/class-wp-team-list.php:166 includes/class-wp-team-list.php:428
 msgid "Team List"
 msgstr ""
 
-#: includes/class-wp-team-list.php:279
+#: includes/class-wp-team-list.php:275
 msgid "Use the %s filter instead."
 msgstr ""
 
-#: includes/class-wp-team-list.php:436
+#: includes/class-wp-team-list.php:432
 msgid "Role"
 msgstr ""
 
-#: includes/class-wp-team-list.php:443
+#: includes/class-wp-team-list.php:439
 msgid "Order By"
 msgstr ""
 
-#: includes/class-wp-team-list.php:448
+#: includes/class-wp-team-list.php:444
 msgid "Post Count"
 msgstr ""
 
-#: includes/class-wp-team-list.php:452
+#: includes/class-wp-team-list.php:448
 msgid "Order"
 msgstr ""
 
-#: includes/class-wp-team-list.php:457
+#: includes/class-wp-team-list.php:453
 msgid "Ascending"
 msgstr ""
 
-#: includes/class-wp-team-list.php:458
+#: includes/class-wp-team-list.php:454
 msgid "Descending"
 msgstr ""
 
