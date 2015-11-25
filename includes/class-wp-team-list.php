@@ -393,10 +393,10 @@ class WP_Team_List {
 	/**
 	 *  Shortcode callback to render the team list.
 	 *
-	 * @param array $atts Shortcode attributes.
+	 * @param array|string $atts Shortcode attributes.
 	 * @return string The rendered team list.
 	 */
-	public function render_shortcode( array $atts ) {
+	public function render_shortcode( $atts ) {
 		$args = shortcode_atts( array(
 			'role'                => 'Administrator',
 			'orderby'             => 'post_count',
