@@ -211,16 +211,19 @@ class WP_Team_List {
 
 		// Make sure the meta key for hiding isn't set.
 		$args['meta_query'] = array(
-			'relation' => 'OR',
+			'relation' => 'AND',
 			array(
-				'key'     => 'rplus_wp_team_list_visibility',
-				'value'   => 'visible',
-				'compare' => '=',
-			),
-			array(
-				'key'     => 'rplus_wp_team_list_visibility',
-				'compare' => 'NOT EXISTS',
-			),
+				'relation' => 'OR',
+				array(
+					'key'     => 'rplus_wp_team_list_visibility',
+					'value'   => 'visible',
+					'compare' => '=',
+				),
+				array(
+					'key'     => 'rplus_wp_team_list_visibility',
+					'compare' => 'NOT EXISTS',
+				)
+			)
 		);
 
 		if ( isset( $args['has_published_posts'] ) && 'true' !== (string) $args['has_published_posts'] ) {
@@ -235,13 +238,17 @@ class WP_Team_List {
 
 		if ( 1 < count( $roles ) ) {
 			global $wpdb;
+
+			$mq = array( 'relation' => 'OR' );
 			foreach ( $roles as $role ) {
-				$args['meta_query'][] = array(
+				$mq[] = array(
 					'key'     => $wpdb->get_blog_prefix( get_current_blog_id() ) . 'capabilities',
 					'value'   => $role,
 					'compare' => 'LIKE',
 				);
 			}
+
+			$args['meta_query'][] = $mq;
 
 			unset( $args['role'] );
 		}
