@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Team List 1.0.1\n"
 "Report-Msgid-Bugs-To: http://required.ch\n"
-"POT-Creation-Date: 2015-11-24 16:17+0100\n"
-"PO-Revision-Date: 2015-11-24 16:17+0100\n"
-"Last-Translator: Pascal Birchler <pascal@required.ch>\n"
+"POT-Creation-Date: 2016-02-23 13:32+0100\n"
+"PO-Revision-Date: 2016-02-23 13:32+0100\n"
+"Last-Translator: Stefan Pasch <stefan@codeschmiede.de>\n"
 "Language-Team: required+\n"
 "Language: de_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
@@ -47,7 +47,7 @@ msgid "Role:"
 msgstr "Rolle:"
 
 #: includes/class-wp-team-list-widget.php:121
-#: includes/class-wp-team-list.php:422
+#: includes/class-wp-team-list.php:429
 msgid "All"
 msgstr "All"
 
@@ -83,35 +83,35 @@ msgstr "versteckt"
 msgid "Visible"
 msgstr "sichtbar"
 
-#: includes/class-wp-team-list.php:166 includes/class-wp-team-list.php:428
+#: includes/class-wp-team-list.php:166 includes/class-wp-team-list.php:435
 msgid "Team List"
 msgstr "Team-Liste"
 
-#: includes/class-wp-team-list.php:275
+#: includes/class-wp-team-list.php:282
 msgid "Use the %s filter instead."
 msgstr "Benutze stattdessen den %s Filter."
 
-#: includes/class-wp-team-list.php:432
+#: includes/class-wp-team-list.php:439
 msgid "Role"
 msgstr "Rolle"
 
-#: includes/class-wp-team-list.php:439
+#: includes/class-wp-team-list.php:446
 msgid "Order By"
 msgstr "Sortieren nach"
 
-#: includes/class-wp-team-list.php:444
+#: includes/class-wp-team-list.php:451
 msgid "Post Count"
 msgstr "Anzahl Beiträge"
 
-#: includes/class-wp-team-list.php:448
+#: includes/class-wp-team-list.php:455
 msgid "Order"
 msgstr "Sortierung"
 
-#: includes/class-wp-team-list.php:453
+#: includes/class-wp-team-list.php:460
 msgid "Ascending"
 msgstr "aufsteigend"
 
-#: includes/class-wp-team-list.php:454
+#: includes/class-wp-team-list.php:461
 msgid "Descending"
 msgstr "absteigend"
 
@@ -132,14 +132,12 @@ msgstr "https://github.com/wearerequired/rplus-wp-team-list"
 #. Description of the plugin/theme
 msgid ""
 "Display your teammates anywhere on your WordPress site using this easy-to-"
-"use plugin. Provides you with a widget, a shortcode <code>[rplus_team_list]</"
-"code> and a template function <code>rplus_wp_team_list( $args, $echo = "
-"true );</code> to list the blog authors."
+"use plugin. Provides you with a widget, a shortcode and a template function "
+"to list the blog users."
 msgstr ""
 "Zeige deine Teammitglieder überall auf deiner WordPress-Seite mit diesem "
-"einfach zu bedienenden Plugin. Entweder via Widget, dem "
-"<code>[rplus_team_list]</code> Shortcode, oder der Template-Funktion "
-"<code>rplus_wp_team_list( $args, $echo = true );</code>."
+"einfach zu bedienendem Plugin an. Entweder via Widget, dem vorhandenen "
+"Shortcode oder der Template-Funktion."
 
 #. Author of the plugin/theme
 msgid "required+"
@@ -178,6 +176,18 @@ msgstr "Mitarbeiter"
 msgctxt "User role"
 msgid "Subscriber"
 msgstr "Abonnent"
+
+#~ msgid ""
+#~ "Display your teammates anywhere on your WordPress site using this easy-to-"
+#~ "use plugin. Provides you with a widget, a shortcode "
+#~ "<code>[rplus_team_list]</code> and a template function "
+#~ "<code>rplus_wp_team_list( $args, $echo = true );</code> to list the blog "
+#~ "authors."
+#~ msgstr ""
+#~ "Zeige deine Teammitglieder überall auf deiner WordPress-Seite mit diesem "
+#~ "einfach zu bedienenden Plugin. Entweder via Widget, dem "
+#~ "<code>[rplus_team_list]</code> Shortcode, oder der Template-Funktion "
+#~ "<code>rplus_wp_team_list( $args, $echo = true );</code>."
 
 #~ msgid "Settings"
 #~ msgstr "Einstellungen"
