@@ -110,7 +110,7 @@ class WP_Team_List {
 					printf(
 						'<input type="checkbox" name="%1$s" id="%1$s" value="hidden" %2$s>',
 						'wp_team_list_visibility',
-						checked( get_user_meta( $user->ID, 'rplus_wp_team_list_visibility', true ), 'hidden' )
+						checked( get_user_meta( $user->ID, 'rplus_wp_team_list_visibility', true ), 'hidden', false )
 					)
 					?>
 					<label for="wp_team_list_visibility"><?php _e( 'Hide this user from the team list', 'wp-team-list' ); ?></label>
