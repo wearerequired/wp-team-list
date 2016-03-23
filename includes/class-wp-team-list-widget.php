@@ -65,7 +65,7 @@ class WP_Team_List_Widget extends WP_Widget {
 		?>
 		<div class="wp-team-list-widget-content">
 			<?php
-			echo wp_team_list()->render( $team_query_args ); // WPCS: XSS ok.
+			echo wp_team_list()->render( $team_query_args, 'rplus-wp-team-list-widget.php' ); // WPCS: XSS ok.
 			if ( $show_link && $page_link ) {
 				printf(
 					'<a href="%s" class="show-all">%s</a>',
