@@ -16,7 +16,7 @@ class WP_Team_List {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.0.0';
+	const VERSION = '2.0.1';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.

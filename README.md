@@ -1,10 +1,10 @@
 # WP Team List #
 * Contributors: wearerequired, swissspidy, neverything, hubersen
-* Donate link: http://required.ch/
+* Donate link: https://required.com/
 * Tags: authors, widget, users, list, team, shortcode
-* Requires at least: 4.2.0
-* Tested up to: 4.4
-* Stable tag: 2.0.0
+* Requires at least: 4.2
+* Tested up to: 4.7
+* Stable tag: 2.0.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,7 @@ echo do_action( 'wp_team_list', array( 'role' => 'all', 'orderby' => 'name' ) );
 ?>
 ```
 
-**Note:** WP Team List supports many of the arguments [`WP_User_Query`](http://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.  
+**Note:** WP Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.  
 
 **Shortcode**
 
@@ -64,7 +64,7 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 1. Upload `wp-team-list` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Use one of the supported methods (hook, shortcode, or widget) to display a team list.
-4. **Optional:** Set the visibility status of your users in their profiles.  
+4. **Optional:** Set the visibility status of your users in their profiles.
 
 ## Frequently Asked Questions ##
 
@@ -86,6 +86,12 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 3. The configuration options of the built-in widget.
 
 ## Changelog ##
+
+### 2.0.1 ###
+* Fix: Removed HTML output on profile page.
+* Fix: Removed type hint for shortcode attributes to avoid a PHP fatal error.
+* Enhancement: Improved plugin description.
+* Enhancement: Translations moved to https://translate.wordpress.org/projects/wp-plugins/wp-team-list.
 
 ### 2.0.0 ###
 * Fix: Smaller corrections in the widget.
