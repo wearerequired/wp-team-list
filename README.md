@@ -26,11 +26,11 @@ Use the `wp_team_list` hook to directly display the users in your theme or plugi
 
 For example, you can show users of any role ordered by their name:
 
-```
-<?php
-echo do_action( 'wp_team_list', array( 'role' => 'all', 'orderby' => 'name' ) );
-?>
-```
+
+	<?php
+	echo do_action( 'wp_team_list', array( 'role' => 'all', 'orderby' => 'name' ) );
+	?>
+
 
 **Note:** WP Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.  
 
