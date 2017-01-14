@@ -90,8 +90,10 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 ### 2.0.1 ###
 * Fix: Removed HTML output on profile page.
 * Fix: Removed type hint for shortcode attributes to avoid a PHP fatal error.
+* Fix: Correct `author` CSS classes.
 * Enhancement: Improved plugin description.
 * Enhancement: Translations moved to https://translate.wordpress.org/projects/wp-plugins/wp-team-list.
+* Enhancement: Added deprecation notice and removed shortcode UI for `[rplus_team_list]` shortcode in favour of the new `[wp_team_list]` shortcode.
 
 ### 2.0.0 ###
 * Fix: Smaller corrections in the widget.
