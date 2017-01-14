@@ -398,12 +398,26 @@ class WP_Team_List {
 	}
 
 	/**
-	 *  Shortcode callback to render the team list.
+	 * Shortcode callback to render the team list.
 	 *
-	 * @param array|string $atts Shortcode attributes.
+	 * @param array|string $atts    Shortcode attributes.
+	 * @param string       $content Shortcode inner content.
+	 * @param string       $tag     Shortcode name.
 	 * @return string The rendered team list.
 	 */
-	public function render_shortcode( $atts ) {
+	public function render_shortcode( $atts, $content = null, $tag = '' ) {
+		if ( 'rplus_team_list' === $tag ) {
+			_deprecated_argument(
+				'do_shortcode_tag()',
+				'2.0.0',
+				sprintf(
+					__( 'The %1$s shortcode has been replaced with %2$s.', 'wp-team-list' ),
+					'<code>[rplus_team_list]</code>',
+					'<code>[wp_team_list]</code>'
+				)
+			);
+		}
+
 		$args = shortcode_atts( array(
 			'role'                => 'Administrator',
 			'orderby'             => 'post_count',
@@ -464,7 +478,6 @@ class WP_Team_List {
 			),
 		);
 
-		shortcode_ui_register_for_shortcode( 'rplus_team_list', $shortcode_ui_args );
 		shortcode_ui_register_for_shortcode( 'wp_team_list', $shortcode_ui_args );
 	}
 
