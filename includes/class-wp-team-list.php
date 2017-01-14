@@ -413,8 +413,7 @@ class WP_Team_List {
 				sprintf(
 					__( 'The %1$s shortcode has been replaced with %2$s.', 'wp-team-list' ),
 					'<code>[rplus_team_list]</code>',
-					'<code>[wp_team_list]</code>',
-				'wp-config.php'
+					'<code>[wp_team_list]</code>'
 				)
 			);
 		}
