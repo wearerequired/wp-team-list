@@ -479,7 +479,6 @@ class WP_Team_List {
 			),
 		);
 
-		shortcode_ui_register_for_shortcode( 'rplus_team_list', $shortcode_ui_args );
 		shortcode_ui_register_for_shortcode( 'wp_team_list', $shortcode_ui_args );
 	}
 
