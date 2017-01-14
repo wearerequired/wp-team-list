@@ -3,12 +3,12 @@
   "title": "WP Team List",
   "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
   "version": "2.0.1",
-  "homepage": "https://github.com/wearerequired/digest",
+  "homepage": "https://required.com/services/wordpress-plugins/wp-team-list/",
   "license": "GPL-2.0+",
   "author": {
-    "name": "required+",
+    "name": "required",
     "email": "support@required.ch",
-    "url": "http://required.ch"
+    "url": "https://required.com"
   },
   "repository": {
     "type": "git",

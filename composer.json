@@ -1,9 +1,9 @@
 {
   "name": "wearerequired/wp-team-list",
   "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "wordpress-plugin",
-  "license": "GPL-3.0",
+  "license": "GPL-2.0+",
   "authors": [
     {
       "name": "Silvan Hagen",
