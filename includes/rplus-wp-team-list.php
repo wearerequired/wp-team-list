@@ -13,7 +13,7 @@
 $role        = wp_team_list()->get_user_role( $user );
 $description = get_user_meta( $user->ID, 'description', true );
 ?>
-<div class="wp-team-member wp-team-list-item author-<?php esc_attr( $user->ID ); ?> role-<?php echo esc_attr( $role ); ?>">
+<div class="wp-team-member wp-team-list-item author-<?php echo esc_attr( $user->ID ); ?> role-<?php echo esc_attr( $role ); ?>">
 	<figure class="wp-team-member-avatar author-image">
 		<?php echo wp_team_list()->get_avatar( $user ); ?>
 	</figure>
