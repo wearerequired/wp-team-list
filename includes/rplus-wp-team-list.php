@@ -10,8 +10,9 @@
  * @package WP_Team_List
  */
 
-$role        = wp_team_list()->get_user_role( $user );
-$description = get_user_meta( $user->ID, 'description', true );
+$role              = wp_team_list()->get_user_role_name( $user );
+$role_display_name = wp_team_list()->get_user_role( $user );
+$description       = get_user_meta( $user->ID, 'description', true );
 ?>
 <div class="wp-team-member wp-team-list-item author-<?php echo esc_attr( $user->ID ); ?> role-<?php echo esc_attr( $role ); ?>">
 	<figure class="wp-team-member-avatar author-image">
@@ -21,8 +22,8 @@ $description = get_user_meta( $user->ID, 'description', true );
 	<h2 class="wp-team-member-name"><?php echo esc_html( $user->data->display_name ); ?></h2>
 
 	<?php
-	if ( '' !== $role ) {
-		printf( '<p class="wp-team-member-role">%s</p>', esc_html( $role ) );
+	if ( '' !== $role_display_name ) {
+		printf( '<p class="wp-team-member-role">%s</p>', esc_html( $role_display_name ) );
 	}
 
 	if ( '' !== $description ) {

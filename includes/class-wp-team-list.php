@@ -482,21 +482,38 @@ class WP_Team_List {
 	}
 
 	/**
-	 * Get a specific users' role.
+	 * Get the display name of user's first role.
 	 *
-	 * @param \WP_User $user User object.
-	 * @return string Translated role name.
+	 * @param WP_User $user User object.
+	 * @return string Translated role display.
 	 */
 	public function get_user_role( WP_User $user ) {
-		$role = translate_with_gettext_context( $GLOBALS['wp_roles']->roles[ $user->roles[0] ]['name'], 'User role', 'wp-team-list' );
+		global $wp_roles;
+
+		$role = current( $user->roles );
+
+		$role_name = '';
+		if ( isset( $wp_roles->roles[ $role ] ) ) {
+			$role_name = translate_with_gettext_context( $wp_roles->roles[ $role ]['name'], 'User role', 'wp-team-list' );
+		}
 
 		/**
-		 * Filter the user role displayed in the team list.
+		 * Filter the display name of user's role displayed in the team list.
 		 *
-		 * @param string  $role Role name.
-		 * @param WP_User $user User object.
+		 * @param string  $role_name Role name.
+		 * @param WP_User $user      User object.
 		 */
-		return apply_filters( 'wp_team_list_user_role', $role, $user );
+		return apply_filters( 'wp_team_list_user_role', $role_name, $user );
+	}
+
+	/**
+	 * Get the name of user's first role.
+	 *
+	 * @param WP_User $user User object.
+	 * @return string Role name.
+	 */
+	public function get_user_role_name( WP_User $user ) {
+		return current( $user->roles );
 	}
 
 	/**
