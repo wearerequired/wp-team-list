@@ -482,21 +482,34 @@ class WP_Team_List {
 	}
 
 	/**
-	 * Get a specific users' role.
+	 * Retrieve data of user's first role.
 	 *
-	 * @param \WP_User $user User object.
-	 * @return string Translated role name.
+	 * @param WP_User $user  User object.
+	 * @param string  $field Optional. Field to retrieve. Accepts 'name' and
+	 *                       'display_name'. Default: 'display_name'.
+	 * @return string|false Field value on success, false otherwise.
 	 */
-	public function get_user_role( WP_User $user ) {
-		$role = translate_with_gettext_context( $GLOBALS['wp_roles']->roles[ $user->roles[0] ]['name'], 'User role', 'wp-team-list' );
+	public function get_user_role( WP_User $user, $field = 'display_name' ) {
+		$role = current( $user->roles );
 
-		/**
-		 * Filter the user role displayed in the team list.
-		 *
-		 * @param string  $role Role name.
-		 * @param WP_User $user User object.
-		 */
-		return apply_filters( 'wp_team_list_user_role', $role, $user );
+		switch ( $field ) {
+			case 'display_name' :
+				$role_names = $GLOBALS['wp_roles']->get_names();
+				$role_name  = translate_with_gettext_context( $role_names[ $role ], 'User role', 'wp-team-list' );
+
+				/**
+				 * Filter the display name of user's role displayed in the team list.
+				 *
+				 * @param string  $role_name Role name.
+				 * @param WP_User $user      User object.
+				 */
+				return apply_filters( 'wp_team_list_user_role', $role_name, $user );
+
+			case 'name' :
+				return $role;
+		}
+
+		return false;
 	}
 
 	/**
