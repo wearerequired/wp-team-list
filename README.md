@@ -1,6 +1,5 @@
 # WP Team List #
 * Contributors: wearerequired, swissspidy, neverything, hubersen
-* Donate link: https://required.com/
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 4.2
 * Tested up to: 4.7
