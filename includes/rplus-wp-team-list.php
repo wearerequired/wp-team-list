@@ -12,9 +12,10 @@
 
 $role_display_name = wp_team_list()->get_user_role( $user, 'display_name' );
 $role              = wp_team_list()->get_user_role( $user, 'name' );
+$role_class        = sanitize_html_class( 'role-' . $role );
 $description       = get_user_meta( $user->ID, 'description', true );
 ?>
-<div class="wp-team-member wp-team-list-item author-<?php echo esc_attr( $user->ID ); ?> <?php echo sanitize_html_class( 'role-' . $role ); ?>">
+<div class="wp-team-member wp-team-list-item author-<?php echo esc_attr( $user->ID ); ?> <?php echo esc_attr( $role_class ); ?>">
 	<figure class="wp-team-member-avatar author-image">
 		<?php echo wp_team_list()->get_avatar( $user ); ?>
 	</figure>
