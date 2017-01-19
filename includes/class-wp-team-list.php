@@ -275,7 +275,7 @@ class WP_Team_List {
 	 * @param string  $template Name of the template file to load.
 	 */
 	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php' ) {
-		if ( 'rplus-wp-team-list.php' !== $template ) {
+		if ( ! in_array( $template, array( 'rplus-wp-team-list.php', 'rplus-wp-team-list-widget.php' ) ) ) {
 			_deprecated_argument(
 				__FUNCTION__,
 				'2.0.0',
@@ -335,9 +335,10 @@ class WP_Team_List {
 	 * Render the team list.
 	 *
 	 * @param array $args WP_User_Query arguments.
+	 * @param string $template The template to use for rendering
 	 * @return string
 	 */
-	public function render( array $args ) {
+	public function render( array $args, $template = 'rplus-wp-team-list.php' ) {
 		$users = $this->get_users( $args );
 
 		if ( ! $users ) {
@@ -350,7 +351,7 @@ class WP_Team_List {
 
 		foreach ( $users as $user_id ) {
 			$user = get_userdata( $user_id );
-			$this->load_template( $user );
+			$this->load_template( $user, $template );
 		}
 
 		return ob_get_clean();
