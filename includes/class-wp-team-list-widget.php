@@ -36,11 +36,12 @@ class WP_Team_List_Widget extends WP_Widget {
 		}
 
 		// Prepare options.
-		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Editors', 'wp-team-list' );
-		$role      = ( ! empty( $instance['role'] ) ) ? $instance['role'] : 'editor';
-		$show_link = isset( $instance['show_link'] ) ? $instance['show_link'] : false;
-		$page_link = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 0;
-		$number    = ( ! empty( $instance['number'] ) ) ? max( 1, absint( $instance['number'] ) ) : 3;
+		$title              = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Editors', 'wp-team-list' );
+		$role               = ( ! empty( $instance['role'] ) ) ? $instance['role'] : 'editor';
+		$show_link          = isset( $instance['show_link'] ) ? $instance['show_link'] : false;
+		$show_description   = isset( $instance['show_description'] ) ? $instance['show_description'] : false;
+		$page_link          = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 0;
+		$number             = ( ! empty( $instance['number'] ) ) ? max( 1, absint( $instance['number'] ) ) : 3;
 
 		/**
 		 * Filter the team list widget title.
@@ -53,8 +54,9 @@ class WP_Team_List_Widget extends WP_Widget {
 
 		// A filter for all instances of this widget.
 		$team_query_args = array(
-			'role'   => $role,
-			'number' => $number,
+			'role'              => $role,
+			'number'            => $number,
+            'show_description'  => $show_description
 		);
 
 		echo $args['before_widget']; // WPCS: XSS ok.
@@ -88,10 +90,11 @@ class WP_Team_List_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance              = $old_instance;
-		$instance['title']     = sanitize_text_field( $new_instance['title'] );
-		$instance['role']      = sanitize_text_field( $new_instance['role'] );
-		$instance['number']    = absint( $new_instance['number'] );
-		$instance['show_link'] = (bool) $new_instance['show_link'];
+		$instance['title']              = sanitize_text_field( $new_instance['title'] );
+		$instance['role']               = sanitize_text_field( $new_instance['role'] );
+		$instance['number']             = absint( $new_instance['number'] );
+		$instance['show_link']          = (bool) $new_instance['show_link'];
+		$instance['show_description']   = (bool) $new_instance['show_description'];
 		$instance['page_link'] = absint( $new_instance['page_link'] );
 
 		return $instance;
@@ -104,11 +107,12 @@ class WP_Team_List_Widget extends WP_Widget {
 	 * @return void
 	 */
 	public function form( $instance ) {
-		$title     = isset( $instance['title'] ) ? $instance['title'] : '';
-		$role      = isset( $instance['role'] ) ? $instance['role'] : 'editor';
-		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 3;
-		$show_link = isset( $instance['show_link'] ) ? (bool) $instance['show_link'] : false;
-		$page_link = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 0;
+		$title              = isset( $instance['title'] ) ? $instance['title'] : '';
+		$role               = isset( $instance['role'] ) ? $instance['role'] : 'editor';
+		$number             = isset( $instance['number'] ) ? absint( $instance['number'] ) : 3;
+		$show_link          = isset( $instance['show_link'] ) ? (bool) $instance['show_link'] : false;
+		$show_description   = isset( $instance['show_description'] ) ? (bool) $instance['show_description'] : true;
+		$page_link          = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 0;
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'wp-team-list' ); ?></label>
@@ -131,6 +135,11 @@ class WP_Team_List_Widget extends WP_Widget {
 		<p>
 			<input class="checkbox" type="checkbox" <?php checked( $show_link ); ?> id="<?php echo esc_attr( $this->get_field_id( 'show_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_link' ) ); ?>"/>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'show_link' ) ); ?>"><?php esc_html_e( 'Show link to team page?', 'wp-team-list' ); ?></label>
+		</p>
+
+		<p>
+			<input class="checkbox" type="checkbox" <?php checked( $show_description ); ?> id="<?php echo esc_attr( $this->get_field_id( 'show_description' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_description' ) ); ?>"/>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'show_description' ) ); ?>"><?php esc_html_e( 'Show description?', 'wp-team-list' ); ?></label>
 		</p>
 
 		<p>

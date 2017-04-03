@@ -273,8 +273,9 @@ class WP_Team_List {
 	 *
 	 * @param WP_User $user     The user object that is needed by the template.
 	 * @param string  $template Name of the template file to load.
+     * @param array   $args     Template settings
 	 */
-	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php' ) {
+	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php', $args = [] ) {
 		if ( 'rplus-wp-team-list.php' !== $template ) {
 			_deprecated_argument(
 				__FUNCTION__,
@@ -299,7 +300,7 @@ class WP_Team_List {
 		 * @param   string  $template Full path to the template file.
 		 * @param   WP_User $user     The user object that is needed by the template.
 		 */
-		$template_path = apply_filters( 'wp_team_list_template', $template_path, $user );
+		$template_path = apply_filters( 'wp_team_list_template', $template_path, $user, $args );
 
 		include( $template_path );
 	}
@@ -350,7 +351,7 @@ class WP_Team_List {
 
 		foreach ( $users as $user_id ) {
 			$user = get_userdata( $user_id );
-			$this->load_template( $user );
+            $this->load_template( $user, 'rplus-wp-team-list.php', $args );
 		}
 
 		return ob_get_clean();

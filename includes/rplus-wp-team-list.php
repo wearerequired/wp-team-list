@@ -27,7 +27,7 @@ $description       = get_user_meta( $user->ID, 'description', true );
 		printf( '<p class="wp-team-member-role">%s</p>', esc_html( $role_display_name ) );
 	}
 
-	if ( '' !== $description ) {
+	if ( $args['show_description'] === true && '' !== $description ) {
 		printf( '<p class="wp-team-member-description">%s</p>', $description );
 	}
 	?>
