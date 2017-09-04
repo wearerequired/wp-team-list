@@ -1,5 +1,5 @@
 # WP Team List #
-* Contributors: wearerequired, swissspidy, neverything, hubersen
+* Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 4.2
 * Tested up to: 4.8
