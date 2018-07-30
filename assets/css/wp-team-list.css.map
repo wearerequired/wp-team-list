@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AACA,eAAgB;EACd,KAAK,EAAE,IAAI;EAEX,6BAAc;IACZ,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,WAAW;EAGrB,kBAAG;IACD,KAAK,EAAE,IAAI;IACX,UAAU,EAAE,CAAC;EAGf,iCAAkB;IAChB,UAAU,EAAE,GAAG",
+"sources": ["src/wp-team-list.scss"],
+"names": [],
+"file": "wp-team-list.css"
+}

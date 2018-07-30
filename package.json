@@ -2,9 +2,8 @@
   "name": "wp-team-list",
   "title": "WP Team List",
   "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
-  "version": "2.0.1",
   "homepage": "https://required.com/services/wordpress-plugins/wp-team-list/",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "author": {
     "name": "required",
     "email": "support@required.ch",
@@ -15,23 +14,34 @@
     "url": "https://github.com/wearerequired/rplus-wp-team-list"
   },
   "devDependencies": {
-    "autoprefixer": "~6.6.1",
-    "cssnano": "3.10.0",
-    "grunt": "~1.0.1",
-    "grunt-checktextdomain": "~1.0.0",
-    "grunt-contrib-clean": "~1.0.0",
-    "grunt-contrib-sass": "~1.0.0",
-    "grunt-contrib-compress": "~1.3.0",
-    "grunt-contrib-copy": "~1.0.0",
-    "grunt-contrib-watch": "*",
-    "grunt-phpunit": "~0.3.6",
-    "grunt-postcss": "~0.8.0",
-    "grunt-text-replace": "~0.4.0",
-    "grunt-wp-deploy": "~1.2.1",
-    "load-grunt-config": "~0.19.2",
-    "time-grunt": "~1.4.0"
+    "autoprefixer": "^7.1.4",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "css-mqpacker": "^6.0.1",
+    "cssnano": "^3.10.0",
+    "eslint-config-wordpress": "^2.0.0",
+    "nodemon": "^1.11.0",
+    "normalize.css": "^7.0.0",
+    "postcss": "^6.0.2",
+    "postcss-cli": "^4.1.0",
+    "postcss-custom-properties": "^6.1.0",
+    "postcss-hexrgba": "^1.0.0",
+    "postcss-import": "^11.0.0",
+    "postcss-mixins": "^6.1.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-utilities": "^0.7.0",
+    "rtlcss": "^2.2.0",
+    "uglify-js": "^3.0.18"
   },
-  "dependencies": {
-    "time-grunt": "*"
+  "scripts": {
+    "uglifyjs": "find assets/js -type f -name '*.js' ! -name '*.min.js' -maxdepth 1 | while read FILE ; do uglifyjs \"${FILE}\" -o \"${FILE%.js}.min.js\" ; done",
+    "rtlcss": "rtlcss assets/css/style.css assets/css/style-rtl.css",
+    "build:css": "postcss assets/css/src/style.css -o assets/css/style.css && npm run rtlcss",
+    "build:js": "babel assets/js/src -d assets/js && npm run uglifyjs",
+    "build": "npm run build:css && npm run build:js",
+    "lint": "eslint .",
+    "watch:css": "nodemon --watch assets/css/src -e css -x 'npm run build:css'",
+    "watch:js": "nodemon --watch assets/js/src -e js -x 'npm run build:js'",
+    "watch": "nodemon --watch assets/css/src --watch assets/js/src -e css,js -x 'npm run build'"
   }
 }

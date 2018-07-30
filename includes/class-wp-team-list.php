@@ -47,6 +47,9 @@ class WP_Team_List {
 		add_action( 'init', array( $this, 'add_shortcode' ) );
 		add_action( 'init', array( $this, 'register_shortcode_ui' ) );
 
+		// Blocks.
+		add_action( 'init', array( $this, 'register_block_type' ) );
+
 		// Support displaying the team list using an action.
 		add_action( 'wp_team_list', array( $this, 'render' ) );
 
@@ -78,15 +81,14 @@ class WP_Team_List {
 	 * Register the public-facing stylesheet.
 	 */
 	public function register_stylesheet() {
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
 		wp_register_style(
 			'wp-team-list',
-			plugins_url( 'css/wp-team-list' . $suffix . '.css', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'css/wp-team-list.css', plugin_dir_path( __FILE__ ) ),
 			array(),
 			self::VERSION
 		);
+
+		wp_styles()->add_data( 'wp-team-list', 'rtl', true );
 	}
 
 	/**
@@ -544,5 +546,53 @@ class WP_Team_List {
 		$size = apply_filters( 'wp_team_list_avatar_size', 90, $user );
 
 		return get_avatar( $user->ID, $size );
+	}
+
+	/**
+	 * Registers the team list block.
+	 *
+	 * Registers all block assets so that they can be enqueued through Gutenberg in
+	 * the corresponding context.
+	 *
+	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
+	 */
+	function register_block_type() {
+		wp_register_script(
+			'wp-team-list-block-editor',
+			plugins_url( 'assets/js/block.js', plugin_dir_path( __FILE__ ) ),
+			array(
+				'wp-blocks',
+				'wp-i18n',
+				'wp-element',
+			),
+			self::VERSION
+		);
+
+		wp_register_style(
+			'wp-team-list-editor',
+			plugins_url( 'assets/css/editor.css', plugin_dir_path( __FILE__ ) ),
+			array(
+				'wp-blocks',
+			),
+			self::VERSION
+		);
+
+		wp_register_style(
+			'wp-team-list-block',
+			plugins_url( 'assets/css/style.css', plugin_dir_path( __FILE__ ) ),
+			array(
+				'wp-blocks',
+			),
+			self::VERSION
+		);
+
+		wp_styles()->add( 'wp-team-list-editor', 'rtl', true );
+		wp_styles()->add( 'wp-team-list-block', 'rtl', true );
+
+		register_block_type( 'wp-team-list/wp-team-list', array(
+			'editor_script' => 'wp-team-list-block-editor',
+			'editor_style'  => 'wp-team-list-block-editor',
+			'style'         => 'wp-team-list-block',
+		) );
 	}
 }
