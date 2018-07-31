@@ -1,16 +1,17 @@
 {
   "presets": [
-	[
-	  "env",
-	  {
-		"targets": {
-		  "uglify": true
-		},
-		"browsers": [
-		  "last 2 versions"
-		]
-	  }
-	]
+    "@wordpress/default"
   ],
-  "sourceMaps": true
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "@wordpress/babel-plugin-makepot",
+          {
+            "output": "languages/wp-team-list-js.pot"
+          }
+        ]
+      ]
+    }
+  }
 }
