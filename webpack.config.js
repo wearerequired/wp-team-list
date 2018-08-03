@@ -9,6 +9,7 @@ const externals = {
 const wpDependencies = [
 	'blocks',
 	'components',
+	'compose',
 	'date',
 	'editor',
 	'element',

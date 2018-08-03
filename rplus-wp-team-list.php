@@ -16,6 +16,7 @@
 // Load the main plugin class
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-team-list.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-team-list-widget.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-team-list-rest-controller.php' );
 
 /**
  * Get the team list instance.

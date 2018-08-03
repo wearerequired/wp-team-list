@@ -96,11 +96,11 @@ registerStore( 'wp-team-list', {
 
 class TeamMember extends Component {
 	render() {
-		const { user: { id: userId, role, name: displayName, avatar, avatar2x, description, archiveUrl, postCount }, showDescription } = this.props;
+		const { user: { id: userId, role, name: displayName, avatar, avatar2x, description, archiveUrl, postCount }, showDescription, className } = this.props;
 
 		return (
 			<div
-				className={`wp-team-member wp-team-list-item author-${userId} role-${role}`}>
+				className={`wp-team-member wp-team-list-item author-${userId} role-${role} ${className}`}>
 
 				<figure className="wp-team-member-avatar author-image">
 					<img src={avatar} srcSet={`${avatar2x} 2x`} alt="" width="90" />
@@ -176,6 +176,7 @@ export default withSelect( ( select, ownProps ) => {
 		order,
 		order_by: orderBy,
 		roles,
+		per_page: number,
 	};
 
 	const queryString = Object.keys( queryArgs ).map( arg => {

@@ -55,6 +55,9 @@ class WP_Team_List {
 
 		// Load stylesheet in the editor.
 		add_filter( 'mce_css', array( $this, 'filter_mce_css' ) );
+
+		// Register REST API route
+		add_action( 'rest_api_init', array( $this, 'register_rest_route' ) );
 	}
 
 	/**
@@ -184,9 +187,9 @@ class WP_Team_List {
 	 * false if we can't find any users.
 	 *
 	 * @param array $args User query arguments.
-	 * @return array The queried users.
+	 * @return \WP_User[] The queried users.
 	 */
-	protected function get_users( $args ) {
+	public function get_users( $args ) {
 		$defaults = array(
 			'role'                => 'administrator',
 			'orderby'             => 'post_count',
@@ -263,9 +266,7 @@ class WP_Team_List {
 		$query = new WP_User_Query( apply_filters( 'wp_team_list_query_args', $args ) );
 
 		// Needed because WordPress does not add a DISTINCT to the query all the time.
-		$users = array_unique( $query->get_results() );
-
-		return $users;
+		return array_unique( $query->get_results() );
 	}
 
 	/**
@@ -556,10 +557,10 @@ class WP_Team_List {
 	 *
 	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
 	 */
-	function register_block_type() {
+	public function register_block_type() {
 		wp_register_script(
 			'wp-team-list-block-editor',
-			plugins_url( 'assets/js/block.js', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
 			array(
 				'wp-blocks',
 				'wp-i18n',
@@ -586,13 +587,63 @@ class WP_Team_List {
 			self::VERSION
 		);
 
+		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
+			// Prepare Jed locale data.
+			$locale_data = gutenberg_get_jed_locale_data( 'wp-team-list' );
+
+			wp_add_inline_script(
+				'wp-team-list-block-editor',
+				'wp.i18n.setLocaleData( ' . wp_json_encode( $locale_data ) . ', "wp-team-list" );',
+				'before'
+			);
+		} else {
+			trigger_error( 'gutenberg_get_jed_locale_data() is missing, check for a change in Gutenberg.', E_USER_WARNING );
+		}
+
 		wp_styles()->add( 'wp-team-list-editor', 'rtl', true );
 		wp_styles()->add( 'wp-team-list-block', 'rtl', true );
 
-		register_block_type( 'wp-team-list/wp-team-list', array(
-			'editor_script' => 'wp-team-list-block-editor',
-			'editor_style'  => 'wp-team-list-block-editor',
-			'style'         => 'wp-team-list-block',
-		) );
+		// Todo: Register attributes with schema.
+		register_block_type( 'wp-team-list/wp-team-list', [
+			'editor_script'   => 'wp-team-list-block-editor',
+			'editor_style'    => 'wp-team-list-block-editor',
+			'style'           => 'wp-team-list-block',
+			'render_callback' => [ $this, 'render_team_list_block' ],
+		] );
+	}
+
+	/**
+	 * Registers the team list REST API route.
+	 */
+	public function register_rest_route() {
+		$controller = new WP_Team_List_REST_Controller();
+		$controller->register_routes();
+	}
+
+	/**
+	 * Render team list block.
+	 *
+	 * @param array $attributes Block attributes.
+	 * @return string Block content
+	 */
+	public function render_team_list_block( $attributes ) {
+		$attributes_mappings = [
+			'number'          => 'order',
+			'showLink'        => 'show_link',
+			'showDescription' => 'show_description',
+			'order'           => 'order',
+			'orderBy'         => 'orderby',
+			'roles'           => 'role',
+		];
+
+		$prepared_args = [];
+
+		foreach ( $attributes_mappings as $block_attr => $wp_param ) {
+			if ( isset( $attributes[ $block_attr ] ) ) {
+				$prepared_args[ $wp_param ] = $attributes[ $block_attr ];
+			}
+		}
+
+		return wp_team_list()->render( $prepared_args );
 	}
 }
