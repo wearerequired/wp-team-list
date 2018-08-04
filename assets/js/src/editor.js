@@ -17,7 +17,6 @@ import {
 	SelectControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { withState } from '@wordpress/compose';
 
 /**
  * Internal dependencies
@@ -61,7 +60,7 @@ registerBlockType( 'required/wp-team-list', {
 		},
 		roles: {
 			type: 'array',
-			default: 'administrator'
+			default: [ 'administrator' ]
 		},
 		orderBy: {
 			type: 'string',
@@ -73,35 +72,33 @@ registerBlockType( 'required/wp-team-list', {
 		}
 	},
 
-	edit: withState( {
-		editable: '',
-	} )( ( { className, attributes: { number, showLink, showDescription, roles, orderBy, order }, setAttributes, isSelected, editable, setState } ) => {
+	edit( { className, attributes: { number, showLink, showDescription, roles, orderBy, order }, setAttributes } ) {
 		return (
 			<Fragment>
 				<TeamList
-					number={ number }
-					showLink={ showLink }
-					showDescription={ showDescription }
-					roles={ roles }
-					orderBy={ orderBy }
-					order={ order }
-					className={ className }
+					number={number}
+					showLink={showLink}
+					showDescription={showDescription}
+					roles={roles}
+					orderBy={orderBy}
+					order={order}
+					className={className}
 				/>
 				<InspectorControls>
 					<PanelBody>
 						<TextControl
-							label={ __( 'Number of users to display', 'wp-team-list' ) }
+							label={__( 'Number of users to display', 'wp-team-list' )}
 							type="number"
-							value={ number }
-							onChange={ ( newValue ) => {
+							value={number}
+							onChange={( newValue ) => {
 								setAttributes( { number: newValue } );
-							} }
+							}}
 						/>
 						<SelectControl
-							label={ __( 'Roles', 'wp-team-list' ) }
-							help={ __( 'Only show users with the selected roles', 'wp-team-list' ) }
-							value={ roles }
-							options={ [
+							label={__( 'Roles', 'wp-team-list' )}
+							help={__( 'Only show users with the selected roles', 'wp-team-list' )}
+							value={roles}
+							options={[
 								{
 									value: 'administrator',
 									label: 'Administrator',
@@ -114,16 +111,16 @@ registerBlockType( 'required/wp-team-list', {
 									value: 'editor',
 									label: 'Editor',
 								}
-							] }
+							]}
 							multiple={true}
-							onChange={ ( newValue ) => {
+							onChange={( newValue ) => {
 								setAttributes( { roles: newValue } );
-							} }
+							}}
 						/>
 						<SelectControl
-							label={ __( 'Order By', 'wp-team-list' ) }
-							value={ orderBy }
-							options={ [
+							label={__( 'Order By', 'wp-team-list' )}
+							value={orderBy}
+							options={[
 								{
 									value: 'post_count',
 									label: __( 'Post Count', 'wp-team-list' ),
@@ -136,15 +133,15 @@ registerBlockType( 'required/wp-team-list', {
 									value: 'last_name',
 									label: __( 'Last Name', 'wp-team-list' ),
 								},
-							] }
-							onChange={ ( newValue ) => {
+							]}
+							onChange={( newValue ) => {
 								setAttributes( { orderBy: newValue } );
-							} }
+							}}
 						/>
 						<SelectControl
-							label={ __( 'Order', 'wp-team-list' ) }
-							value={ order }
-							options={ [
+							label={__( 'Order', 'wp-team-list' )}
+							value={order}
+							options={[
 								{
 									value: 'asc',
 									label: __( 'Ascending', 'wp-team-list' ),
@@ -153,23 +150,23 @@ registerBlockType( 'required/wp-team-list', {
 									value: 'desc',
 									label: __( 'Descending', 'wp-team-list' ),
 								}
-							] }
-							onChange={ ( newValue ) => {
+							]}
+							onChange={( newValue ) => {
 								setAttributes( { order: newValue } );
-							} }
+							}}
 						/>
 						<ToggleControl
-							label={ __( 'Show user description', 'wp-team-list' ) }
-							checked={ showDescription }
-							onChange={ ( newValue ) => {
+							label={__( 'Show user description', 'wp-team-list' )}
+							checked={showDescription}
+							onChange={( newValue ) => {
 								setAttributes( { showDescription: newValue } );
-							} }
+							}}
 						/>
 					</PanelBody>
 				</InspectorControls>
 			</Fragment>
-		);
-	} ),
+		)
+	},
 
 	save() {
 		return null;

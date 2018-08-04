@@ -1,1 +1,9 @@
-.wp-block-wp-team-list-wp-team-list{border:1px dotted red}
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-wp-team-list-wp-team-list {
+	border: 1px dotted #f00;
+}
