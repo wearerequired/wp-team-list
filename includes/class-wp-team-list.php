@@ -603,12 +603,48 @@ class WP_Team_List {
 		wp_styles()->add( 'wp-team-list-editor', 'rtl', true );
 		wp_styles()->add( 'wp-team-list-block', 'rtl', true );
 
-		// Todo: Register attributes with schema.
 		register_block_type( 'wp-team-list/wp-team-list', [
 			'editor_script'   => 'wp-team-list-block-editor',
 			'editor_style'    => 'wp-team-list-block-editor',
 			'style'           => 'wp-team-list-block',
 			'render_callback' => [ $this, 'render_team_list_block' ],
+			'attributes'      => [
+				'number'          => [
+					'type'    => 'integer',
+					'default' => 10,
+					'minimum' => 1,
+					'maximum' => 100,
+				],
+				'showLink'        => [
+					'type'    => 'bool',
+					'default' => true,
+				],
+				'showDescription' => [
+					'type'    => 'bool',
+					'default' => true,
+				],
+				'roles'           => [
+					'type'  => 'array',
+					'items' => [
+						'type' => 'string',
+					],
+				],
+				'orderBy'         => [
+					'type'    => 'string',
+					'default' => 'post_count',
+					'enum'    => [
+						'post_count',
+						'name',
+						'first_name',
+						'last_name',
+					],
+				],
+				'order'           => [
+					'type'    => 'string',
+					'default' => 'desc',
+					'enum'    => [ 'asc', 'desc' ],
+				],
+			],
 		] );
 	}
 
