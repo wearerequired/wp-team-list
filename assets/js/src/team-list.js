@@ -4,10 +4,10 @@
 import {
 	Component,
 	Fragment,
-	Spinner,
 	SelectControl,
 	Placeholder,
 } from '@wordpress/element';
+import { Spinner } from '@wordpress/components';
 import {
 	withSelect,
 	withDispatch,
@@ -96,33 +96,33 @@ registerStore( 'wp-team-list', {
 
 class TeamMember extends Component {
 	render() {
-		const { user: { id: userId, role, name: displayName, avatar, avatar2x, description, archiveUrl, postCount }, showDescription, className } = this.props;
+		const { user: { id, role, role_display_name, display_name, avatar_urls, description, link, post_count }, showDescription, className } = this.props;
 
 		return (
 			<div
-				className={`wp-team-member wp-team-list-item author-${userId} role-${role} ${className}`}>
+				className={`wp-team-member wp-team-list-item author-${id} role-${role} ${className}`}>
 
 				<figure className="wp-team-member-avatar author-image">
-					<img src={avatar} srcSet={`${avatar2x} 2x`} alt="" width="90" />
+					<img src={ avatar_urls[48] } srcSet={`${avatar_urls[96]} 2x`} alt="" width="90" />
 				</figure>
 
-				<h2 className="wp-team-member-name">{ displayName }</h2>
+				<h2 className="wp-team-member-name">{ display_name }</h2>
 
-				{ role &&
-					<p className="wp-team-member-role">{ role }</p>
+				{ role_display_name &&
+					<p className="wp-team-member-role">{ role_display_name }</p>
 				}
 
 				{ showDescription &&
 					<p className="wp-team-member-description">{ description }</p>
 				}
 
-				{ postCount &&
+				{ post_count &&
 					<p className="wp-team-member-posts-link">
-						<a href={ archiveUrl } title={ sprintf( __( 'View all posts by %s', 'wp-team-list' ), displayName ) }>
+						<a href={ link } title={ sprintf( __( 'View all posts by %s', 'wp-team-list' ), display_name ) }>
 							{
 								sprintf(
-									_n( 'View %d post', 'View %d posts', postCount, 'wp-team-list' ),
-									postCount
+									_n( 'View %s post', 'View %s posts', post_count, 'wp-team-list' ),
+									post_count
 								)
 							}
 						</a>
@@ -137,8 +137,8 @@ class TeamList extends Component {
 	render() {
 		const { users, showLink, showDescription, isLoading } = this.props;
 
-		if ( isLoading ) {
-			return <Spinner />
+		if ( isLoading && ! users ) {
+			return <Spinner />;
 		}
 
 		if ( ! users ) {
@@ -155,16 +155,17 @@ class TeamList extends Component {
 		}
 
 		const teamList = users.map( user => {
-			return <TeamMember user={ user } showDescription={ showDescription } />
+			return <TeamMember user={ user } showDescription={ showDescription } key={ user.id } />
 		} );
 
 		return (
-			<div>
+			<Fragment>
+				{ isLoading && <Spinner /> }
 				{ teamList }
 				{ showLink &&
 					<a href="" className="show-all">{ __( 'Show all team members', 'wp-team-list' ) }</a>
 				}
-			</div>
+			</Fragment>
 		)
 	}
 }
