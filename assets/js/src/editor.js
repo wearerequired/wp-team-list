@@ -10,8 +10,8 @@ import {
 	registerBlockType,
 	RichText,
 } from '@wordpress/blocks';
+import { InspectorControls } from '@wordpress/editor';
 import {
-	InspectorControls,
 	PanelBody,
 	TextControl,
 	SelectControl,
