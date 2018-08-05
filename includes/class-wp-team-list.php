@@ -238,7 +238,7 @@ class WP_Team_List {
 		// For compatibility with WordPress 4.3 and below.
 		$roles = array();
 		if ( isset( $args['role'] ) ) {
-			$roles = array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
+			$roles = is_array( $args['role'] ) ? $args['role'] : array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
 		}
 
 		if ( 1 < count( $roles ) ) {
@@ -603,7 +603,7 @@ class WP_Team_List {
 		wp_styles()->add( 'wp-team-list-editor', 'rtl', true );
 		wp_styles()->add( 'wp-team-list-block', 'rtl', true );
 
-		register_block_type( 'wp-team-list/wp-team-list', [
+		register_block_type( 'required/wp-team-list', [
 			'editor_script'   => 'wp-team-list-block-editor',
 			'editor_style'    => 'wp-team-list-block-editor',
 			'style'           => 'wp-team-list-block',
