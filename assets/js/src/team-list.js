@@ -88,7 +88,7 @@ registerStore( 'wp-team-list', {
 		async getUsers( state, query ) {
 			dispatch( 'wp-team-list' ).setLoading( query, true );
 			const users = await apiFetch( { path: '/wp-team-list/v1/users?'+ query } );
-			dispatch( 'wp-team-list' ).setLoading( false );
+			dispatch( 'wp-team-list' ).setLoading( query, false );
 			dispatch( 'wp-team-list' ).setUsers( query, users );
 		},
 	},
