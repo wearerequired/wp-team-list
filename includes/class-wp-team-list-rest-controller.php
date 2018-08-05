@@ -119,7 +119,9 @@ class WP_Team_List_REST_Controller extends WP_REST_Controller {
 		$result = [];
 		$users  = wp_team_list()->get_users( $prepared_args );
 
-		foreach ( $users as $user ) {
+		foreach ( $users as $user_id ) {
+			$user = get_userdata( $user_id );
+
 			$result[] = [
 				'id'                => $user->ID,
 				'display_name'      => $user->display_name,

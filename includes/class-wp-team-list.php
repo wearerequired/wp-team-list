@@ -187,7 +187,7 @@ class WP_Team_List {
 	 * false if we can't find any users.
 	 *
 	 * @param array $args User query arguments.
-	 * @return \WP_User[] The queried users.
+	 * @return int[] The queried users' IDs.
 	 */
 	public function get_users( $args ) {
 		$defaults = array(
