@@ -13,7 +13,6 @@ import {
 	withDispatch,
 	registerStore,
 	fetch,
-	apiFetch,
 	dispatch
 } from '@wordpress/data';
 import {
@@ -21,6 +20,7 @@ import {
 	__,
 	_n,
 } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
 
 const DEFAULT_STATE = {
 	users: {},

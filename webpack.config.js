@@ -7,6 +7,7 @@ const externals = {
 
 // Define WordPress dependencies
 const wpDependencies = [
+	'api-fetch',
 	'blocks',
 	'components',
 	'compose',
