@@ -8,10 +8,14 @@
  * @package WP_Team_List
  */
 
+namespace Required\WPTeamList;
+
+use WP_Widget;
+
 /**
  * Class WP_Team_List_Widget
  */
-class WP_Team_List_Widget extends WP_Widget {
+class Widget extends WP_Widget {
 	/**
 	 * Register the widget and setup the defaults.
 	 */
@@ -36,11 +40,11 @@ class WP_Team_List_Widget extends WP_Widget {
 		}
 
 		// Prepare options.
-		$title     = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Editors', 'wp-team-list' );
-		$role      = ( ! empty( $instance['role'] ) ) ? $instance['role'] : 'editor';
+		$title     = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Editors', 'wp-team-list' );
+		$role      = ! empty( $instance['role'] ) ? $instance['role'] : 'editor';
 		$show_link = isset( $instance['show_link'] ) ? $instance['show_link'] : false;
 		$page_link = isset( $instance['page_link'] ) ? absint( $instance['page_link'] ) : 0;
-		$number    = ( ! empty( $instance['number'] ) ) ? max( 1, absint( $instance['number'] ) ) : 3;
+		$number    = ! empty( $instance['number'] ) ? max( 1, absint( $instance['number'] ) ) : 3;
 
 		/**
 		 * Filter the team list widget title.
@@ -57,15 +61,15 @@ class WP_Team_List_Widget extends WP_Widget {
 			'number' => $number,
 		);
 
-		echo $args['before_widget']; // WPCS: XSS ok.
+		echo $args['before_widget'];
 
 		if ( $title ) {
-			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		?>
 		<div class="wp-team-list-widget-content">
 			<?php
-			echo wp_team_list()->render( $team_query_args ); // WPCS: XSS ok.
+			echo wp_team_list()->render( $team_query_args );
 			if ( $show_link && $page_link ) {
 				printf(
 					'<a href="%s" class="show-all">%s</a>',
@@ -76,7 +80,7 @@ class WP_Team_List_Widget extends WP_Widget {
 			?>
 		</div>
 		<?php
-		echo $args['after_widget']; // WPCS: XSS ok.
+		echo $args['after_widget'];
 	}
 
 	/**
@@ -136,11 +140,13 @@ class WP_Team_List_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'page_link' ) ); ?>"><?php esc_html_e( 'Link to:', 'wp-team-list' ); ?></label>
 			<?php
-			wp_dropdown_pages( array(
-				'selected' => $page_link,
-				'name'     => esc_attr( $this->get_field_name( 'page_link' ) ),
-				'id'       => esc_attr( $this->get_field_id( 'page_link' ) ),
-			) );
+			wp_dropdown_pages(
+				array(
+					'selected' => absint( $page_link ),
+					'name'     => esc_attr( $this->get_field_name( 'page_link' ) ),
+					'id'       => esc_attr( $this->get_field_id( 'page_link' ) ),
+				)
+			);
 			?>
 		</p>
 		<?php

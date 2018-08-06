@@ -1,18 +1,39 @@
 {
   "name": "wearerequired/wp-team-list",
-  "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
-  "version": "2.0.1",
+  "description": "Create a simple yet highly customizable team site by leveraging your existing WordPress users.",
   "type": "wordpress-plugin",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
-      "name": "Silvan Hagen",
-      "email": "silvan@required.ch",
-      "homepage": "http://required.ch",
-      "role": "Developer"
+      "name":     "required",
+      "email":    "support@required.ch",
+      "homepage": "https://required.com",
+      "role":     "Company"
     }
   ],
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
+    "php": ">5.4",
+    "wearerequired/wp-requirements-check": "^1.0"
+  },
+  "require-dev":  {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+    "phpunit/phpunit": "~6.5",
+    "wp-coding-standards/wpcs": "^0.14.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Required\\WPTeamList\\": "includes"
+    }
+  },
+  "scripts": {
+    "format": "vendor/bin/phpcbf --report-summary --report-source .",
+    "lint": "vendor/bin/phpcs --report-summary --report-source .",
+    "test": "vendor/bin/phpunit"
   }
 }
 

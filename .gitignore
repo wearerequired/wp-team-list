@@ -1,8 +1,14 @@
-/vendor/
-/composer.lock
+# Composer
+vendor/*
+composer.lock
 
-/node_modules/
+# npm
+node_modules/*
 yarn.lock
 package-lock.json
 
+# PHPCS
+phpcs.xml
+
+# I18N
 languages/wp-team-list-js.pot

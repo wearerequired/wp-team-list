@@ -5,10 +5,18 @@
  * @package WP_Team_List
  */
 
+namespace Required\WPTeamList;
+
+use WP_Error;
+use WP_REST_Controller;
+use WP_REST_Request;
+use WP_REST_Response;
+use WP_REST_Server;
+
 /**
  * WP_Team_List class.
  */
-class WP_Team_List_REST_Controller extends WP_REST_Controller {
+class REST_Controller extends WP_REST_Controller {
 	/**
 	 * Constructor.
 	 */
@@ -21,48 +29,50 @@ class WP_Team_List_REST_Controller extends WP_REST_Controller {
 	 * Registers the routes for the objects of the controller.
 	 */
 	public function register_routes() {
-		register_rest_route( $this->namespace, '/' . $this->rest_base, [
-			[
-				'methods'             => WP_REST_Server::READABLE,
-				'callback'            => array( $this, 'get_items' ),
-				'permission_callback' => array( $this, 'get_items_permissions_check' ),
-				'args'                => [
-					'order'    => [
-						'description' => __( 'Order sort attribute ascending or descending.', 'wp-team-list' ),
-						'type'        => 'string',
-						'default'     => 'desc',
-						'enum'        => array( 'asc', 'desc' ),
-					],
-					'orderby'  => [
-						'description' => __( 'Sort collection by object attribute.', 'wp-team-list' ),
-						'type'        => 'string',
-						'default'     => 'post_count',
-						'enum'        => array(
-							'post_count',
-							'name',
-							'first_name',
-							'last_name',
+		register_rest_route(
+			$this->namespace, '/' . $this->rest_base, [
+				[
+					'methods'             => WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_items' ),
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
+					'args'                => [
+						'order'    => [
+							'description' => __( 'Order sort attribute ascending or descending.', 'wp-team-list' ),
+							'type'        => 'string',
+							'default'     => 'desc',
+							'enum'        => array( 'asc', 'desc' ),
+						],
+						'orderby'  => [
+							'description' => __( 'Sort collection by object attribute.', 'wp-team-list' ),
+							'type'        => 'string',
+							'default'     => 'post_count',
+							'enum'        => array(
+								'post_count',
+								'name',
+								'first_name',
+								'last_name',
+							),
+						],
+						'roles'    => [
+							'description' => __( 'Limit result set to users matching at least one specific role provided. Accepts csv list or single role.', 'wp-team-list' ),
+							'type'        => 'array',
+							'items'       => array(
+								'type' => 'string',
+							),
+						],
+						'per_page' => array(
+							'description'       => __( 'Maximum number of items to be returned in result set.', 'wp-team-list' ),
+							'type'              => 'integer',
+							'default'           => 10,
+							'minimum'           => 1,
+							'maximum'           => 100,
+							'sanitize_callback' => 'absint',
+							'validate_callback' => 'rest_validate_request_arg',
 						),
 					],
-					'roles'    => [
-						'description' => __( 'Limit result set to users matching at least one specific role provided. Accepts csv list or single role.', 'wp-team-list' ),
-						'type'        => 'array',
-						'items'       => array(
-							'type' => 'string',
-						),
-					],
-					'per_page' => array(
-						'description'       => __( 'Maximum number of items to be returned in result set.', 'wp-team-list' ),
-						'type'              => 'integer',
-						'default'           => 10,
-						'minimum'           => 1,
-						'maximum'           => 100,
-						'sanitize_callback' => 'absint',
-						'validate_callback' => 'rest_validate_request_arg',
-					),
 				],
-			],
-		] );
+			]
+		);
 	}
 
 	/**

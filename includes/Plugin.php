@@ -5,10 +5,15 @@
  * @package WP_Team_List
  */
 
+namespace Required\WPTeamList;
+
+use WP_User;
+use WP_User_Query;
+
 /**
  * WP_Team_List class.
  */
-class WP_Team_List {
+class Plugin {
 	/**
 	 * Plugin version.
 	 *
@@ -56,7 +61,7 @@ class WP_Team_List {
 		// Load stylesheet in the editor.
 		add_filter( 'mce_css', array( $this, 'filter_mce_css' ) );
 
-		// Register REST API route
+		// Register REST API route.
 		add_action( 'rest_api_init', array( $this, 'register_rest_route' ) );
 	}
 
@@ -103,6 +108,8 @@ class WP_Team_List {
 		?>
 		<h3><?php _e( 'Team List Settings', 'wp-team-list' ); ?></h3>
 
+		<?php wp_nonce_field( 'team-list-visibility-' . $user->ID, '_wp_team_list_nonce' ); ?>
+
 		<table class="form-table">
 			<tr>
 				<th scope="row">
@@ -122,7 +129,8 @@ class WP_Team_List {
 				</td>
 			</tr>
 		</table>
-	<?php }
+		<?php
+	}
 
 	/**
 	 * Save team list profile fields.
@@ -131,6 +139,14 @@ class WP_Team_List {
 	 */
 	public function admin_save_profile_fields( $user_id ) {
 		if ( ! current_user_can( 'edit_user', $user_id ) ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['_wp_team_list_nonce'] ) ) {
+			return;
+		}
+
+		if ( ! wp_verify_nonce( $_POST['_wp_team_list_nonce'], 'team-list-visibility-' . $user_id ) ) {
 			return;
 		}
 
@@ -177,7 +193,7 @@ class WP_Team_List {
 	 * Register WP Team List Widget
 	 */
 	public function register_widgets() {
-		register_widget( 'WP_Team_List_Widget' );
+		register_widget( Widget::class );
 	}
 
 	/**
@@ -227,8 +243,8 @@ class WP_Team_List {
 				array(
 					'key'     => 'rplus_wp_team_list_visibility',
 					'compare' => 'NOT EXISTS',
-				)
-			)
+				),
+			),
 		);
 
 		if ( isset( $args['has_published_posts'] ) && 'true' !== (string) $args['has_published_posts'] ) {
@@ -282,7 +298,8 @@ class WP_Team_List {
 			_deprecated_argument(
 				__FUNCTION__,
 				'2.0.0',
-				printf( __( 'Use the %s filter instead.', 'wp-team-list' ), '<code>wp_team_list_template</code>' )
+				/* translators: %s: wp_team_list_template */
+				sprintf( __( 'Use the %s filter instead.', 'wp-team-list' ), '<code>wp_team_list_template</code>' )
 			);
 		}
 
@@ -293,7 +310,7 @@ class WP_Team_List {
 			$template_path = $overridden_template;
 		} else {
 			// Load the requested template file from the plugin folder.
-			$template_path = trailingslashit( dirname( __FILE__ ) ) . $template;
+			$template_path = trailingslashit( \Required\WPTeamList\TEMPLATES_DIR ) . $template;
 		}
 
 		/**
@@ -304,7 +321,7 @@ class WP_Team_List {
 		 */
 		$template_path = apply_filters( 'wp_team_list_template', $template_path, $user );
 
-		include( $template_path );
+		include $template_path;
 	}
 
 	/**
@@ -331,7 +348,7 @@ class WP_Team_List {
 
 		$classes = array_merge( $defaults, $classes );
 
-		return esc_attr( join( ' ', $classes ) );
+		return esc_attr( implode( ' ', $classes ) );
 	}
 
 	/**
@@ -365,7 +382,7 @@ class WP_Team_List {
 	 * @param  array   $args     WP_User_Query arguments.
 	 * @param  boolean $echo     Whether to return the result or echo it.
 	 * @param  string  $template The template file name to include.
-	 * @return void|string
+	 * @return string
 	 */
 	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) {
 		$users = $this->get_users( $args );
@@ -414,6 +431,7 @@ class WP_Team_List {
 				'do_shortcode_tag()',
 				'2.0.0',
 				sprintf(
+					/* translators: 1: [rplus_team_list], 2: [wp_team_list] */
 					__( 'The %1$s shortcode has been replaced with %2$s.', 'wp-team-list' ),
 					'<code>[rplus_team_list]</code>',
 					'<code>[wp_team_list]</code>'
@@ -421,13 +439,15 @@ class WP_Team_List {
 			);
 		}
 
-		$args = shortcode_atts( array(
-			'role'                => 'Administrator',
-			'orderby'             => 'post_count',
-			'order'               => 'DESC',
-			'include'             => '',
-			'has_published_posts' => null,
-		), $atts, 'wp_team_list' );
+		$args = shortcode_atts(
+			array(
+				'role'                => 'Administrator',
+				'orderby'             => 'post_count',
+				'order'               => 'DESC',
+				'include'             => '',
+				'has_published_posts' => null,
+			), $atts, 'wp_team_list'
+		);
 
 		return $this->render( $args );
 	}
@@ -441,7 +461,7 @@ class WP_Team_List {
 		}
 
 		// Include this in order to use get_editable_roles().
-		require_once( ABSPATH . 'wp-admin/includes/user.php' );
+		require_once ABSPATH . 'wp-admin/includes/user.php';
 
 		$user_roles = array( 'all' => __( 'All', 'wp-team-list' ) );
 		foreach ( get_editable_roles() as $role => $data ) {
@@ -496,9 +516,11 @@ class WP_Team_List {
 		$role = current( $user->roles );
 
 		switch ( $field ) {
-			case 'display_name' :
+			case 'display_name':
 				$role_names = $GLOBALS['wp_roles']->get_names();
-				$role_name  = translate_with_gettext_context( $role_names[ $role ], 'User role', 'wp-team-list' );
+				// phpcs:disable WordPress.WP.I18n
+				$role_name = translate_with_gettext_context( $role_names[ $role ], 'User role', 'wp-team-list' );
+				// phpcs:enable
 
 				/**
 				 * Filter the display name of user's role displayed in the team list.
@@ -508,7 +530,7 @@ class WP_Team_List {
 				 */
 				return apply_filters( 'wp_team_list_user_role', $role_name, $user );
 
-			case 'name' :
+			case 'name':
 				return $role;
 		}
 
@@ -522,13 +544,13 @@ class WP_Team_List {
 	 * @return string Modified stylesheet list.
 	 */
 	public function filter_mce_css( $stylesheets ) {
-		$stylesheets = explode( ',', $stylesheets );
+		$styles = explode( ',', $stylesheets );
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-		$stylesheets[] = plugins_url( 'css/wp-team-list' . $suffix . '.css', plugin_dir_path( __FILE__ ) );
+		$suffix   = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		$styles[] = plugins_url( 'css/wp-team-list' . $suffix . '.css', plugin_dir_path( __FILE__ ) );
 
-		return implode( ',', $stylesheets );
+		return implode( ',', $styles );
 	}
 
 	/**
@@ -558,6 +580,10 @@ class WP_Team_List {
 	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
 	 */
 	public function register_block_type() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
@@ -596,63 +622,63 @@ class WP_Team_List {
 				'wp.i18n.setLocaleData( ' . wp_json_encode( $locale_data ) . ', "wp-team-list" );',
 				'before'
 			);
-		} else {
-			trigger_error( 'gutenberg_get_jed_locale_data() is missing, check for a change in Gutenberg.', E_USER_WARNING );
 		}
 
 		wp_styles()->add( 'wp-team-list-editor', 'rtl', true );
 		wp_styles()->add( 'wp-team-list-block', 'rtl', true );
 
-		register_block_type( 'required/wp-team-list', [
-			'editor_script'   => 'wp-team-list-block-editor',
-			'editor_style'    => 'wp-team-list-block-editor',
-			'style'           => 'wp-team-list-block',
-			'render_callback' => [ $this, 'render_team_list_block' ],
-			'attributes'      => [
-				'number'          => [
-					'type'    => 'integer',
-					'default' => 10,
-					'minimum' => 1,
-					'maximum' => 100,
-				],
-				'showLink'        => [
-					'type'    => 'bool',
-					'default' => true,
-				],
-				'showDescription' => [
-					'type'    => 'bool',
-					'default' => true,
-				],
-				'roles'           => [
-					'type'  => 'array',
-					'items' => [
-						'type' => 'string',
+		register_block_type(
+			'required/wp-team-list', [
+				'editor_script'   => 'wp-team-list-block-editor',
+				'editor_style'    => 'wp-team-list-block-editor',
+				'style'           => 'wp-team-list-block',
+				'render_callback' => [ $this, 'render_team_list_block' ],
+				'attributes'      => [
+					'number'          => [
+						'type'    => 'integer',
+						'default' => 10,
+						'minimum' => 1,
+						'maximum' => 100,
+					],
+					'showLink'        => [
+						'type'    => 'bool',
+						'default' => true,
+					],
+					'showDescription' => [
+						'type'    => 'bool',
+						'default' => true,
+					],
+					'roles'           => [
+						'type'  => 'array',
+						'items' => [
+							'type' => 'string',
+						],
+					],
+					'orderBy'         => [
+						'type'    => 'string',
+						'default' => 'post_count',
+						'enum'    => [
+							'post_count',
+							'name',
+							'first_name',
+							'last_name',
+						],
+					],
+					'order'           => [
+						'type'    => 'string',
+						'default' => 'desc',
+						'enum'    => [ 'asc', 'desc' ],
 					],
 				],
-				'orderBy'         => [
-					'type'    => 'string',
-					'default' => 'post_count',
-					'enum'    => [
-						'post_count',
-						'name',
-						'first_name',
-						'last_name',
-					],
-				],
-				'order'           => [
-					'type'    => 'string',
-					'default' => 'desc',
-					'enum'    => [ 'asc', 'desc' ],
-				],
-			],
-		] );
+			]
+		);
 	}
 
 	/**
 	 * Registers the team list REST API route.
 	 */
 	public function register_rest_route() {
-		$controller = new WP_Team_List_REST_Controller();
+		$controller = new REST_Controller();
 		$controller->register_routes();
 	}
 
