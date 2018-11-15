@@ -587,6 +587,7 @@ class Plugin {
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
+			// Todo: Add correct dependencies.
 			[
 				'wp-blocks',
 				'wp-i18n',
@@ -598,9 +599,6 @@ class Plugin {
 		wp_register_style(
 			'wp-team-list-editor',
 			plugins_url( 'assets/css/editor.css', plugin_dir_path( __FILE__ ) ),
-			[
-				'wp-blocks',
-			],
 			self::VERSION
 		);
 
