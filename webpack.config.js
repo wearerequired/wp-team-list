@@ -1,6 +1,10 @@
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const path = require( 'path' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 
 const externals = {
+	react: 'React',
+	'react-dom': 'ReactDOM',
 	jquery: 'jQuery',
 	lodash: 'lodash',
 };
@@ -47,55 +51,42 @@ wpDependencies.forEach( ( name ) => {
 	};
 } );
 
-// CSS loader for styles specific to block editing.
-const editBlocksCSSPlugin = new ExtractTextPlugin( {
-	filename: '../css/edit-blocks.css',
-} );
-
-const postCssPlugins = process.env.NODE_ENV === 'production' ?
-	[
-		require( 'postcss-nested' ),
-		require( 'autoprefixer' ),
-		require( 'cssnano' )( {
-			safe: true,
-		} )
-	] :
-	[
-		require( 'postcss-nested' ),
-		require( 'autoprefixer' ),
-	];
-
-// Configuration for the ExtractTextPlugin.
-const extractConfig = {
-	use: [
-		{ loader: 'raw-loader' },
-		{
-			loader: 'postcss-loader',
-			options: {
-				plugins: postCssPlugins,
-			},
-		},
-	],
-};
-
 const config = {
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 
+	// https://webpack.js.org/configuration/entry-context/#context
+	context: path.resolve( __dirname, 'assets/js/src' ),
+
 	// https://webpack.js.org/configuration/entry-context/
 	entry: {
-		'editor': './assets/js/src/editor.js',
+		'editor': './editor.js',
 	},
 
 	// https://webpack.js.org/configuration/output/
 	output: {
-		path: __dirname + '/assets/js/',
+		path: path.resolve( __dirname, 'assets/js' ),
 		filename: '[name].js',
-		library: 'WPTEAMLIST',
+		library: 'TeamList',
 		libraryTarget: 'this',
 	},
 
 	// https://webpack.js.org/configuration/externals/
 	externals,
+
+	optimization: {
+		runtimeChunk: false,
+		minimizer: [
+			new UglifyJsPlugin( {
+				cache: true,
+				parallel: true,
+				uglifyOptions: {
+					output: {
+						comments: false,
+					}
+				}
+			} )
+		]
+	},
 
 	// https://github.com/babel/babel-loader#usage
 	module: {
@@ -107,15 +98,21 @@ const config = {
 			},
 			{
 				test: /editor\.css$/,
-				use: editBlocksCSSPlugin.extract( extractConfig ),
-			},
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader'
+				]
+			}
 		],
 	},
 
 	// https://webpack.js.org/configuration/plugins/
 	plugins: [
-		editBlocksCSSPlugin,
-	]
+		new MiniCssExtractPlugin( {
+			filename: '../css/[name].css',
+		} ),
+	],
 };
 
 module.exports = config;

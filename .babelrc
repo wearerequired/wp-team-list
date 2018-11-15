@@ -2,16 +2,14 @@
   "presets": [
     "@wordpress/default"
   ],
-  "env": {
-    "production": {
-      "plugins": [
-        [
-          "@wordpress/babel-plugin-makepot",
-          {
-            "output": "languages/wp-team-list-js.pot"
-          }
-        ]
-      ]
-    }
-  }
+  "plugins": [
+    [
+      "@wordpress/babel-plugin-import-jsx-pragma",
+      {
+        "scopeVariable": "createElement",
+        "source": "@wordpress/element",
+        "isDefault": false
+      }
+    ]
+  ]
 }
