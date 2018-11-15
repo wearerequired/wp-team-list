@@ -613,7 +613,18 @@ class Plugin {
 			self::VERSION
 		);
 
-		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
+		if ( function_exists( 'wp_set_script_translations' ) ) {
+			wp_set_script_translations( 'wp-team-list-block-editor', 'wp-team-list' );
+		} elseif ( function_exists( 'wp_get_jed_locale_data' ) ) {
+			// Prepare Jed locale data.
+			$locale_data = wp_get_jed_locale_data( 'wp-team-list' );
+
+			wp_add_inline_script(
+				'wp-team-list-block-editor',
+				'wp.i18n.setLocaleData( ' . wp_json_encode( $locale_data ) . ', "wp-team-list" );',
+				'before'
+			);
+		} elseif ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 			// Prepare Jed locale data.
 			$locale_data = gutenberg_get_jed_locale_data( 'wp-team-list' );
 
