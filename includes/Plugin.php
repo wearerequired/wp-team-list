@@ -91,8 +91,8 @@ class Plugin {
 	public function register_stylesheet() {
 		wp_register_style(
 			'wp-team-list',
-			plugins_url( 'css/wp-team-list.css', plugin_dir_path( __FILE__ ) ),
-			array(),
+			plugins_url( 'assets/css/style.css', plugin_dir_path( __FILE__ ) ),
+			[],
 			self::VERSION
 		);
 
@@ -587,29 +587,20 @@ class Plugin {
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
-			array(
+			[
 				'wp-blocks',
 				'wp-i18n',
 				'wp-element',
-			),
+			],
 			self::VERSION
 		);
 
 		wp_register_style(
 			'wp-team-list-editor',
 			plugins_url( 'assets/css/editor.css', plugin_dir_path( __FILE__ ) ),
-			array(
+			[
 				'wp-blocks',
-			),
-			self::VERSION
-		);
-
-		wp_register_style(
-			'wp-team-list-block',
-			plugins_url( 'assets/css/style.css', plugin_dir_path( __FILE__ ) ),
-			array(
-				'wp-blocks',
-			),
+			],
 			self::VERSION
 		);
 
