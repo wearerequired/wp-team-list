@@ -4,6 +4,20 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-wp-team-list-wp-team-list {
-	border: 1px dotted #f00;
+.wp-team-member {
+	clear: both;
+
+	.author-image {
+		float: left;
+		margin: 0 1em 1em 0;
+	}
+
+	h2 {
+		clear: none;
+		margin-top: 0;
+	}
+
+	+ .wp-team-member {
+		margin-top: 1em;
+	}
 }
