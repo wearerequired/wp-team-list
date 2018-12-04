@@ -587,11 +587,13 @@ class Plugin {
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
-			// Todo: Add correct dependencies.
 			[
 				'wp-blocks',
-				'wp-i18n',
+				'wp-components',
 				'wp-element',
+				'wp-editor',
+				'wp-i18n',
+				'wp-url',
 			],
 			self::VERSION
 		);
@@ -624,13 +626,12 @@ class Plugin {
 			);
 		}
 
-		wp_styles()->add( 'wp-team-list-editor', 'rtl', true );
-		wp_styles()->add( 'wp-team-list-block', 'rtl', true );
+		wp_styles()->add_data( 'wp-team-list-editor', 'rtl', true );
 
 		register_block_type(
 			'required/wp-team-list', [
 				'editor_script'   => 'wp-team-list-block-editor',
-				'editor_style'    => 'wp-team-list-block-editor',
+				'editor_style'    => 'wp-team-list-editor',
 				'style'           => 'wp-team-list-block',
 				'render_callback' => [ $this, 'render_team_list_block' ],
 				'attributes'      => [

@@ -51,8 +51,12 @@ wpDependencies.forEach( ( name ) => {
 	};
 } );
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const config = {
-	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+	mode: isProduction ? 'production' : 'development',
+
+	devtool: isProduction ? undefined : 'inline-source-map',
 
 	// https://webpack.js.org/configuration/entry-context/#context
 	context: path.resolve( __dirname, 'assets/js/src' ),
@@ -97,7 +101,7 @@ const config = {
 				use: 'babel-loader',
 			},
 			{
-				test: /editor\.css$/,
+				test: /\.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
