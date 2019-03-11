@@ -11,7 +11,7 @@ import edit from './edit';
 export const name = 'required/wp-team-list';
 
 export const settings = {
-	title:  __( 'Team List', 'wp-team-list' ),
+	title: __( 'Team List', 'wp-team-list' ),
 
 	description: __( 'Display website authors.', 'wp-team-list' ),
 

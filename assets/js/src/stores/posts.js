@@ -47,7 +47,7 @@ export const settings = {
 	resolvers: {
 		async getPost( postId, postType ) {
 			// TODO: postType should be rest_base of the post type object.
-			const post = postId ? await apiFetch( { path: `/wp/v2/${postType}s/${postId}?_embed` } ) : null;
+			const post = postId ? await apiFetch( { path: `/wp/v2/${ postType }s/${ postId }?_embed` } ) : null;
 			dispatch( 'wp-team-list/posts' ).setPost( postId, post );
 		},
 	},

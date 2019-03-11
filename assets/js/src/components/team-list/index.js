@@ -21,7 +21,7 @@ class TeamList extends Component {
 		const { users, linkTo, showDescription, isLoading } = this.props;
 
 		if ( isLoading ) {
-			return <Spinner />;
+			return <Spinner/>;
 		}
 
 		if ( ! users ) {
@@ -33,14 +33,14 @@ class TeamList extends Component {
 		}
 
 		const teamList = users.map( user => {
-			return <TeamMember user={ user } showDescription={ showDescription } key={ user.id } />
+			return <TeamMember user={ user } showDescription={ showDescription } key={ user.id }/>
 		} );
 
 		return (
 			<Fragment>
 				{ teamList }
 				{ linkTo &&
-					<a href={linkTo} className="show-all">{ __( 'Show all team members', 'wp-team-list' ) }</a>
+				  <a href={ linkTo } className="show-all">{ __( 'Show all team members', 'wp-team-list' ) }</a>
 				}
 			</Fragment>
 		)

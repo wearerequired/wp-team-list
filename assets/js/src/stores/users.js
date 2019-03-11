@@ -75,8 +75,8 @@ export const settings = {
 			try {
 				const users = await apiFetch( { path: '/wp-team-list/v1/users?' + query } );
 				dispatch( 'wp-team-list/users' ).setUsers( query, users );
-			} catch( e ) {
-				console.log( `[WP Team List] Error ${e.code} while trying to load users: ${e.message}` );
+			} catch ( e ) {
+				console.log( `[WP Team List] Error ${ e.code } while trying to load users: ${ e.message }` );
 			} finally {
 				dispatch( 'wp-team-list/users' ).setLoading( query, false );
 			}

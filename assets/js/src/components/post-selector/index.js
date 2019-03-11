@@ -21,12 +21,12 @@ class PostSelector extends Component {
 	constructor() {
 		super( ...arguments );
 
-		this.setPost     = this.setPost.bind( this );
+		this.setPost = this.setPost.bind( this );
 		this.suggestPost = this.suggestPost.bind( this );
 	}
 
 	setPost( post ) {
-		if ( !post ) {
+		if ( ! post ) {
 			return;
 		}
 
@@ -43,7 +43,7 @@ class PostSelector extends Component {
 		}
 
 		const searchablePostTypes = this.props.searchablePostTypes || [ 'post' ];
-		const payload =`?subtype=${ searchablePostTypes.join( ',' ) }&search=${ encodeURIComponent( query ) }`;
+		const payload = `?subtype=${ searchablePostTypes.join( ',' ) }&search=${ encodeURIComponent( query ) }`;
 		apiFetch( { path: '/wp/v2/search/' + payload } ).then( posts => {
 			populateResults( posts );
 		} );
@@ -57,27 +57,27 @@ class PostSelector extends Component {
 
 		return (
 			<BaseControl
-				id={selectId}
+				id={ selectId }
 				label={ label }
 				help={ help }
 			>
 				<Autocomplete
-					id={selectId}
-					minLength={2}
-					showAllValues={true}
-					defaultValue={currentPost ? currentPost.title.rendered : ''}
-					autoselect={true}
+					id={ selectId }
+					minLength={ 2 }
+					showAllValues={ true }
+					defaultValue={ currentPost ? currentPost.title.rendered : '' }
+					autoselect={ true }
 					displayMenu="overlay"
-					onConfirm={this.setPost}
-					source={debounce( this.suggestPost, 300 )}
-					showNoResultsFound={true}
+					onConfirm={ this.setPost }
+					source={ debounce( this.suggestPost, 300 ) }
+					showNoResultsFound={ true }
 					placeholder={ placeholder }
-					tStatusQueryTooShort={( minQueryLength ) =>
-						sprintf( __( 'Type in %s or more characters for results', 'wp-team-list' ), minQueryLength )}
-					tNoResults={() => __( 'No results found', 'wp-team-list' )}
-					tStatusNoResults={() => __( 'No search results.', 'wp-team-list' )}
-					tStatusSelectedOption={( selectedOption, length ) => sprintf( __( '%1$s (1 of %2$s) is selected', 'wp-team-list' ), selectedOption, length )}
-					tStatusResults={( length, contentSelectedOption ) => {
+					tStatusQueryTooShort={ ( minQueryLength ) =>
+						sprintf( __( 'Type in %s or more characters for results', 'wp-team-list' ), minQueryLength ) }
+					tNoResults={ () => __( 'No results found', 'wp-team-list' ) }
+					tStatusNoResults={ () => __( 'No search results.', 'wp-team-list' ) }
+					tStatusSelectedOption={ ( selectedOption, length ) => sprintf( __( '%1$s (1 of %2$s) is selected', 'wp-team-list' ), selectedOption, length ) }
+					tStatusResults={ ( length, contentSelectedOption ) => {
 						return (
 							<span>{
 								sprintf(
@@ -87,7 +87,7 @@ class PostSelector extends Component {
 								)
 							}</span>
 						);
-					}}
+					} }
 					templates={
 						{
 							inputValue: inputValue => {
