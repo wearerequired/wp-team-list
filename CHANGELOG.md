@@ -74,40 +74,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Initial Release
 
-## Upgrade Notice ##
-
-## 2.0.0
-Major rewrite with some deprecated stuff. Make sure to test first!
-
-## 1.1.2
-Fixes a small bug in the previous release.
-
-## 1.1.1
-Allows role 'All' in the widget to display users with any role.
-
-## 1.1.0
-Supports multiple user roles und listing only specific users.
-
-## 1.0.5
-Some small improvements under the hood. Also, 100% compatible with WordPress 4.3.
-
-## 1.0.4
-Supports ordering by last and first names.
-
-## 1.0.3
-
-This update includes a small translation fix in the templates.
-
-## 1.0.2
-
-Thanks for using our plugin! This update properly translates user roles. de_CH translation included.
-
-## 1.0.1
-We changed the plugin's textdomain to improve translation handling.
-
-## 1.0.0
-Initial Release
-
 [Unreleased]: https://github.com/wearerequired/wp-team-list/compare/2.0.1...HEAD
 [2.0.1]: https://github.com/wearerequired/wp-team-list/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/wearerequired/wp-team-list/compare/1.1.3...2.0.0
