@@ -10,6 +10,8 @@
  * @package WP_Team_List
  */
 
+// phpcs:disable WordPress.NamingConventions, VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable, WordPress.WP.GlobalVariablesOverride.Prohibited -- Variables are not global.
+
 $role_display_name = wp_team_list()->get_user_role( $user, 'display_name' );
 $role              = wp_team_list()->get_user_role( $user, 'name' );
 $role_class        = sanitize_html_class( 'role-' . $role );
