@@ -1,45 +1,22 @@
 <?xml version="1.0"?>
-<ruleset>
-	<!-- Check all PHP files in directory tree by default. -->
-	<arg name="extensions" value="php"/>
-	<file>.</file>
+<ruleset name="WP Team List">
+  <description>Coding Standard for WP Team List plugin.</description>
 
-	<!-- Show progress and sniff codes in all reports -->
-	<arg value="ps"/>
+  <file>.</file>
 
-	<rule ref="WordPress-Core">
-		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
-		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
-	</rule>
+  <rule ref="Required"/>
 
-	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="text_domain" type="array" value="wp-team-list" />
-		</properties>
-	</rule>
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array" value="wp-team-list" />
+    </properties>
+  </rule>
 
-	<!-- WordPress considers translations to be safe -->
-	<rule ref="WordPress-Extra">
-		<exclude name="WordPress.XSS.EscapeOutput.UnsafePrintingFunction" />
-	</rule>
+  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+    <properties>
+      <property name="prefixes" type="array" value="wp_team_list,Required\WPTeamList"/>
+    </properties>
+  </rule>
 
-	<rule ref="WordPress.XSS.EscapeOutput">
-		<properties>
-			<property name="customEscapingFunctions" value="number_format_i18n,date_i18n,__,_x" />
-		</properties>
-	</rule>
-
-	<rule ref="WordPress-Docs" />
-
-	<rule ref="Squiz.PHP.CommentedOutCode">
-		<properties>
-			<property name="maxPercentage" value="75" />
-		</properties>
-	</rule>
-
-	<exclude-pattern>*/node_modules/*</exclude-pattern>
-	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>*/tests/*</exclude-pattern>
-	<exclude-pattern>*.js</exclude-pattern>
-	<exclude-pattern>*.css</exclude-pattern>
+  <exclude-pattern>*/tests/*</exclude-pattern>
 </ruleset>

@@ -28,41 +28,41 @@ class Plugin {
 	 */
 	public function add_hooks() {
 		// Load plugin text domain.
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', [ $this, 'load_plugin_textdomain' ] );
 
 		// Register the team list widget.
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+		add_action( 'widgets_init', [ $this, 'register_widgets' ] );
 
 		// Register the stylesheet.
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_stylesheet' ) );
+		add_action( 'wp_enqueue_scripts', [ $this, 'register_stylesheet' ] );
 
 		// Add a checkbox to the user profile and edit user screen.
-		add_action( 'show_user_profile', array( $this, 'admin_render_profile_fields' ) );
-		add_action( 'edit_user_profile', array( $this, 'admin_render_profile_fields' ) );
+		add_action( 'show_user_profile', [ $this, 'admin_render_profile_fields' ] );
+		add_action( 'edit_user_profile', [ $this, 'admin_render_profile_fields' ] );
 
 		// Save additional user profile and user edit information.
-		add_action( 'personal_options_update', array( $this, 'admin_save_profile_fields' ) );
-		add_action( 'edit_user_profile_update', array( $this, 'admin_save_profile_fields' ) );
+		add_action( 'personal_options_update', [ $this, 'admin_save_profile_fields' ] );
+		add_action( 'edit_user_profile_update', [ $this, 'admin_save_profile_fields' ] );
 
 		// Add the team list visibility status to the user list table.
-		add_filter( 'manage_users_columns', array( $this, 'admin_add_visibility_column' ) );
-		add_action( 'manage_users_custom_column', array( $this, 'admin_add_visibility_column_content' ), 10, 3 );
+		add_filter( 'manage_users_columns', [ $this, 'admin_add_visibility_column' ] );
+		add_action( 'manage_users_custom_column', [ $this, 'admin_add_visibility_column_content' ], 10, 3 );
 
 		// Shortcodes.
-		add_action( 'init', array( $this, 'add_shortcode' ) );
-		add_action( 'init', array( $this, 'register_shortcode_ui' ) );
+		add_action( 'init', [ $this, 'add_shortcode' ] );
+		add_action( 'init', [ $this, 'register_shortcode_ui' ] );
 
 		// Blocks.
-		add_action( 'init', array( $this, 'register_block_type' ) );
+		add_action( 'init', [ $this, 'register_block_type' ] );
 
 		// Support displaying the team list using an action.
-		add_action( 'wp_team_list', array( $this, 'render' ) );
+		add_action( 'wp_team_list', [ $this, 'render' ] );
 
 		// Load stylesheet in the editor.
-		add_filter( 'mce_css', array( $this, 'filter_mce_css' ) );
+		add_filter( 'mce_css', [ $this, 'filter_mce_css' ] );
 
 		// Register REST API route.
-		add_action( 'rest_api_init', array( $this, 'register_rest_route' ) );
+		add_action( 'rest_api_init', [ $this, 'register_rest_route' ] );
 	}
 
 	/**
@@ -102,7 +102,7 @@ class Plugin {
 	/**
 	 * Render team list profile fields.
 	 *
-	 * @param WP_User $user User object.
+	 * @param \WP_User $user User object.
 	 */
 	public function admin_render_profile_fields( WP_User $user ) {
 		?>
@@ -206,13 +206,13 @@ class Plugin {
 	 * @return int[] The queried users' IDs.
 	 */
 	public function get_users( $args ) {
-		$defaults = array(
+		$defaults = [
 			'role'                => 'administrator',
 			'orderby'             => 'post_count',
 			'order'               => 'DESC',
 			'include'             => '',
 			'has_published_posts' => null,
-		);
+		];
 
 		$args = wp_parse_args( $args, $defaults );
 
@@ -231,28 +231,28 @@ class Plugin {
 		$args['fields'] = 'ID';
 
 		// Make sure the meta key for hiding isn't set.
-		$args['meta_query'] = array(
+		$args['meta_query'] = [
 			'relation' => 'AND',
-			array(
+			[
 				'relation' => 'OR',
-				array(
+				[
 					'key'     => 'rplus_wp_team_list_visibility',
 					'value'   => 'visible',
 					'compare' => '=',
-				),
-				array(
+				],
+				[
 					'key'     => 'rplus_wp_team_list_visibility',
 					'compare' => 'NOT EXISTS',
-				),
-			),
-		);
+				],
+			],
+		];
 
 		if ( isset( $args['has_published_posts'] ) && 'true' !== (string) $args['has_published_posts'] ) {
 			$args['has_published_posts'] = array_filter( array_map( 'trim', explode( ',', $args['has_published_posts'] ) ) );
 		}
 
 		// For compatibility with WordPress 4.3 and below.
-		$roles = array();
+		$roles = [];
 		if ( isset( $args['role'] ) ) {
 			$roles = is_array( $args['role'] ) ? $args['role'] : array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
 		}
@@ -260,13 +260,13 @@ class Plugin {
 		if ( 1 < count( $roles ) ) {
 			global $wpdb;
 
-			$mq = array( 'relation' => 'OR' );
+			$mq = [ 'relation' => 'OR' ];
 			foreach ( $roles as $role ) {
-				$mq[] = array(
+				$mq[] = [
 					'key'     => $wpdb->get_blog_prefix( get_current_blog_id() ) . 'capabilities',
 					'value'   => $role,
 					'compare' => 'LIKE',
-				);
+				];
 			}
 
 			$args['meta_query'][] = $mq;
@@ -290,8 +290,8 @@ class Plugin {
 	 *
 	 * First looks in your theme and falls back to the bundled template file.
 	 *
-	 * @param WP_User $user     The user object that is needed by the template.
-	 * @param string  $template Name of the template file to load.
+	 * @param \Required\WPTeamList\WP_User $user The user object that is needed by the template.
+	 * @param string                       $template Name of the template file to load.
 	 */
 	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php' ) {
 		if ( 'rplus-wp-team-list.php' !== $template ) {
@@ -317,7 +317,7 @@ class Plugin {
 		 * Filter the team list template.
 		 *
 		 * @param   string  $template Full path to the template file.
-		 * @param   WP_User $user     The user object that is needed by the template.
+		 * @param \Required\WPTeamList\WP_User $user The user object that is needed by the template.
 		 */
 		$template_path = apply_filters( 'wp_team_list_template', $template_path, $user );
 
@@ -336,10 +336,10 @@ class Plugin {
 	public function item_classes( $classes ) {
 		$defaults = apply_filters(
 			'rplus_wp_team_list_default_classes',
-			array(
+			[
 				'wp-team-member',
 				'wp-team-list-item',
-			)
+			]
 		);
 
 		if ( ! is_array( $classes ) ) {
@@ -413,8 +413,8 @@ class Plugin {
 	 * Add the team list shortcode.
 	 */
 	public function add_shortcode() {
-		add_shortcode( 'rplus_team_list', array( $this, 'render_shortcode' ) );
-		add_shortcode( 'wp_team_list', array( $this, 'render_shortcode' ) );
+		add_shortcode( 'rplus_team_list', [ $this, 'render_shortcode' ] );
+		add_shortcode( 'wp_team_list', [ $this, 'render_shortcode' ] );
 	}
 
 	/**
@@ -440,13 +440,15 @@ class Plugin {
 		}
 
 		$args = shortcode_atts(
-			array(
+			[
 				'role'                => 'Administrator',
 				'orderby'             => 'post_count',
 				'order'               => 'DESC',
 				'include'             => '',
 				'has_published_posts' => null,
-			), $atts, 'wp_team_list'
+			],
+			$atts,
+			'wp_team_list'
 		);
 
 		return $this->render( $args );
@@ -463,43 +465,43 @@ class Plugin {
 		// Include this in order to use get_editable_roles().
 		require_once ABSPATH . 'wp-admin/includes/user.php';
 
-		$user_roles = array( 'all' => __( 'All', 'wp-team-list' ) );
+		$user_roles = [ 'all' => __( 'All', 'wp-team-list' ) ];
 		foreach ( get_editable_roles() as $role => $data ) {
 			$user_roles[ $role ] = $data['name'];
 		}
 
-		$shortcode_ui_args = array(
+		$shortcode_ui_args = [
 			'label'         => __( 'Team List', 'wp-team-list' ),
 			'listItemImage' => 'dashicons-groups',
-			'attrs'         => array(
-				array(
+			'attrs'         => [
+				[
 					'label'   => __( 'Role', 'wp-team-list' ),
 					'attr'    => 'role',
 					'type'    => 'select',
 					'value'   => 'administrator',
 					'options' => $user_roles,
-				),
-				array(
+				],
+				[
 					'label'   => __( 'Order By', 'wp-team-list' ),
 					'attr'    => 'orderby',
 					'type'    => 'select',
 					'value'   => 'post_count',
-					'options' => array(
+					'options' => [
 						'post_count' => __( 'Post Count', 'wp-team-list' ),
-					),
-				),
-				array(
+					],
+				],
+				[
 					'label'   => __( 'Order', 'wp-team-list' ),
 					'attr'    => 'order',
 					'type'    => 'radio',
 					'value'   => 'desc',
-					'options' => array(
+					'options' => [
 						'asc'  => __( 'Ascending', 'wp-team-list' ),
 						'desc' => __( 'Descending', 'wp-team-list' ),
-					),
-				),
-			),
-		);
+					],
+				],
+			],
+		];
 
 		shortcode_ui_register_for_shortcode( 'wp_team_list', $shortcode_ui_args );
 	}
@@ -507,9 +509,9 @@ class Plugin {
 	/**
 	 * Retrieve data of user's first role.
 	 *
-	 * @param WP_User $user  User object.
-	 * @param string  $field Optional. Field to retrieve. Accepts 'name' and
-	 *                       'display_name'. Default: 'display_name'.
+	 * @param \Required\WPTeamList\WP_User $user User object.
+	 * @param string                       $field Optional. Field to retrieve. Accepts 'name' and
+	 *                                            'display_name'. Default: 'display_name'.
 	 * @return string|false Field value on success, false otherwise.
 	 */
 	public function get_user_role( WP_User $user, $field = 'display_name' ) {
@@ -518,15 +520,14 @@ class Plugin {
 		switch ( $field ) {
 			case 'display_name':
 				$role_names = $GLOBALS['wp_roles']->get_names();
-				// phpcs:disable WordPress.WP.I18n
+				// phpcs:ignore WordPress.WP.I18n
 				$role_name = translate_with_gettext_context( $role_names[ $role ], 'User role', 'wp-team-list' );
-				// phpcs:enable
 
 				/**
 				 * Filter the display name of user's role displayed in the team list.
 				 *
 				 * @param string  $role_name Role name.
-				 * @param WP_User $user      User object.
+				 * @param \Required\WPTeamList\WP_User $user User object.
 				 */
 				return apply_filters( 'wp_team_list_user_role', $role_name, $user );
 
@@ -564,7 +565,7 @@ class Plugin {
 		 * Filter the team list avatar size.
 		 *
 		 * @param int     $size Avatar size. Default 50.
-		 * @param WP_User $user Current user object.
+		 * @param \Required\WPTeamList\WP_User $user Current user object.
 		 */
 		$size = apply_filters( 'wp_team_list_avatar_size', 90, $user );
 
@@ -629,7 +630,8 @@ class Plugin {
 		wp_styles()->add_data( 'wp-team-list-editor', 'rtl', true );
 
 		register_block_type(
-			'required/wp-team-list', [
+			'required/wp-team-list',
+			[
 				'editor_script'   => 'wp-team-list-block-editor',
 				'editor_style'    => 'wp-team-list-editor',
 				'style'           => 'wp-team-list-block',

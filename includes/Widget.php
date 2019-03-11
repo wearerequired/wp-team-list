@@ -20,10 +20,10 @@ class Widget extends WP_Widget {
 	 * Register the widget and setup the defaults.
 	 */
 	public function __construct() {
-		$widget_ops = array(
+		$widget_ops = [
 			'classname'   => 'widget_wp_team_list',
 			'description' => __( 'Display users as team members.', 'wp-team-list' ),
-		);
+		];
 
 		parent::__construct( 'wp-team-list', __( 'WP Team List', 'wp-team-list' ), $widget_ops );
 	}
@@ -56,10 +56,10 @@ class Widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 		// A filter for all instances of this widget.
-		$team_query_args = array(
+		$team_query_args = [
 			'role'   => $role,
 			'number' => $number,
-		);
+		];
 
 		echo $args['before_widget'];
 
@@ -141,11 +141,11 @@ class Widget extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'page_link' ) ); ?>"><?php esc_html_e( 'Link to:', 'wp-team-list' ); ?></label>
 			<?php
 			wp_dropdown_pages(
-				array(
+				[
 					'selected' => absint( $page_link ),
 					'name'     => esc_attr( $this->get_field_name( 'page_link' ) ),
 					'id'       => esc_attr( $this->get_field_id( 'page_link' ) ),
-				)
+				]
 			);
 			?>
 		</p>

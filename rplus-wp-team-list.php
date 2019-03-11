@@ -13,10 +13,13 @@
  * @package WP_Team_List
  */
 
+// phpcs:disable Generic.Arrays.DisallowLongArraySyntax -- File needs to be parsable by PHP 5.2.4.
+
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
+// phpcs:ignore WordPress.NamingConventions -- Variable gets unset.
 $requirements_check = new WP_Requirements_Check(
 	array(
 		'title' => 'WP Team List',

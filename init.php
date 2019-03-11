@@ -13,7 +13,7 @@ define( 'Required\WPTeamList\TEMPLATES_DIR', __DIR__ . '/templates' );
 /**
  * Get the team list instance.
  *
- * @return Required\WPTeamList\Plugin Plugin instance.
+ * @return \Required\WPTeamList\Plugin Plugin instance.
  */
 function wp_team_list() {
 	static $wp_team_list = null;

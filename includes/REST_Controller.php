@@ -30,37 +30,39 @@ class REST_Controller extends WP_REST_Controller {
 	 */
 	public function register_routes() {
 		register_rest_route(
-			$this->namespace, '/' . $this->rest_base, [
+			$this->namespace,
+			'/' . $this->rest_base,
+			[
 				[
 					'methods'             => WP_REST_Server::READABLE,
-					'callback'            => array( $this, 'get_items' ),
-					'permission_callback' => array( $this, 'get_items_permissions_check' ),
+					'callback'            => [ $this, 'get_items' ],
+					'permission_callback' => [ $this, 'get_items_permissions_check' ],
 					'args'                => [
 						'order'    => [
 							'description' => __( 'Order sort attribute ascending or descending.', 'wp-team-list' ),
 							'type'        => 'string',
 							'default'     => 'desc',
-							'enum'        => array( 'asc', 'desc' ),
+							'enum'        => [ 'asc', 'desc' ],
 						],
 						'orderby'  => [
 							'description' => __( 'Sort collection by object attribute.', 'wp-team-list' ),
 							'type'        => 'string',
 							'default'     => 'post_count',
-							'enum'        => array(
+							'enum'        => [
 								'post_count',
 								'name',
 								'first_name',
 								'last_name',
-							),
+							],
 						],
 						'roles'    => [
 							'description' => __( 'Limit result set to users matching at least one specific role provided. Accepts csv list or single role.', 'wp-team-list' ),
 							'type'        => 'array',
-							'items'       => array(
+							'items'       => [
 								'type' => 'string',
-							),
+							],
 						],
-						'per_page' => array(
+						'per_page' => [
 							'description'       => __( 'Maximum number of items to be returned in result set.', 'wp-team-list' ),
 							'type'              => 'integer',
 							'default'           => 10,
@@ -68,7 +70,7 @@ class REST_Controller extends WP_REST_Controller {
 							'maximum'           => 100,
 							'sanitize_callback' => 'absint',
 							'validate_callback' => 'rest_validate_request_arg',
-						),
+						],
 					],
 				],
 			]
@@ -78,12 +80,12 @@ class REST_Controller extends WP_REST_Controller {
 	/**
 	 * Permissions check for getting all users.
 	 *
-	 * @param WP_REST_Request $request Full details about the request.
-	 * @return true|WP_Error True if the request has read access, otherwise WP_Error object.
+	 * @param \WP_REST_Request $request Full details about the request.
+	 * @return true|\WP_Error True if the request has read access, otherwise WP_Error object.
 	 */
 	public function get_items_permissions_check( $request ) {
 		$can_view = false;
-		$types    = get_post_types( array( 'show_in_rest' => true ), 'objects' );
+		$types    = get_post_types( [ 'show_in_rest' => true ], 'objects' );
 
 		foreach ( $types as $type ) {
 			if (
@@ -95,7 +97,7 @@ class REST_Controller extends WP_REST_Controller {
 		}
 
 		if ( ! $can_view ) {
-			return new WP_Error( 'rest_forbidden_who', __( 'Sorry, you are not allowed to query users.', 'wp-team-list' ), array( 'status' => rest_authorization_required_code() ) );
+			return new WP_Error( 'rest_forbidden_who', __( 'Sorry, you are not allowed to query users.', 'wp-team-list' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 
 		return true;
@@ -104,8 +106,8 @@ class REST_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves all users.
 	 *
-	 * @param WP_REST_Request $request Full details about the request.
-	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 * @param \WP_REST_Request $request Full details about the request.
+	 * @return \WP_REST_Response|\WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
 		// Retrieve the list of registered collection query parameters.
