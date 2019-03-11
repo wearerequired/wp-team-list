@@ -493,8 +493,8 @@ class WP_Team_List {
 		$role = current( $user->roles );
 
 		switch ( $field ) {
-			case 'display_name' :
-				$role_names = $GLOBALS['wp_roles']->get_names();
+			case 'display_name':
+				$role_names = wp_roles()->get_names();
 				$role_name  = translate_with_gettext_context( $role_names[ $role ], 'User role', 'wp-team-list' );
 
 				/**
