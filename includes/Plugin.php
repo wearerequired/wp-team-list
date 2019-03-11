@@ -403,7 +403,8 @@ class Plugin {
 		}
 
 		if ( $echo ) {
-			echo $output; // WPCS: XSS ok.
+			// phpcs:ignore WordPress.Security.EscapeOutput
+			echo $output;
 		}
 
 		return $output;
@@ -526,8 +527,8 @@ class Plugin {
 				/**
 				 * Filter the display name of user's role displayed in the team list.
 				 *
-				 * @param string  $role_name Role name.
-				 * @param \Required\WPTeamList\WP_User $user User object.
+				 * @param string                       $role_name Role name.
+				 * @param \Required\WPTeamList\WP_User $user      User object.
 				 */
 				return apply_filters( 'wp_team_list_user_role', $role_name, $user );
 
@@ -581,10 +582,6 @@ class Plugin {
 	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
 	 */
 	public function register_block_type() {
-		if ( ! function_exists( 'register_block_type' ) ) {
-			return;
-		}
-
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
@@ -596,36 +593,18 @@ class Plugin {
 				'wp-i18n',
 				'wp-url',
 			],
-			self::VERSION
+			self::VERSION,
+			true
 		);
+
+		wp_set_script_translations( 'wp-team-list-block-editor', 'wp-team-list' );
 
 		wp_register_style(
 			'wp-team-list-editor',
 			plugins_url( 'assets/css/editor.css', plugin_dir_path( __FILE__ ) ),
+			[],
 			self::VERSION
 		);
-
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'wp-team-list-block-editor', 'wp-team-list' );
-		} elseif ( function_exists( 'wp_get_jed_locale_data' ) ) {
-			// Prepare Jed locale data.
-			$locale_data = wp_get_jed_locale_data( 'wp-team-list' );
-
-			wp_add_inline_script(
-				'wp-team-list-block-editor',
-				'wp.i18n.setLocaleData( ' . wp_json_encode( $locale_data ) . ', "wp-team-list" );',
-				'before'
-			);
-		} elseif ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
-			// Prepare Jed locale data.
-			$locale_data = gutenberg_get_jed_locale_data( 'wp-team-list' );
-
-			wp_add_inline_script(
-				'wp-team-list-block-editor',
-				'wp.i18n.setLocaleData( ' . wp_json_encode( $locale_data ) . ', "wp-team-list" );',
-				'before'
-			);
-		}
 
 		wp_styles()->add_data( 'wp-team-list-editor', 'rtl', true );
 

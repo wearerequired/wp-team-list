@@ -14,7 +14,7 @@
 
   <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
     <properties>
-      <property name="prefixes" type="array" value="wp_team_list,Required\WPTeamList"/>
+      <property name="prefixes" type="array" value="rplus_wp_team_list,wp_team_list,Required\WPTeamList"/>
     </properties>
   </rule>
 
