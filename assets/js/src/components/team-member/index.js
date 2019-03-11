@@ -6,7 +6,20 @@ import { __, _n, sprintf } from "@wordpress/i18n";
 
 export default class TeamMember extends Component {
 	render() {
-		const { user: { id, role, role_display_name, display_name, avatar_urls, description, link, post_count }, showDescription, className } = this.props;
+		const {
+			user: {
+				id,
+				role,
+				role_display_name,
+				display_name,
+				avatar_urls,
+				description,
+				link,
+				post_count,
+			},
+			showDescription,
+			className
+		} = this.props;
 
 		return (
 			<div

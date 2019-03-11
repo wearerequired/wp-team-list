@@ -10,6 +10,11 @@
         "source": "@wordpress/element",
         "isDefault": false
       }
+    ],
+    [
+      "@babel/transform-react-jsx", {
+        "pragma": "createElement"
+      }
     ]
   ]
 }

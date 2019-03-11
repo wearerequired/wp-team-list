@@ -27,12 +27,7 @@ class TeamList extends Component {
 		if ( ! users ) {
 			return (
 				<p>
-					{
-						__(
-							'There are no users to show.',
-							'wp-team-list'
-						)
-					}
+					{ __( 'There are no users to show.', 'wp-team-list' ) }
 				</p>
 			)
 		}
@@ -55,16 +50,12 @@ class TeamList extends Component {
 export default withSelect( ( select, ownProps ) => {
 	const { number, roles, orderBy, order, showLink, showDescription } = ownProps;
 	const { getUsers, isLoading } = select( 'wp-team-list/users' );
-	const { getEditedPostAttribute } = select( 'core/editor' );
-
-	const lang = getEditedPostAttribute( 'lang' );
 
 	const queryArgs = {
 		order,
 		order_by: orderBy,
 		roles,
 		per_page: number,
-		lang,
 	};
 
 	const queryString = addQueryArgs( '', queryArgs );

@@ -17,7 +17,7 @@ import { debounce } from 'lodash';
  */
 import './accessible-autocomplete.css';
 
-export class PostSelector extends Component {
+class PostSelector extends Component {
 	constructor() {
 		super( ...arguments );
 
@@ -73,15 +73,15 @@ export class PostSelector extends Component {
 					showNoResultsFound={true}
 					placeholder={ placeholder }
 					tStatusQueryTooShort={( minQueryLength ) =>
-						sprintf( __( 'Type in %s or more characters for results', 'schilling-content-types' ), minQueryLength )}
-					tNoResults={() => __( 'No results found', 'schilling-content-types' )}
-					tStatusNoResults={() => __( 'No search results.', 'schilling-content-types' )}
-					tStatusSelectedOption={( selectedOption, length ) => sprintf( __( '%1$s (1 of %2$s) is selected', 'schilling-content-types' ), selectedOption, length )}
+						sprintf( __( 'Type in %s or more characters for results', 'wp-team-list' ), minQueryLength )}
+					tNoResults={() => __( 'No results found', 'wp-team-list' )}
+					tStatusNoResults={() => __( 'No search results.', 'wp-team-list' )}
+					tStatusSelectedOption={( selectedOption, length ) => sprintf( __( '%1$s (1 of %2$s) is selected', 'wp-team-list' ), selectedOption, length )}
 					tStatusResults={( length, contentSelectedOption ) => {
 						return (
 							<span>{
 								sprintf(
-									_n( '%1$s result is available. %2$s', '%s results are available. %2$s', length, 'schilling-content-types' ),
+									_n( '%1$s result is available. %2$s', '%s results are available. %2$s', length, 'wp-team-list' ),
 									length,
 									contentSelectedOption,
 								)
