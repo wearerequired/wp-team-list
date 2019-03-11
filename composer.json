@@ -2,16 +2,39 @@
   "name": "wearerequired/wp-team-list",
   "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
   "type": "wordpress-plugin",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
-    {
-      "name": "Silvan Hagen",
-      "email": "silvan@required.ch",
-      "homepage": "http://required.ch",
-      "role": "Developer"
-    }
+      {
+          "name": "required",
+          "email": "info@required.com",
+          "homepage": "https://required.com",
+          "role": "Company"
+      },
+      {
+          "name": "Silvan Hagen",
+          "role": "Developer"
+      },
+      {
+          "name": "Pascal Birchler",
+          "role": "Developer"
+      },
+      {
+          "name": "Stefan Pasch",
+          "email": "stefan@required.com",
+          "role": "Developer"
+      },
+      {
+          "name": "Dominik Schilling",
+          "email": "dominik@required.com",
+          "role": "Developer"
+      }
+  ],
+  "keywords": [
+      "wordpress",
+      "users",
+      "widget"
   ],
   "require": {
+      "php": ">=5.6"
   }
 }
-
