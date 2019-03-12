@@ -3,14 +3,12 @@
  */
 
 import { registerBlockType } from '@wordpress/blocks';
-import { registerStore } from '@wordpress/data';
+
 
 /**
  * Internal dependencies
  */
+import './store';
 import { TeamListName, TeamListSettings } from './blocks';
-import { name as usersStoreName, settings as usersStoreSettings } from './stores/users';
-
-registerStore( usersStoreName, usersStoreSettings );
 
 registerBlockType( TeamListName, TeamListSettings );

@@ -23,7 +23,19 @@ import { TeamList, PostSelector } from '../../components';
 
 class TeamListEdit extends Component {
 	render() {
-		const { className, post, attributes: { number, showDescription, roles, orderBy, order }, setAttributes } = this.props;
+		const {
+			className,
+			post,
+			availableRoles,
+			attributes: {
+				number,
+				showDescription,
+				roles,
+				orderBy,
+				order
+			},
+			setAttributes,
+		} = this.props;
 
 		return (
 			<Fragment>
@@ -49,20 +61,7 @@ class TeamListEdit extends Component {
 							label={ __( 'Roles', 'wp-team-list' ) }
 							help={ __( 'Only show users with the selected roles', 'wp-team-list' ) }
 							value={ roles }
-							options={ [
-								{
-									value: 'administrator',
-									label: _x( 'Administrator',  'User role', 'wp-team-list' ),
-								},
-								{
-									value: 'subscriber',
-									label: _x( 'Subscriber', 'User role', 'wp-team-list' ),
-								},
-								{
-									value: 'editor',
-									label: _x( 'Editor', 'User role', 'wp-team-list' ),
-								}
-							] }
+							options={ availableRoles }
 							multiple={ true }
 							onChange={ ( newValue ) => {
 								setAttributes( { roles: newValue } );
@@ -144,8 +143,10 @@ class TeamListEdit extends Component {
 
 export default withSelect(  ( select, ownProps ) => {
 	const { attributes: { postId, postType } } = ownProps;
+	const { getUserRoles } = select( 'wp-team-list' );
 
 	return {
 		post: select( 'core' ).getEntityRecord( 'postType', postType, postId ),
+		availableRoles: getUserRoles(),
 	};
 } )( TeamListEdit );

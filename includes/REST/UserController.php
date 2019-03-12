@@ -1,11 +1,11 @@
 <?php
 /**
- * Holds the WP Team List REST Controller class.
+ * Holds the User REST Controller class.
  *
  * @package WP_Team_List
  */
 
-namespace Required\WPTeamList;
+namespace Required\WPTeamList\REST;
 
 use WP_Error;
 use WP_REST_Controller;
@@ -14,7 +14,8 @@ use WP_REST_Server;
 /**
  * WP_Team_List class.
  */
-class REST_Controller extends WP_REST_Controller {
+class UserController extends WP_REST_Controller {
+
 	/**
 	 * Constructor.
 	 */
@@ -35,41 +36,7 @@ class REST_Controller extends WP_REST_Controller {
 					'methods'             => WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_items' ],
 					'permission_callback' => [ $this, 'get_items_permissions_check' ],
-					'args'                => [
-						'order'    => [
-							'description' => __( 'Order sort attribute ascending or descending.', 'wp-team-list' ),
-							'type'        => 'string',
-							'default'     => 'desc',
-							'enum'        => [ 'asc', 'desc' ],
-						],
-						'orderby'  => [
-							'description' => __( 'Sort collection by object attribute.', 'wp-team-list' ),
-							'type'        => 'string',
-							'default'     => 'post_count',
-							'enum'        => [
-								'post_count',
-								'name',
-								'first_name',
-								'last_name',
-							],
-						],
-						'roles'    => [
-							'description' => __( 'Limit result set to users matching at least one specific role provided. Accepts csv list or single role.', 'wp-team-list' ),
-							'type'        => 'array',
-							'items'       => [
-								'type' => 'string',
-							],
-						],
-						'per_page' => [
-							'description'       => __( 'Maximum number of items to be returned in result set.', 'wp-team-list' ),
-							'type'              => 'integer',
-							'default'           => 10,
-							'minimum'           => 1,
-							'maximum'           => 100,
-							'sanitize_callback' => 'absint',
-							'validate_callback' => 'rest_validate_request_arg',
-						],
-					],
+					'args'                => $this->get_collection_params(),
 				],
 			]
 		);
@@ -145,5 +112,48 @@ class REST_Controller extends WP_REST_Controller {
 		}
 
 		return rest_ensure_response( $result );
+	}
+
+	/**
+	 * Retrieves the query params for collections.
+	 *
+	 * @return array Collection parameters.
+	 */
+	public function get_collection_params() {
+		return [
+			'order'    => [
+				'description' => __( 'Order sort attribute ascending or descending.', 'wp-team-list' ),
+				'type'        => 'string',
+				'default'     => 'desc',
+				'enum'        => [ 'asc', 'desc' ],
+			],
+			'orderby'  => [
+				'description' => __( 'Sort collection by object attribute.', 'wp-team-list' ),
+				'type'        => 'string',
+				'default'     => 'post_count',
+				'enum'        => [
+					'post_count',
+					'name',
+					'first_name',
+					'last_name',
+				],
+			],
+			'roles'    => [
+				'description' => __( 'Limit result set to users matching at least one specific role provided. Accepts csv list or single role.', 'wp-team-list' ),
+				'type'        => 'array',
+				'items'       => [
+					'type' => 'string',
+				],
+			],
+			'per_page' => [
+				'description'       => __( 'Maximum number of items to be returned in result set.', 'wp-team-list' ),
+				'type'              => 'integer',
+				'default'           => 10,
+				'minimum'           => 1,
+				'maximum'           => 100,
+				'sanitize_callback' => 'absint',
+				'validate_callback' => 'rest_validate_request_arg',
+			],
+		];
 	}
 }

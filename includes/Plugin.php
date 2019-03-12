@@ -62,7 +62,7 @@ class Plugin {
 		add_filter( 'mce_css', [ $this, 'filter_mce_css' ] );
 
 		// Register REST API route.
-		add_action( 'rest_api_init', [ $this, 'register_rest_route' ] );
+		add_action( 'rest_api_init', [ $this, 'register_rest_routes' ] );
 	}
 
 	/**
@@ -657,10 +657,13 @@ class Plugin {
 	}
 
 	/**
-	 * Registers the team list REST API route.
+	 * Registers the REST API routes.
 	 */
-	public function register_rest_route() {
-		$controller = new REST_Controller();
+	public function register_rest_routes() {
+		$controller = new REST\UserController();
+		$controller->register_routes();
+
+		$controller = new REST\UserRolesController();
 		$controller->register_routes();
 	}
 
