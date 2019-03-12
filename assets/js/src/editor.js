@@ -10,9 +10,7 @@ import { registerStore } from '@wordpress/data';
  */
 import { TeamListName, TeamListSettings } from './blocks';
 import { name as usersStoreName, settings as usersStoreSettings } from './stores/users';
-import { name as postsStoreName, settings as postsStoreSettings } from './stores/posts';
 
 registerStore( usersStoreName, usersStoreSettings );
-registerStore( postsStoreName, postsStoreSettings );
 
 registerBlockType( TeamListName, TeamListSettings );

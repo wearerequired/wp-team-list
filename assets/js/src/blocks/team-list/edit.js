@@ -142,11 +142,10 @@ class TeamListEdit extends Component {
 	}
 }
 
-export default withSelect( ( select, ownProps ) => {
+export default withSelect(  ( select, ownProps ) => {
 	const { attributes: { postId, postType } } = ownProps;
-	const { getPost } = select( 'wp-team-list/posts' );
 
 	return {
-		post: getPost( postId, postType ),
+		post: select( 'core' ).getEntityRecord( 'postType', postType, postId ),
 	};
 } )( TeamListEdit );
