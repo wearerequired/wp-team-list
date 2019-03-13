@@ -20,7 +20,7 @@ export function* getUserRoles() {
 }
 
 /**
- * Requests users from the REST API.
+ * Requests user roles from the REST API.
  */
 export function* getUsers( query ) {
 	yield dispatch(

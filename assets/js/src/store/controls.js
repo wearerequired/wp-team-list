@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { default as triggerApiFetch } from '@wordpress/api-fetch';
-import { createRegistryControl } from '@wordpress/data';
+import { select as selectData, dispatch as dispatchData  } from '@wordpress/data';
 
 /**
  * Trigger an API Fetch request.
@@ -59,17 +59,13 @@ const controls = {
 		return triggerApiFetch( request );
 	},
 
-	SELECT: createRegistryControl(
-		( registry ) => ( { storeKey, selectorName, args } ) => {
-			return registry.select( storeKey )[ selectorName ]( ...args );
-		}
-	),
+	SELECT( { selectorName, args } ) {
+		return selectData( 'wp-team-list' )[ selectorName ]( ...args );
+	},
 
-	DISPATCH: createRegistryControl(
-		( registry ) => ( { storeKey, actionName, args } ) => {
-			return registry.dispatch( storeKey )[ actionName ]( ...args );
-		}
-	),
+	DISPATCH( { actionName, args } ) {
+		return dispatchData( 'wp-team-list' )[ actionName ]( ...args );
+	},
 };
 
 export default controls;
