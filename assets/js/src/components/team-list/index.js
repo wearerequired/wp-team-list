@@ -24,7 +24,7 @@ class TeamList extends Component {
 			return <Spinner/>;
 		}
 
-		if ( ! users ) {
+		if ( ! users || ! users.length ) {
 			return (
 				<p>
 					{ __( 'There are no users to show.', 'wp-team-list' ) }

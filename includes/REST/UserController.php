@@ -107,7 +107,7 @@ class UserController extends WP_REST_Controller {
 				'role_display_name' => wp_team_list()->get_user_role( $user, 'display_name' ),
 				'description'       => $user->description,
 				'link'              => get_author_posts_url( $user->ID, $user->user_nicename ),
-				'post_count'        => count_user_posts( $user->ID ),
+				'post_count'        => (int) count_user_posts( $user->ID ),
 				'avatar_urls'       => rest_get_avatar_urls( $user->user_email ),
 			];
 		}

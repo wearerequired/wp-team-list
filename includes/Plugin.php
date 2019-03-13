@@ -676,11 +676,10 @@ class Plugin {
 	public function render_team_list_block( $attributes ) {
 		$attributes_mappings = [
 			'number'          => 'order',
-			'showLink'        => 'show_link',
 			'showDescription' => 'show_description',
 			'order'           => 'order',
 			'orderBy'         => 'orderby',
-			'roles'           => 'role',
+			'role'            => 'role',
 		];
 
 		$prepared_args = [];
@@ -691,6 +690,16 @@ class Plugin {
 			}
 		}
 
-		return wp_team_list()->render( $prepared_args );
+		$html = wp_team_list()->render( $prepared_args );
+
+		if ( ! empty( $attributes['postId'] ) ) {
+			$html .= sprintf(
+				'<a href="%s" class="show-all">%s</a>',
+				esc_url( get_permalink( $attributes['postId'] ) ),
+				esc_html__( 'Show all team members', 'wp-team-list' )
+			);
+		}
+
+		return $html;
 	}
 }

@@ -13,8 +13,9 @@
 	}
 
 	h2 {
-		clear: none;
-		margin-top: 0;
+		clear: none !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
 	}
 
 	+ .wp-team-member {

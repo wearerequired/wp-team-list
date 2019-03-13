@@ -26,7 +26,7 @@ export default class TeamMember extends Component {
 				className={ `wp-team-member wp-team-list-item author-${ id } role-${ role } ${ className }` }>
 
 				<figure className="wp-team-member-avatar author-image">
-					<img src={ avatar_urls[ 90 ] } srcSet={ `${ avatar_urls[ 180 ] } 2x` } alt="" width="90"/>
+					<img src={ avatar_urls[ 90 ] } srcSet={ `${ avatar_urls[ 180 ] } 2x` } alt="" className="avatar avatar-90 photo" height="90" width="90"/>
 				</figure>
 
 				<h2 className="wp-team-member-name">{ display_name }</h2>
@@ -39,17 +39,10 @@ export default class TeamMember extends Component {
 				  <p className="wp-team-member-description">{ description }</p>
 				}
 
-				{ post_count &&
+				{ post_count > 0 &&
 				  <p className="wp-team-member-posts-link">
 					  <a
-						  href={ link }
-						  title={
-							  sprintf(
-								  /* translators: %s: author display name */
-								  __( 'View all posts by %s', 'wp-team-list' ),
-								  display_name
-							  )
-						  }>
+						  href={ link }>
 						  {
 							  sprintf(
 								  /* translators: %s: number of posts */
