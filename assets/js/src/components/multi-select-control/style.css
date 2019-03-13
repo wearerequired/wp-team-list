@@ -1,0 +1,41 @@
+.components-multi-select-control__control {
+	border-radius: 4px;
+	border: 1px solid #8d96a0;
+
+	&:hover {
+		border-color: #8d96a0;
+	}
+}
+
+.components-multi-select-control__control--is-focused {
+	border-color: #00a0d2;
+	box-shadow: 0 0 0 1px #00a0d2;
+	outline: 2px solid transparent;
+	outline-offset: -2px;
+
+	&:hover {
+		border-color: #00a0d2;
+	}
+}
+
+.components-multi-select-control__dropdown-indicator {
+	color: #555d66;
+
+	&:hover {
+		color: #555d66;
+	}
+}
+
+.components-multi-select-control__indicator-separator {
+	background: #8d96a0;
+}
+
+.components-multi-select-control__option--is-focused {
+	background: #0071a1;
+	color: #fff;
+}
+
+.components-multi-select-control__multi-value__remove:hover {
+	color: #d94f4f;
+	background-color: #f9e2e2;
+}

@@ -22,3 +22,7 @@
 		margin-top: 1em;
 	}
 }
+
+.editor-block-list__block .components-spinner {
+	float: none;
+}

@@ -10,6 +10,10 @@ import Select from 'react-select'
 import { withInstanceId } from '@wordpress/compose';
 import { BaseControl } from '@wordpress/components';
 
+/**
+ * Internal dependencies
+ */
+import './style.css';
 
 function MultiSelectControl( {
 	help,

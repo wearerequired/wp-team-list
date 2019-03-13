@@ -36,8 +36,6 @@ class TeamListEdit extends Component {
 			setAttributes,
 		} = this.props;
 
-		console.log(roles);
-
 		return (
 			<Fragment>
 				<TeamList
