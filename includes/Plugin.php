@@ -635,6 +635,9 @@ class Plugin {
 					'roles'           => [
 						'type'    => 'array',
 						'default' => [],
+						'items'   => [
+							'type' => 'string',
+						],
 					],
 					'orderBy'         => [
 						'type'    => 'string',
@@ -679,7 +682,7 @@ class Plugin {
 			'showDescription' => 'show_description',
 			'order'           => 'order',
 			'orderBy'         => 'orderby',
-			'role'            => 'role',
+			'roles'           => 'role',
 		];
 
 		$prepared_args = [];
