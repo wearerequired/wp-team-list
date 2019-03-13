@@ -19,6 +19,7 @@ $description       = get_user_meta( $user->ID, 'description', true );
 
 /* translators: %s: author name */
 $title_attr = sprintf( esc_attr__( 'View all posts by %s', 'wp-team-list' ), $user->data->display_name );
+$user_posts = (int) count_user_posts( $user->ID );
 ?>
 <div class="wp-team-member wp-team-list-item author-<?php echo esc_attr( $user->ID ); ?> <?php echo esc_attr( $role_class ); ?>">
 	<figure class="wp-team-member-avatar author-image">
@@ -37,14 +38,14 @@ $title_attr = sprintf( esc_attr__( 'View all posts by %s', 'wp-team-list' ), $us
 	}
 	?>
 
-	<?php if ( 0 < count_user_posts( $user->ID ) ) : ?>
+	<?php if ( $user_posts > 0 ) : ?>
 		<p class="wp-team-member-posts-link">
 			<a href="<?php echo esc_url( get_author_posts_url( $user->ID ) ); ?>" title="<?php echo esc_attr( $title_attr ); ?>">
 				<?php
 				printf(
 					/* translators: %s: number of posts */
-					esc_html( _n( 'View %d post', 'View %d posts', count_user_posts( $user->ID ), 'wp-team-list' ) ),
-					number_format_i18n( count_user_posts( $user->ID ) )
+					_n( 'View %s post', 'View %s posts', $user_posts , 'wp-team-list' ),
+					number_format_i18n( $user_posts )
 				);
 				?>
 			</a>
