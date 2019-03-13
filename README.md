@@ -34,6 +34,9 @@ For example, you can show users of any role ordered by their name:
 
 **Note:** WP Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.  
 
+**Block**
+Use the "Team List" block in the block-based editor to display one or more team lists in any post types.
+
 **Shortcode**
 
 Use the `[wp_team_list]` shortcode to display a team list in your posts. Supported arguments:
