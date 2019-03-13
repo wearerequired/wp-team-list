@@ -2,7 +2,10 @@
  * WordPress dependencies
  */
 import { Component } from '@wordpress/element';
-import { __, _n, sprintf } from "@wordpress/i18n";
+import {
+	_n,
+	sprintf,
+} from '@wordpress/i18n';
 
 export default class TeamMember extends Component {
 	render() {
@@ -18,12 +21,11 @@ export default class TeamMember extends Component {
 				post_count,
 			},
 			showDescription,
-			className
 		} = this.props;
 
 		return (
 			<div
-				className={ `wp-team-member wp-team-list-item author-${ id } role-${ role } ${ className }` }>
+				className={ `wp-team-member wp-team-list-item author-${ id } role-${ role }` }>
 
 				<figure className="wp-team-member-avatar author-image">
 					<img src={ avatar_urls[ 90 ] } srcSet={ `${ avatar_urls[ 180 ] } 2x` } alt="" className="avatar avatar-90 photo" height="90" width="90"/>
