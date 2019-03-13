@@ -65,11 +65,7 @@ class UserRolesController extends WP_REST_Controller {
 		// Required for get_editable_roles().
 		require_once ABSPATH . 'wp-admin/includes/user.php';
 
-		$user_roles   = [];
-		$user_roles[] = [
-			'value' => 'all',
-			'label' => __( 'All', 'wp-team-list' ),
-		];
+		$user_roles = [];
 
 		foreach ( get_editable_roles() as $role => $data ) {
 			$user_roles[] = [
