@@ -113,7 +113,6 @@ class UserController extends WP_REST_Controller {
 		}
 		remove_filter( 'rest_avatar_sizes', [ $this, 'set_avatar_sizes' ] );
 
-
 		return rest_ensure_response( $result );
 	}
 

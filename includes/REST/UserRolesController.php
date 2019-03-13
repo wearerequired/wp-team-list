@@ -47,9 +47,9 @@ class UserRolesController extends WP_REST_Controller {
 	 * @param \WP_REST_Request $request Full details about the request.
 	 * @return true|\WP_Error True if the request has read access, otherwise WP_Error object.
 	 */
-	public function get_items_permissions_check( $request ) {
+	public function get_items_permissions_check( $request ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		if ( ! current_user_can( 'edit_posts' ) ) {
-			return new WP_Error( 'rest_forbidden_list_roles', __( 'Sorry, you are not allowed to list user roles.' ), [ 'status' => rest_authorization_required_code() ] );
+			return new WP_Error( 'rest_forbidden_list_roles', __( 'Sorry, you are not allowed to list user roles.', 'wp-team-list' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 
 		return true;
@@ -61,7 +61,7 @@ class UserRolesController extends WP_REST_Controller {
 	 * @param \WP_REST_Request $request Full details about the request.
 	 * @return \WP_REST_Response|\WP_Error Response object on success, or WP_Error object on failure.
 	 */
-	public function get_items( $request ) {
+	public function get_items( $request ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		// Required for get_editable_roles().
 		require_once ABSPATH . 'wp-admin/includes/user.php';
 
@@ -74,7 +74,7 @@ class UserRolesController extends WP_REST_Controller {
 		foreach ( get_editable_roles() as $role => $data ) {
 			$user_roles[] = [
 				'value' => $role,
-				'label' => $data['name'], // TODO: Translate
+				'label' => $data['name'], // TODO: Translate.
 			];
 		}
 

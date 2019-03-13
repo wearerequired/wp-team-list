@@ -7,6 +7,8 @@
  * @package WP_Team_List
  */
 
+// phpcs:disable PSR1.Files.SideEffects
+
 define( 'Required\WPTeamList\PLUGIN_DIR', __DIR__ );
 define( 'Required\WPTeamList\TEMPLATES_DIR', __DIR__ . '/templates' );
 

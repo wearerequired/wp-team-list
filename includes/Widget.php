@@ -61,15 +61,15 @@ class Widget extends WP_Widget {
 			'number' => $number,
 		];
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput
 
 		if ( $title ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput
 		}
 		?>
 		<div class="wp-team-list-widget-content">
 			<?php
-			echo wp_team_list()->render( $team_query_args );
+			echo wp_team_list()->render( $team_query_args ); // phpcs:ignore WordPress.Security.EscapeOutput
 			if ( $show_link && $page_link ) {
 				printf(
 					'<a href="%s" class="show-all">%s</a>',
@@ -80,7 +80,7 @@ class Widget extends WP_Widget {
 			?>
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 
 	/**
