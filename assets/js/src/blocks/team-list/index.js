@@ -46,9 +46,9 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
-		roles: {
-			type: 'array',
-			default: [ 'administrator' ]
+		role: {
+			type: 'string',
+			default: 'all',
 		},
 		orderBy: {
 			type: 'string',

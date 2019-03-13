@@ -48,13 +48,13 @@ class TeamList extends Component {
 }
 
 export default withSelect( ( select, ownProps ) => {
-	const { number, roles, orderBy, order, showLink, showDescription } = ownProps;
+	const { number, role, orderBy, order, showLink, showDescription } = ownProps;
 	const { getUsers, isLoading } = select( 'wp-team-list' );
 
 	const queryArgs = {
 		order,
 		order_by: orderBy,
-		roles,
+		role,
 		per_page: number,
 	};
 

@@ -82,7 +82,7 @@ class UserController extends WP_REST_Controller {
 			'order'    => 'order',
 			'orderby'  => 'orderby',
 			'per_page' => 'number',
-			'roles'    => 'role',
+			'role'     => 'role',
 		];
 
 		$prepared_args = [];
@@ -120,6 +120,15 @@ class UserController extends WP_REST_Controller {
 	 * @return array Collection parameters.
 	 */
 	public function get_collection_params() {
+		// Required for get_editable_roles().
+		require_once ABSPATH . 'wp-admin/includes/user.php';
+
+		$user_roles = [ 'all' ];
+		$user_roles = array_merge(
+			$user_roles,
+			array_keys( get_editable_roles() )
+		);
+
 		return [
 			'order'    => [
 				'description' => __( 'Order sort attribute ascending or descending.', 'wp-team-list' ),
@@ -138,12 +147,11 @@ class UserController extends WP_REST_Controller {
 					'last_name',
 				],
 			],
-			'roles'    => [
-				'description' => __( 'Limit result set to users matching at least one specific role provided. Accepts csv list or single role.', 'wp-team-list' ),
-				'type'        => 'array',
-				'items'       => [
-					'type' => 'string',
-				],
+			'role'     => [
+				'description' => __( 'Limit result set to users matching one specific role provided.', 'wp-team-list' ),
+				'type'        => 'string',
+				'default'     => 'all',
+				'enum'        => $user_roles,
 			],
 			'per_page' => [
 				'description'       => __( 'Maximum number of items to be returned in result set.', 'wp-team-list' ),

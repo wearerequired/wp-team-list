@@ -30,7 +30,7 @@ class TeamListEdit extends Component {
 			attributes: {
 				number,
 				showDescription,
-				roles,
+				role,
 				orderBy,
 				order
 			},
@@ -43,7 +43,7 @@ class TeamListEdit extends Component {
 					number={ number }
 					linkTo={ post && post.link }
 					showDescription={ showDescription }
-					roles={ roles }
+					role={ role }
 					orderBy={ orderBy }
 					order={ order }
 					className={ className }
@@ -60,11 +60,10 @@ class TeamListEdit extends Component {
 						<SelectControl
 							label={ __( 'Roles', 'wp-team-list' ) }
 							help={ __( 'Only show users with the selected roles', 'wp-team-list' ) }
-							value={ roles }
+							value={ role }
 							options={ availableRoles }
-							multiple={ true }
 							onChange={ ( newValue ) => {
-								setAttributes( { roles: newValue } );
+								setAttributes( { role: newValue } );
 							} }
 						/>
 						<SelectControl
