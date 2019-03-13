@@ -24,7 +24,7 @@ $requirements_check = new WP_Requirements_Check(
 	array(
 		'title' => 'WP Team List',
 		'php'   => '5.4',
-		'wp'    => '4.0',
+		'wp'    => '5.0',
 		'file'  => __FILE__,
 	)
 );
