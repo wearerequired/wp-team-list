@@ -96,6 +96,7 @@ class UserController extends WP_REST_Controller {
 		$result = [];
 		$users  = wp_team_list()->get_users( $prepared_args );
 
+		add_filter( 'rest_avatar_sizes', [ $this, 'set_avatar_sizes' ] );
 		foreach ( $users as $user_id ) {
 			$user = get_userdata( $user_id );
 
@@ -110,8 +111,19 @@ class UserController extends WP_REST_Controller {
 				'avatar_urls'       => rest_get_avatar_urls( $user->user_email ),
 			];
 		}
+		remove_filter( 'rest_avatar_sizes', [ $this, 'set_avatar_sizes' ] );
+
 
 		return rest_ensure_response( $result );
+	}
+
+	/**
+	 * Sets the pixel sizes for avatars.
+	 *
+	 * @return array List of pixel sizes for avatars.
+	 */
+	public function set_avatar_sizes() {
+		return [ 90, 180 ];
 	}
 
 	/**

@@ -26,7 +26,7 @@ export default class TeamMember extends Component {
 				className={ `wp-team-member wp-team-list-item author-${ id } role-${ role } ${ className }` }>
 
 				<figure className="wp-team-member-avatar author-image">
-					<img src={ avatar_urls[ 48 ] } srcSet={ `${ avatar_urls[ 96 ] } 2x` } alt="" width="90"/>
+					<img src={ avatar_urls[ 90 ] } srcSet={ `${ avatar_urls[ 180 ] } 2x` } alt="" width="90"/>
 				</figure>
 
 				<h2 className="wp-team-member-name">{ display_name }</h2>
