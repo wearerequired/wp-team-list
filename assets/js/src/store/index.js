@@ -11,9 +11,9 @@ import controls from './controls';
 import * as selectors from './selectors';
 import * as actions from './actions';
 import * as resolvers from './resolvers';
-import { REDUCER_KEY } from './name';
+import { STORE_KEY } from './name';
 
-registerStore( REDUCER_KEY, {
+registerStore( STORE_KEY, {
 	reducer,
 	controls,
 	actions,

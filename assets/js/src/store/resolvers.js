@@ -1,9 +1,15 @@
+/**
+ * Internal dependencies
+ */
+import {
+	dispatch,
+	apiFetch,
+} from './controls';
 import {
 	receiveUserRoles,
 	receiveUsers,
 }  from './actions';
-import { apiFetch } from './controls';
-
+import { STORE_KEY } from './name';
 
 /**
  * Requests user roles from the REST API.
@@ -14,9 +20,23 @@ export function* getUserRoles() {
 }
 
 /**
- * Requests user roles from the REST API.
+ * Requests users from the REST API.
  */
 export function* getUsers( query ) {
+	yield dispatch(
+		STORE_KEY,
+		'setLoading',
+		query,
+		true,
+	);
+
 	const users = yield apiFetch( { path: `/wp-team-list/v1/users${ query }` } );
 	yield receiveUsers( query, users );
+
+	yield dispatch(
+		STORE_KEY,
+		'setLoading',
+		query,
+		false,
+	);
 }

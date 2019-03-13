@@ -3,7 +3,7 @@ export function getUsers( state, query ) {
 }
 
 export function isLoading( state, query ) {
-	return state.users.isLoading[ query ];
+ 	return state.users.isLoading[ query ];
 }
 
 export function getUserRoles( state ) {

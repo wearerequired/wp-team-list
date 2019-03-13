@@ -1,6 +1,6 @@
 /**
- * The reducer key used in store registration.
+ * The key used in store registration.
  *
  * @type {string}
  */
-export const REDUCER_KEY = 'wp-team-list';
+export const STORE_KEY = 'wp-team-list';

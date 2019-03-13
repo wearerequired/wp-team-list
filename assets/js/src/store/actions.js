@@ -13,7 +13,7 @@ export function receiveUsers( query, users ) {
 
 export function setLoading( query, isLoading ) {
 	return {
-		type: 'SET_IS_LOADING',
+		type: 'RECEIVE_IS_LOADING',
 		query,
 		isLoading,
 	};

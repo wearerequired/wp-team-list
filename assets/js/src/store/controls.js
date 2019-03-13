@@ -18,28 +18,58 @@ export function apiFetch( request ) {
 }
 
 /**
- * Calls a selector using the current state.
- * @param {string} selectorName Selector name.
- * @param  {Array} args         Selector arguments.
+ * Dispatches a control action for triggering a registry select.
+ *
+ * @param {string} storeKey
+ * @param {string} selectorName
+ * @param {Array}  args Arguments for the select.
  *
  * @return {Object} control descriptor.
  */
-export function select( selectorName, ...args ) {
+export function select( storeKey, selectorName, ...args ) {
 	return {
 		type: 'SELECT',
+		storeKey,
 		selectorName,
 		args,
 	};
 }
+
+/**
+ * Dispatches a control action for triggering a registry dispatch.
+ *
+ * @param {string} storeKey
+ * @param {string} actionName
+ * @param {Array} args  Arguments for the dispatch action.
+ *
+ * @return {Object}  control descriptor.
+ */
+export function dispatch( storeKey, actionName, ...args ) {
+	return {
+		type: 'DISPATCH',
+		storeKey,
+		actionName,
+		args,
+	};
+}
+
 
 const controls = {
 	API_FETCH( { request } ) {
 		return triggerApiFetch( request );
 	},
 
-	SELECT: createRegistryControl( ( registry ) => ( { selectorName, args } ) => {
-		return registry.select( 'wp-team-list' )[ selectorName ]( ...args );
-	} ),
+	SELECT: createRegistryControl(
+		( registry ) => ( { storeKey, selectorName, args } ) => {
+			return registry.select( storeKey )[ selectorName ]( ...args );
+		}
+	),
+
+	DISPATCH: createRegistryControl(
+		( registry ) => ( { storeKey, actionName, args } ) => {
+			return registry.dispatch( storeKey )[ actionName ]( ...args );
+		}
+	),
 };
 
 export default controls;
