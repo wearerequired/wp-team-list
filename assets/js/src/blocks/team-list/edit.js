@@ -1,3 +1,5 @@
+
+
 /**
  * WordPress dependencies
  */
@@ -16,7 +18,7 @@ import {
 /**
  * Internal dependencies
  */
-import { TeamList, PostSelector } from '../../components';
+import { TeamList, PostSelector, MultiSelectControl } from '../../components';
 
 class TeamListEdit extends Component {
 	render() {
@@ -27,12 +29,14 @@ class TeamListEdit extends Component {
 			attributes: {
 				number,
 				showDescription,
-				role,
+				roles,
 				orderBy,
 				order
 			},
 			setAttributes,
 		} = this.props;
+
+		console.log(roles);
 
 		return (
 			<Fragment>
@@ -40,7 +44,7 @@ class TeamListEdit extends Component {
 					number={ number }
 					linkTo={ post && post.link }
 					showDescription={ showDescription }
-					role={ role }
+					roles={ roles }
 					orderBy={ orderBy }
 					order={ order }
 					className={ className }
@@ -54,14 +58,16 @@ class TeamListEdit extends Component {
 							min={ 1 }
 							max={ 100 }
 						/>
-						<SelectControl
+						<MultiSelectControl
 							label={ __( 'Roles', 'wp-team-list' ) }
 							help={ __( 'Only show users with the selected roles', 'wp-team-list' ) }
-							value={ role }
+							placeholder={ __( 'Select or leave empty for all', 'wp-team-list' ) }
+							value={ roles }
 							options={ availableRoles }
 							onChange={ ( newValue ) => {
-								setAttributes( { role: newValue } );
+								setAttributes( { roles: newValue } );
 							} }
+							isClearable={ false }
 						/>
 						<SelectControl
 							label={ __( 'Order By', 'wp-team-list' ) }

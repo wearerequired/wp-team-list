@@ -632,9 +632,9 @@ class Plugin {
 						'type'    => 'bool',
 						'default' => true,
 					],
-					'role'            => [
-						'type'    => 'string',
-						'default' => 'all',
+					'roles'           => [
+						'type'    => 'array',
+						'default' => [],
 					],
 					'orderBy'         => [
 						'type'    => 'string',
