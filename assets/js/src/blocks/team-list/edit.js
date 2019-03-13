@@ -3,10 +3,7 @@
  */
 import { Fragment, Component } from '@wordpress/element';
 import { Button } from '@wordpress/components';
-import {
-	__,
-	_x,
-} from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/editor';
 import { withSelect } from '@wordpress/data';
 import {

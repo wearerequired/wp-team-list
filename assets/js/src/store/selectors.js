@@ -7,5 +7,5 @@ export function isLoading( state, query ) {
 }
 
 export function getUserRoles( state ) {
-	return state.roles.roles;
+	return state.roles;
 }
