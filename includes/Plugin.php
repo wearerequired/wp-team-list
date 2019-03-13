@@ -586,8 +586,10 @@ class Plugin {
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
 			[
+				'lodash',
 				'wp-blocks',
 				'wp-components',
+				'wp-data',
 				'wp-element',
 				'wp-editor',
 				'wp-i18n',
@@ -630,11 +632,9 @@ class Plugin {
 						'type'    => 'bool',
 						'default' => true,
 					],
-					'roles'           => [
-						'type'  => 'array',
-						'items' => [
-							'type' => 'string',
-						],
+					'role'            => [
+						'type'    => 'string',
+						'default' => 'all',
 					],
 					'orderBy'         => [
 						'type'    => 'string',
