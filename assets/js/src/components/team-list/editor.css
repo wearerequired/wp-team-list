@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-team-member {
+	clear: both;
+
+	.author-image {
+		float: left;
+		margin: 0 1em 1em 0;
+	}
+
+	h2 {
+		clear: none !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+	}
+
+	+ .wp-team-member {
+		margin-top: 1em;
+	}
+}
+
+.editor-block-list__block .components-spinner {
+	float: none;
+}

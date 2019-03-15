@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ruleset name="WP Team List">
+  <description>Coding Standard for WP Team List plugin.</description>
+
+  <file>.</file>
+
+  <rule ref="Required"/>
+
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array" value="wp-team-list" />
+    </properties>
+  </rule>
+
+  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+    <properties>
+      <property name="prefixes" type="array" value="rplus_wp_team_list,wp_team_list,Required\WPTeamList"/>
+    </properties>
+  </rule>
+
+  <exclude-pattern>*/tests/*</exclude-pattern>
+</ruleset>

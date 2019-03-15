@@ -1,40 +1,61 @@
 {
   "name": "wearerequired/wp-team-list",
-  "description": "Create a simple team site using your WordPress users. The plugin provides you with a shortcode, template tag and a widget.",
+  "description": "Create a simple yet highly customizable team site by leveraging your existing WordPress users.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "authors": [
-      {
-          "name": "required",
-          "email": "info@required.com",
-          "homepage": "https://required.com",
-          "role": "Company"
-      },
-      {
-          "name": "Silvan Hagen",
-          "role": "Developer"
-      },
-      {
-          "name": "Pascal Birchler",
-          "role": "Developer"
-      },
-      {
-          "name": "Stefan Pasch",
-          "email": "stefan@required.com",
-          "role": "Developer"
-      },
-      {
-          "name": "Dominik Schilling",
-          "email": "dominik@required.com",
-          "role": "Developer"
-      }
+    {
+        "name": "required",
+        "email": "info@required.com",
+        "homepage": "https://required.com",
+        "role": "Company"
+    },
+    {
+        "name": "Silvan Hagen",
+        "role": "Developer"
+    },
+    {
+        "name": "Pascal Birchler",
+        "role": "Developer"
+    },
+    {
+        "name": "Stefan Pasch",
+        "email": "stefan@required.com",
+        "role": "Developer"
+    },
+    {
+        "name": "Dominik Schilling",
+        "email": "dominik@required.com",
+        "role": "Developer"
+    }
   ],
   "keywords": [
       "wordpress",
       "users",
       "widget"
   ],
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
-      "php": ">=5.6"
+    "php": ">=5.6",
+    "wearerequired/wp-requirements-check": "^1.0"
+  },
+  "require-dev":  {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+    "phpunit/phpunit": "~6.5",
+    "wearerequired/coding-standards": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Required\\WPTeamList\\": "includes"
+    }
+  },
+  "scripts": {
+    "format": "vendor/bin/phpcbf --report-summary --report-source .",
+    "lint": "vendor/bin/phpcs --report-summary --report-source .",
+    "test": "vendor/bin/phpunit"
   }
 }

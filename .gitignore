@@ -1,19 +1,14 @@
-# General
-.DS_Store
+# Composer
+vendor/*
+composer.lock
 
 # npm
-/node_modules
+node_modules/*
+yarn.lock
+package-lock.json
 
-# Release task
-/release
+# PHPCS
+phpcs.xml
 
-# Build files
-/css/*.css
-/css/*.map
-
-# Sass
-.sass-cache
-
-# Vendor (e.g. Composer)
-vendor/*
-!vendor/.gitkeep
+# I18N
+languages/wp-team-list-js.pot

@@ -3,7 +3,7 @@
  * Plugin Name: WP Team List
  * Plugin URI:  https://github.com/wearerequired/rplus-wp-team-list
  * Description: Display your teammates anywhere on your WordPress site using this easy-to-use plugin. Provides you with a widget, a shortcode and a template function to list the blog users.
- * Version:     2.0.1
+ * Version:     3.0.0-beta
  * Author:      required
  * Author URI:  https://required.com
  * Text Domain: wp-team-list
@@ -13,49 +13,23 @@
  * @package WP_Team_List
  */
 
-// Load the main plugin class
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-team-list.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-wp-team-list-widget.php' );
+// phpcs:disable Generic.Arrays.DisallowLongArraySyntax -- File needs to be parsable by PHP 5.2.4.
 
-/**
- * Get the team list instance.
- *
- * @return \WP_Team_List Plugin instance.
- */
-function wp_team_list() {
-	static $wp_team_list = null;
-
-	if ( null === $wp_team_list ) {
-		$wp_team_list = new WP_Team_List();
-	}
-
-	return $wp_team_list;
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require __DIR__ . '/vendor/autoload.php';
 }
 
-// Initialize the plugin.
-add_action( 'plugins_loaded', function () {
-	wp_team_list()->add_hooks();
-} );
-
-/**
- * Render the team list.
- *
- * @param array  $args     Additional arguments for the WP_User_Query.
- * @param bool   $echo     Whether to echo the output or just return it.
- * @param string $template The template file to load for the team list.
- * @return void|string
- */
-function rplus_wp_team_list( $args = array(), $echo = true, $template = 'rplus-wp-team-list.php' ) {
-	_deprecated_function( __FUNCTION__, '2.0.0' );
-	return wp_team_list()->render_team_list( $args, $echo, $template );
+// phpcs:ignore WordPress.NamingConventions -- Variable gets unset.
+$requirements_check = new WP_Requirements_Check(
+	array(
+		'title' => 'WP Team List',
+		'php'   => '5.4',
+		'wp'    => '5.0',
+		'file'  => __FILE__,
+	)
+);
+if ( $requirements_check->passes() ) {
+	require_once __DIR__ . '/init.php';
 }
 
-/**
- * Display classes for use in an item's HTML class attribute.
- *
- * @param string|array $classes List of class names.
- */
-function rplus_wp_team_list_classes( $classes ) {
-	_deprecated_function( __FUNCTION__, '2.0.0' );
-	echo wp_team_list()->item_classes( $classes ); // WPCS: XSS ok.
-}
+unset( $requirements_check );

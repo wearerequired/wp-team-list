@@ -1,0 +1,41 @@
+/**
+ * The following styles get applied both on the front of your site and in the editor.
+ */
+
+.wp-team-member {
+  clear: both;
+
+  .author-image {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+
+  h2 {
+    clear: none;
+    margin-top: 0;
+  }
+
+  + .wp-team-member {
+    margin-top: 1em;
+  }
+}
+
+.wp-block-wp-team-list-wp-team-list {
+	.wp-team-member {
+		clear: both;
+
+		.author-image {
+			float: left;
+			margin: 0 1em 1em 0;
+		}
+
+		h2 {
+			clear: none;
+			margin-top: 0;
+		}
+
+		+ .wp-team-member {
+			margin-top: 1em;
+		}
+	}
+}
