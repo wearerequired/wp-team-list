@@ -12,7 +12,7 @@ Display your teammates anywhere on your WordPress site using this easy-to-use pl
 
 ## Description ##
 
-WP Team List is a plugin that helps you to create a simple team site using your WordPress users with various display options. Either use a block, a shortcode, a template tag or the built-in widget to display blog authors.
+Team List is a plugin that helps you to create a simple team site using your WordPress users with various display options. Either use a block, a shortcode, a template tag or the built-in widget to display blog authors.
 
 After creating similar functionality for a couple of clients, we decided to roll our knowledge into this simple plugin. It's really straightforward to use:
 
@@ -32,7 +32,7 @@ For example, you can show users of any role ordered by their name:
 	?>
 
 
-**Note:** WP Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.
+**Note:** Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.
 
 **Block**
 
@@ -42,22 +42,22 @@ Use the "Team List" block in the block-based editor to display one or more team 
 
 Use the `[wp_team_list]` shortcode to display a team list in your posts. Supported arguments:
 
-* `role` - Filter users by roles (comma-separated).
- Use `all` to show users with any role.
+* `role` - Filter users by roles (comma-separated).  
+ Use `all` to show users with any role.  
  **Default:** `administrator`
-* `orderby`
+* `orderby`  
  **Default:** `post_count`
-* `order` - Either `asc` or `desc`.
+* `order` - Either `asc` or `desc`.  
  **Default:** `desc`.
 * `include` - Filter users with specific IDs (comma-separated).
-* `has_published_posts` - Filter users with published posts.
+* `has_published_posts` - Filter users with published posts.  
  Either a comma-separated list of post types or `true` to filter by all post types.
 
 Example:
 
 `[wp_team_list role="author" orderby="last_name" order="desc"]`
 
-**Pro tip:** If you use the [Shortcake WordPress plugin](https://github.com/fusioneng/Shortcake "GitHub - Shortcake"), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.
+**Pro tip:** If you use the [Shortcake WordPress plugin](https://wordpress.org/plugins/shortcode-ui/), you'll get an inline preview of the shortcode right in the visual editor. You can also add the shortcode with the click of a button.
 
 **Widget**
 
@@ -72,7 +72,7 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 
 ## Frequently Asked Questions ##
 
-### How do I contribute to WP Team List? ###
+### How do I contribute to Team List? ###
 
 Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](https://github.com/wearerequired/rplus-wp-team-list).
 
@@ -82,12 +82,14 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 * `wp_team_list_template` - Change the team list template.
  Note: You can also put a `rplus-wp-team-list.php` file in your theme folder.
 * `wp_team_list_avatar_size` - Filter the default avatar size.
+* `wp_team_list_default_classes` - Filter default CSS classes.
 
 ## Screenshots ##
 
 1. This is how your team list can look like with some additional CSS.
 2. The plugin only provides limited styling. It's up to you to adjust it.
-3. The configuration options of the built-in widget.
+3. The block in the block editor with its settings.
+4. The configuration options of the built-in widget.
 
 ## Changelog ##
 
