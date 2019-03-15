@@ -44,7 +44,7 @@ $user_posts = (int) count_user_posts( $user->ID );
 				<?php
 				printf(
 					/* translators: %s: number of posts */
-					_n( 'View %s post', 'View %s posts', $user_posts , 'wp-team-list' ),
+					_n( 'View %s post', 'View %s posts', $user_posts, 'wp-team-list' ),
 					number_format_i18n( $user_posts )
 				);
 				?>

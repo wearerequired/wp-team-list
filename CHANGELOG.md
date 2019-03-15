@@ -40,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 * Support multiple roles in the shortcode (comma-separated).
-* Enable only displaying users with specific IDs (? include` shortcode attribute).
+* Enable only displaying users with specific IDs (`include` shortcode attribute).
 * Allow querying by users which have published posts (`has_published_posts` shortcode attribute).
 
 ## [1.0.5]
