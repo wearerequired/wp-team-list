@@ -334,19 +334,28 @@ class Plugin {
 	 * @return string The modified class list.
 	 */
 	public function item_classes( $classes ) {
-		$defaults = apply_filters(
+		$default_classes = [
+			'wp-team-member',
+			'wp-team-list-item',
+		];
+
+		$default_classes = apply_filters_deprecated(
 			'rplus_wp_team_list_default_classes',
-			[
-				'wp-team-member',
-				'wp-team-list-item',
-			]
+			[ $default_classes ],
+			'3.0.0',
+			'wp_team_list_default_classes'
+		);
+
+		$default_classes = apply_filters(
+			'wp_team_list_default_classes',
+			$default_classes
 		);
 
 		if ( ! is_array( $classes ) ) {
 			$classes = explode( ' ', $classes );
 		}
 
-		$classes = array_merge( $defaults, $classes );
+		$classes = array_merge( $default_classes, $classes );
 
 		return esc_attr( implode( ' ', $classes ) );
 	}
