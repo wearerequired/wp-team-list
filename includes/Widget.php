@@ -4,8 +4,6 @@
  *
  * Creates a WordPress widget with support for caching that handles the display of the WP Team
  * List in your sidebars.
- *
- * @package WP_Team_List
  */
 
 namespace Required\WPTeamList;

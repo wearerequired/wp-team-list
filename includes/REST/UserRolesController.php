@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the User Roles REST Controller class.
- *
- * @package WP_Team_List
  */
 
 namespace Required\WPTeamList\REST;

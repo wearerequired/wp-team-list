@@ -1,4 +1,4 @@
-# WP Team List #
+# Team List #
 * Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 5.0
@@ -12,7 +12,7 @@ Display your teammates anywhere on your WordPress site using this easy-to-use pl
 
 ## Description ##
 
-WP Team List is a plugin that helps you to create a simple team site using your WordPress users with various display options. Either use a shortcode, a template tag or the built-in widget to display blog authors.
+WP Team List is a plugin that helps you to create a simple team site using your WordPress users with various display options. Either use a block, a shortcode, a template tag or the built-in widget to display blog authors.
 
 After creating similar functionality for a couple of clients, we decided to roll our knowledge into this simple plugin. It's really straightforward to use:
 
@@ -32,24 +32,25 @@ For example, you can show users of any role ordered by their name:
 	?>
 
 
-**Note:** WP Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.  
+**Note:** WP Team List supports many of the arguments [`WP_User_Query`](https://codex.wordpress.org/Class_Reference/WP_User_Query "WordPress Codex Codex WP_User_Query") supports.
 
 **Block**
-Use the "Team List" block in the block-based editor to display one or more team lists in any post types.
+
+Use the "Team List" block in the block-based editor to display one or more team lists in any post types. You can select one or more roles and change the order. If you want you can also provide a link to a full team page.
 
 **Shortcode**
 
 Use the `[wp_team_list]` shortcode to display a team list in your posts. Supported arguments:
 
-* `role` - Filter users by roles (comma-separated).  
- Use `all` to show users with any role.  
+* `role` - Filter users by roles (comma-separated).
+ Use `all` to show users with any role.
  **Default:** `administrator`
-* `orderby`  
+* `orderby`
  **Default:** `post_count`
-* `order` - Either `asc` or `desc`.  
+* `order` - Either `asc` or `desc`.
  **Default:** `desc`.
 * `include` - Filter users with specific IDs (comma-separated).
-* `has_published_posts` - Filter users with published posts.  
+* `has_published_posts` - Filter users with published posts.
  Either a comma-separated list of post types or `true` to filter by all post types.
 
 Example:

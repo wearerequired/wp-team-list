@@ -2,7 +2,7 @@
 /**
  * Test our plugin.
  *
- * @package WP_Team_List
+
  */
 
 /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the WP Team List class.
- *
- * @package WP_Team_List
  */
 
 namespace Required\WPTeamList;

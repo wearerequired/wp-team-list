@@ -6,8 +6,6 @@
  * theme folder. Example:
  *
  * /wp-content/themes/<your theme>/rplus-wp-team-list.php
- *
- * @package WP_Team_List
  */
 
 // phpcs:disable WordPress.NamingConventions, VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable, WordPress.WP.GlobalVariablesOverride.Prohibited -- Variables are not global.

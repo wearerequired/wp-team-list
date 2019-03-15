@@ -3,8 +3,6 @@
  * Initializes the plugin.
  *
  * Contrary to rplus-wp-team-list.php, this file doesn't need to work on PHP 5.2.
- *
- * @package WP_Team_List
  */
 
 // phpcs:disable PSR1.Files.SideEffects
