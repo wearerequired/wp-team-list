@@ -95,7 +95,7 @@ class Widget extends WP_Widget {
 		$instance['title']     = sanitize_text_field( $new_instance['title'] );
 		$instance['role']      = sanitize_text_field( $new_instance['role'] );
 		$instance['number']    = absint( $new_instance['number'] );
-		$instance['show_link'] = (bool) $new_instance['show_link'];
+		$instance['show_link'] = isset( $new_instance['show_link'] );
 		$instance['page_link'] = absint( $new_instance['page_link'] );
 
 		return $instance;
