@@ -249,27 +249,15 @@ class Plugin {
 			$args['has_published_posts'] = array_filter( array_map( 'trim', explode( ',', $args['has_published_posts'] ) ) );
 		}
 
-		// For compatibility with WordPress 4.3 and below.
 		$roles = [];
 		if ( isset( $args['role'] ) ) {
 			$roles = is_array( $args['role'] ) ? $args['role'] : array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
 		}
 
-		if ( 1 < count( $roles ) ) {
-			global $wpdb;
+		unset( $args['role'] );
 
-			$mq = [ 'relation' => 'OR' ];
-			foreach ( $roles as $role ) {
-				$mq[] = [
-					'key'     => $wpdb->get_blog_prefix( get_current_blog_id() ) . 'capabilities',
-					'value'   => $role,
-					'compare' => 'LIKE',
-				];
-			}
-
-			$args['meta_query'][] = $mq;
-
-			unset( $args['role'] );
+		if ( $roles ) {
+			$args['role__in'] = $roles;
 		}
 
 		/**
