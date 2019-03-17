@@ -37,7 +37,7 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 $requirements_check = new WP_Requirements_Check(
 	array(
 		'title' => 'WP Team List',
-		'php'   => '5.4',
+		'php'   => '5.6',
 		'wp'    => '5.0',
 		'file'  => __FILE__,
 	)
