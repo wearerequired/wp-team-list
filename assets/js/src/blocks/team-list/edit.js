@@ -146,7 +146,7 @@ export default withSelect(  ( select, ownProps ) => {
 	const { getUserRoles } = select( 'wp-team-list' );
 
 	return {
-		post: select( 'core' ).getEntityRecord( 'postType', postType, postId ),
+		post: ( postType && postId ) ? select( 'core' ).getEntityRecord( 'postType', postType, postId ) : null,
 		availableRoles: getUserRoles(),
 	};
 } )( TeamListEdit );

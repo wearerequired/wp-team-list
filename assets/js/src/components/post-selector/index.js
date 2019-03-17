@@ -5,6 +5,7 @@ import { __, _n, sprintf } from '@wordpress/i18n';
 import { BaseControl } from '@wordpress/components';
 import { Component } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
+import { withInstanceId } from '@wordpress/compose';
 
 /**
  * External dependencies
@@ -16,6 +17,7 @@ import { debounce } from 'lodash';
  * Internal dependencies
  */
 import './accessible-autocomplete.css';
+import './style.css';
 
 class PostSelector extends Component {
 	constructor() {
@@ -53,7 +55,7 @@ class PostSelector extends Component {
 		const { post, instanceId, label, help, placeholder } = this.props;
 		const selectId = 'post-selector-' + instanceId;
 
-		const currentPost = this.post || post;
+		const defaultValue = post ? post.title.rendered : '';
 
 		return (
 			<BaseControl
@@ -65,7 +67,7 @@ class PostSelector extends Component {
 					id={ selectId }
 					minLength={ 2 }
 					showAllValues={ true }
-					defaultValue={ currentPost ? currentPost.title.rendered : '' }
+					defaultValue={ defaultValue }
 					autoselect={ true }
 					displayMenu="overlay"
 					onConfirm={ this.setPost }
@@ -73,15 +75,29 @@ class PostSelector extends Component {
 					showNoResultsFound={ true }
 					placeholder={ placeholder }
 					tStatusQueryTooShort={ ( minQueryLength ) =>
-						sprintf( __( 'Type in %s or more characters for results', 'wp-team-list' ), minQueryLength ) }
+						sprintf(
+							/* translators: %s: minimum character length */
+							__( 'Type in %s or more characters for results', 'wp-team-list' ),
+							minQueryLength
+						)
+					}
 					tNoResults={ () => __( 'No results found', 'wp-team-list' ) }
 					tStatusNoResults={ () => __( 'No search results.', 'wp-team-list' ) }
-					tStatusSelectedOption={ ( selectedOption, length ) => sprintf( __( '%1$s (1 of %2$s) is selected', 'wp-team-list' ), selectedOption, length ) }
+					tStatusSelectedOption={ ( selectedOption, length, index ) =>
+						sprintf(
+							/* translators: 1: selected option, 2: index of selected option, 3: count of available options */
+							__( '%1$s (%2$s of %3$s) is selected', 'wp-team-list' ),
+							selectedOption,
+							index + 1,
+							length
+						)
+					}
 					tStatusResults={ ( length, contentSelectedOption ) => {
 						return (
 							<span>{
 								sprintf(
-									_n( '%1$s result is available. %2$s', '%s results are available. %2$s', length, 'wp-team-list' ),
+									/* translators: 1: count of available options, 2: selected option */
+									_n( '%1$s result is available. %2$s', '%1$s results are available. %2$s', length, 'wp-team-list' ),
 									length,
 									contentSelectedOption,
 								)
@@ -112,4 +128,4 @@ class PostSelector extends Component {
 	}
 }
 
-export default PostSelector;
+export default withInstanceId( PostSelector );
