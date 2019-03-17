@@ -1,5 +1,5 @@
 # Team List #
-* Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90
+* Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 5.0
 * Tested up to: 5.1
@@ -93,12 +93,29 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 ## Changelog ##
 
-### 2.0.1 ###
-* Fix: Removed HTML output on profile page.
-* Fix: Removed type hint for shortcode attributes to avoid a PHP fatal error.
-* Fix: Correct `author` CSS classes.
-* Enhancement: Improved plugin description.
-* Enhancement: Translations moved to https://translate.wordpress.org/projects/wp-plugins/wp-team-list.
-* Enhancement: Added deprecation notice and removed shortcode UI for `[rplus_team_list]` shortcode in favour of the new `[wp_team_list]` shortcode.
+### 3.0.0 ###
 
-For older versions see Changelog.md.
+#### Added ####
+* Block for the block editor to insert a team list in any post type.
+
+#### Fixed ####
+* PHP warning when saving a widget.
+
+#### Changed ####
+* Refactoring by using PHP namespaces.
+* Bumped WordPress minimum requirement to 5.0.
+* Bumped PHP minimum requirement to 5.6.
+
+#### Deprecated ####
+* `rplus_wp_team_list_default_classes` filter, use `wp_team_list_default_classes`.
+
+#### Removed ####
+* `rplus_wp_team_list()` and `rplus_wp_team_list_classes()`.
+
+For older versions see CHANGELOG.md.
+
+## Upgrade Notice ##
+
+### 3.0.0 ###
+
+Introduces a block for the block-based editor and requires now WordPress 5.0 and PHP 5.6.

@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+* Block for the block editor to insert a team list in any post type.
+
+## Fixed
+* PHP warning when saving a widget.
+
+## Changed
+* Refactoring by using PHP namespaces.
+* Bumped WordPress minimum requirement to 5.0.
+* Bumped PHP minimum requirement to 5.6.
+
+## Deprecated
+* `rplus_wp_team_list_default_classes` filter, use `wp_team_list_default_classes`.
+
+## Removed
+* `rplus_wp_team_list()` and `rplus_wp_team_list_classes()`.
+
 ## [2.0.1]
 ### Fixed
 * Removed HTML output on profile page.
@@ -25,6 +42,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Improved documentation.
 * Simplified template loading.
 * Filterable user roles, making it easier to disable output.
+
+### Deprecated
+* `rplus_team_list` shortcode, use `wp_team_list`.
+* `rplus_wp_team_list()`, use ` wp_team_list()->render_team_list()`.
+* `rplus_wp_team_list_classes()`, use `wp_team_list()->item_classes()`.
 
 ## [1.1.2]
 ### Fixed
