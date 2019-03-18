@@ -4,7 +4,7 @@
 * Requires at least: 5.0
 * Tested up to: 5.1
 * Requires PHP: 5.6
-* Stable tag: 2.0.1
+* Stable tag: 3.0.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,15 +42,15 @@ Use the "Team List" block in the block-based editor to display one or more team 
 
 Use the `[wp_team_list]` shortcode to display a team list in your posts. Supported arguments:
 
-* `role` - Filter users by roles (comma-separated).  
- Use `all` to show users with any role.  
+* `role` - Filter users by roles (comma-separated).
+ Use `all` to show users with any role.
  **Default:** `administrator`
-* `orderby`  
+* `orderby`
  **Default:** `post_count`
-* `order` - Either `asc` or `desc`.  
+* `order` - Either `asc` or `desc`.
  **Default:** `desc`.
 * `include` - Filter users with specific IDs (comma-separated).
-* `has_published_posts` - Filter users with published posts.  
+* `has_published_posts` - Filter users with published posts.
  Either a comma-separated list of post types or `true` to filter by all post types.
 
 Example:

@@ -19,7 +19,7 @@ class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.0.0-RC2';
+	const VERSION = '3.0.0';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
