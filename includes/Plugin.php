@@ -673,7 +673,7 @@ class Plugin {
 	 */
 	public function render_team_list_block( $attributes ) {
 		$attributes_mappings = [
-			'number'          => 'order',
+			'number'          => 'number',
 			'showDescription' => 'show_description',
 			'order'           => 'order',
 			'orderBy'         => 'orderby',
