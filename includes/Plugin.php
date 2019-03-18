@@ -560,7 +560,7 @@ class Plugin {
 		/**
 		 * Filter the team list avatar size.
 		 *
-		 * @param int     $size Avatar size. Default 50.
+		 * @param int     $size Avatar size. Default 90.
 		 * @param \Required\WPTeamList\WP_User $user Current user object.
 		 */
 		$size = apply_filters( 'wp_team_list_avatar_size', 90, $user );
