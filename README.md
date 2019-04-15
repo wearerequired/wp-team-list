@@ -1,6 +1,6 @@
 # Team List #
 * Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich
-* Tags: authors, widget, users, list, team, shortcode
+* Tags: authors, widget, users, team, blocks
 * Requires at least: 5.0
 * Tested up to: 5.2
 * Requires PHP: 5.6
