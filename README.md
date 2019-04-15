@@ -2,7 +2,7 @@
 * Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich
 * Tags: authors, widget, users, list, team, shortcode
 * Requires at least: 5.0
-* Tested up to: 5.1
+* Tested up to: 5.2
 * Requires PHP: 5.6
 * Stable tag: 3.0.0
 * License: GPLv2 or later
