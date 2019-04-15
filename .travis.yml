@@ -34,7 +34,7 @@ before_install:
     export PATH=`composer config --list --global | grep '\[home\]' | { read a; echo "${a#* }/vendor/bin:$PATH"; }`
 
 install:
-  - composer install --ignore-platform-reqs
+  - composer install --no-dev --ignore-platform-reqs
 
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -55,6 +55,7 @@ jobs:
   fast_finish: true
   include:
     - stage: lint
+      install: composer install
       script:
         - composer lint
 
