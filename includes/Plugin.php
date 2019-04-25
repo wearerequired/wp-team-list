@@ -543,7 +543,7 @@ class Plugin {
 	public function filter_mce_css( $stylesheets ) {
 		$styles = explode( ',', $stylesheets );
 
-		$style = is_rtl() ? 'assets/css/style-rtl.css' : 'assets/css/style.css';
+		$style    = is_rtl() ? 'assets/css/style-rtl.css' : 'assets/css/style.css';
 		$styles[] = plugins_url( $style, plugin_dir_path( __FILE__ ) );
 
 		return implode( ',', $styles );
