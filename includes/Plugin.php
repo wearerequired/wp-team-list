@@ -543,9 +543,8 @@ class Plugin {
 	public function filter_mce_css( $stylesheets ) {
 		$styles = explode( ',', $stylesheets );
 
-		// Use minified libraries if SCRIPT_DEBUG is turned off.
-		$suffix   = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-		$styles[] = plugins_url( 'css/wp-team-list' . $suffix . '.css', plugin_dir_path( __FILE__ ) );
+		$style    = is_rtl() ? 'assets/css/style-rtl.css' : 'assets/css/style.css';
+		$styles[] = plugins_url( $style, plugin_dir_path( __FILE__ ) );
 
 		return implode( ',', $styles );
 	}
