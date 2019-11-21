@@ -52,12 +52,12 @@ export const settings = {
 		},
 		orderBy: {
 			type: 'string',
-			default: 'post_count'
+			default: 'post_count',
 		},
 		order: {
 			type: 'string',
-			default: 'desc'
-		}
+			default: 'desc',
+		},
 	},
 
 	edit,

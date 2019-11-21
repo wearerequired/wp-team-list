@@ -46,7 +46,7 @@ class PostSelector extends Component {
 
 		const searchablePostTypes = this.props.searchablePostTypes || [ 'post' ];
 		const payload = `?subtype=${ searchablePostTypes.join( ',' ) }&search=${ encodeURIComponent( query ) }`;
-		apiFetch( { path: '/wp/v2/search/' + payload } ).then( posts => {
+		apiFetch( { path: '/wp/v2/search/' + payload } ).then( ( posts ) => {
 			populateResults( posts );
 		} );
 	}
@@ -106,20 +106,20 @@ class PostSelector extends Component {
 					} }
 					templates={
 						{
-							inputValue: inputValue => {
+							inputValue: ( inputValue ) => {
 								if ( inputValue ) {
 									return inputValue.title;
 								}
 
 								return '';
 							},
-							suggestion: suggestion => {
+							suggestion: ( suggestion ) => {
 								if ( suggestion ) {
 									return suggestion.title;
 								}
 
-								return ''
-							}
+								return '';
+							},
 						}
 					}
 				/>
