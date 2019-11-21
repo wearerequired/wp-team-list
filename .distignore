@@ -1,14 +1,22 @@
+.git
+.github
 .babelrc
 .distignore
 .editorconfig
 .eslintignore
 .eslintrc
+.rtlcssrc
 .gitignore
 .travis.yml
 composer.json
+composer.lock
 package.json
+package-lock.json
+yarn.lock
 phpunit.xml
+phpcs.xml.dist
 postcss.config.js
+webpack.config.js
 
 bin
 node_modules
