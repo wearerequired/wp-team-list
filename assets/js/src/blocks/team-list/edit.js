@@ -3,7 +3,6 @@
  */
 import { Fragment, Component } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/editor';
 import { withSelect } from '@wordpress/data';
 import {
 	Button,
@@ -12,6 +11,9 @@ import {
 	ToggleControl,
 	RangeControl,
 } from '@wordpress/components';
+const {
+	InspectorControls,
+} = wp.blockEditor || wp.editor;
 
 /**
  * Internal dependencies
