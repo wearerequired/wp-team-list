@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Build
-      run: composer install --prefer-dist --no-dev --optimize-autoloader
+    - uses: pxgamer/composer-action@master
+      with:
+        command: install --prefer-dist --no-dev --optimize-autoloader
     - name: WordPress Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@develop
       env:
