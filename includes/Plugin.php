@@ -585,6 +585,13 @@ class Plugin {
 				'version'      => filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/editor.js' ),
 			];
 		}
+		// Backwards compatbity for InspectorControls. To be removed once minimum support is 5.2.
+		if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
+			$script_asset['dependencies'][] = 'wp-editor';
+		} else {
+			$script_asset['dependencies'][] = 'wp-block-editor';
+		}
+
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
