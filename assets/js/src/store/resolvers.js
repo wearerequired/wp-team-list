@@ -8,7 +8,7 @@ import {
 import {
 	receiveUserRoles,
 	receiveUsers,
-}  from './actions';
+} from './actions';
 import { STORE_KEY } from './name';
 
 /**
@@ -21,6 +21,8 @@ export function* getUserRoles() {
 
 /**
  * Requests user roles from the REST API.
+ *
+ * @param {string} query
  */
 export function* getUsers( query ) {
 	yield dispatch(

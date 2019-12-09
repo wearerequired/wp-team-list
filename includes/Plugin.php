@@ -576,20 +576,27 @@ class Plugin {
 	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
 	 */
 	public function register_block_type() {
+		$script_asset_path = plugin_dir_path( __DIR__ ) . 'assets/js/editor.asset.php';
+		if ( file_exists( $script_asset_path ) ) {
+			$script_asset = require $script_asset_path;
+		} else {
+			$script_asset = [
+				'dependencies' => [],
+				'version'      => filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/editor.js' ),
+			];
+		}
+		// Backwards compatbity for InspectorControls. To be removed once minimum support is 5.2.
+		if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
+			$script_asset['dependencies'][] = 'wp-editor';
+		} else {
+			$script_asset['dependencies'][] = 'wp-block-editor';
+		}
+
 		wp_register_script(
 			'wp-team-list-block-editor',
 			plugins_url( 'assets/js/editor.js', plugin_dir_path( __FILE__ ) ),
-			[
-				'lodash',
-				'wp-blocks',
-				'wp-components',
-				'wp-data',
-				'wp-element',
-				'wp-editor',
-				'wp-i18n',
-				'wp-url',
-			],
-			self::VERSION,
+			$script_asset['dependencies'],
+			$script_asset['version'],
 			true
 		);
 

@@ -1,19 +1,19 @@
-
-
 /**
  * WordPress dependencies
  */
 import { Fragment, Component } from '@wordpress/element';
-import { Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/editor';
 import { withSelect } from '@wordpress/data';
 import {
+	Button,
 	PanelBody,
 	SelectControl,
 	ToggleControl,
 	RangeControl,
 } from '@wordpress/components';
+const {
+	InspectorControls,
+} = wp.blockEditor || wp.editor;
 
 /**
  * Internal dependencies
@@ -31,7 +31,7 @@ class TeamListEdit extends Component {
 				showDescription,
 				roles,
 				orderBy,
-				order
+				order,
 			},
 			setAttributes,
 		} = this.props;
@@ -99,7 +99,7 @@ class TeamListEdit extends Component {
 								{
 									value: 'desc',
 									label: __( 'Descending', 'wp-team-list' ),
-								}
+								},
 							] }
 							onChange={ ( newValue ) => {
 								setAttributes( { order: newValue } );
@@ -122,26 +122,26 @@ class TeamListEdit extends Component {
 							} }
 						/>
 						{ post &&
-						  <p>
-							  <Button
-								  onClick={ () => {
-									  setAttributes( { postId: null, postType: null } );
-								  } }
-								  isLink
-								  isDestructive
-							  >
-								  { __( 'Clear selection', 'wp-team-list' ) }
-							  </Button>
-						  </p>
+							<p>
+								<Button
+									onClick={ () => {
+										setAttributes( { postId: null, postType: null } );
+									} }
+									isLink
+									isDestructive
+								>
+									{ __( 'Clear selection', 'wp-team-list' ) }
+								</Button>
+							</p>
 						}
 					</PanelBody>
 				</InspectorControls>
 			</Fragment>
-		)
+		);
 	}
 }
 
-export default withSelect(  ( select, ownProps ) => {
+export default withSelect( ( select, ownProps ) => {
 	const { attributes: { postId, postType } } = ownProps;
 	const { getUserRoles } = select( 'wp-team-list' );
 

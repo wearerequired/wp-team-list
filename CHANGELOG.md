@@ -6,29 +6,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### 3.0.1 ###
-#### Fixed ####
+## 3.0.2
+#### Changed
+* Tested compatibility with WordPress 5.3
+
+## 3.0.1 - 2019-05-07
+### Fixed
 * Path for stylesheet enqueued in the classic editor
 
-#### Changed ####
+### Changed
 * Tested compatibility with WordPress 5.2
 
 ## [3.0.0] - 2019-03-18
-## Added
+### Added
 * Block for the block editor to insert a team list in any post type.
 
-## Fixed
+### Fixed
 * PHP warning when saving a widget.
 
-## Changed
+### Changed
 * Refactoring by using PHP namespaces.
 * Bumped WordPress minimum requirement to 5.0.
 * Bumped PHP minimum requirement to 5.6.
 
-## Deprecated
+### Deprecated
 * `rplus_wp_team_list_default_classes` filter, use `wp_team_list_default_classes`.
 
-## Removed
+### Removed
 * `rplus_wp_team_list()` and `rplus_wp_team_list_classes()`.
 
 ## [2.0.1] - 2017-01-19

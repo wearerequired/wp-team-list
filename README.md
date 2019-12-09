@@ -2,9 +2,9 @@
 * Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich
 * Tags: authors, widget, users, team, blocks
 * Requires at least: 5.0
-* Tested up to: 5.2
+* Tested up to: 5.3
 * Requires PHP: 5.6
-* Stable tag: 3.0.1
+* Stable tag: 3.0.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,11 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 4. The configuration options of the built-in widget.
 
 ## Changelog ##
+
+### 3.0.2 ###
+
+#### Changed ####
+* Tested compatibility with WordPress 5.3
 
 ### 3.0.1 ###
 

@@ -19,4 +19,5 @@
   </rule>
 
   <exclude-pattern>*/tests/*</exclude-pattern>
+  <exclude-pattern>*/assets/*</exclude-pattern>
 </ruleset>

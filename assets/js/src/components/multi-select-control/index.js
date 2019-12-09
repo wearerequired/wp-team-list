@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { isEmpty, filter, includes } from 'lodash';
-import Select from 'react-select'
+import Select from 'react-select';
 
 /**
  * WordPress dependencies

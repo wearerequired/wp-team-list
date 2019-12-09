@@ -43,7 +43,7 @@ export function users( state = { queries: {}, isLoading: {} }, action ) {
  *
  * @return {Object} Updated state.
  */
-export function roles( state = [] , action ) {
+export function roles( state = [], action ) {
 	switch ( action.type ) {
 		case 'RECEIVE_USER_ROLES':
 			return action.roles;
