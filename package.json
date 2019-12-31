@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@wordpress/babel-preset-default": "^4.7.0",
-    "@wordpress/scripts": "^6.0.0",
+    "@wordpress/scripts": "^6.1.0",
     "autoprefixer": "^9.7.3",
     "css-loader": "^3.2.1",
     "css-mqpacker": "^7.0.0",
