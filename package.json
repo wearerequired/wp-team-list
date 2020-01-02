@@ -19,7 +19,7 @@
     "lint-fix": "wp-scripts lint-js ./assets/js/src --fix"
   },
   "devDependencies": {
-    "@wordpress/babel-preset-default": "^4.7.0",
+    "@wordpress/babel-preset-default": "^4.8.0",
     "@wordpress/scripts": "^6.1.1",
     "autoprefixer": "^9.7.3",
     "css-loader": "^3.2.1",
