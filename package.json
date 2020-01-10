@@ -32,7 +32,7 @@
     "postcss-mixins": "^6.2.3",
     "postcss-nested": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "terser-webpack-plugin": "^2.3.1"
+    "terser-webpack-plugin": "^2.3.2"
   },
   "dependencies": {
     "accessible-autocomplete": "^2.0.1",
