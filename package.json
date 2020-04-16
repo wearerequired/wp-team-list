@@ -19,10 +19,10 @@
     "lint-fix": "wp-scripts lint-js ./assets/js/src --fix"
   },
   "devDependencies": {
-    "@wordpress/babel-preset-default": "^4.9.0",
-    "@wordpress/scripts": "^6.2.0",
-    "autoprefixer": "^9.7.4",
-    "css-loader": "^3.4.2",
+    "@wordpress/babel-preset-default": "^4.12.1",
+    "@wordpress/scripts": "^8.0.1",
+    "autoprefixer": "^9.7.6",
+    "css-loader": "^3.5.2",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "mini-css-extract-plugin": "^0.9.0",
@@ -32,10 +32,10 @@
     "postcss-mixins": "^6.2.3",
     "postcss-nested": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "terser-webpack-plugin": "^2.3.2"
+    "terser-webpack-plugin": "^2.3.5"
   },
   "dependencies": {
-    "accessible-autocomplete": "^2.0.1",
-    "react-select": "^3.0.8"
+    "accessible-autocomplete": "^2.0.2",
+    "react-select": "^3.1.0"
   }
 }
