@@ -5,7 +5,6 @@
 
 namespace Required\WPTeamList\REST;
 
-use WP_Error;
 use WP_REST_Controller;
 use WP_REST_Server;
 
@@ -60,7 +59,7 @@ class UserController extends WP_REST_Controller {
 		}
 
 		if ( ! $can_view ) {
-			return new WP_Error( 'rest_forbidden_who', __( 'Sorry, you are not allowed to query users.', 'wp-team-list' ), [ 'status' => rest_authorization_required_code() ] );
+			return new \WP_Error( 'rest_forbidden_who', __( 'Sorry, you are not allowed to query users.', 'wp-team-list' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 
 		return true;

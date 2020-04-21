@@ -251,7 +251,7 @@ class Plugin {
 
 		$roles = [];
 		if ( isset( $args['role'] ) ) {
-			$roles = is_array( $args['role'] ) ? $args['role'] : array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
+			$roles = \is_array( $args['role'] ) ? $args['role'] : array_filter( array_map( 'trim', explode( ',', $args['role'] ) ) );
 		}
 
 		unset( $args['role'] );
@@ -337,7 +337,7 @@ class Plugin {
 			$default_classes
 		);
 
-		if ( ! is_array( $classes ) ) {
+		if ( ! \is_array( $classes ) ) {
 			$classes = explode( ' ', $classes );
 		}
 
@@ -374,9 +374,9 @@ class Plugin {
 	/**
 	 * Renders the template to the page.
 	 *
-	 * @param  array   $args     WP_User_Query arguments.
-	 * @param  boolean $echo     Whether to return the result or echo it.
-	 * @param  string  $template The template file name to include.
+	 * @param  array  $args     WP_User_Query arguments.
+	 * @param  bool   $echo     Whether to return the result or echo it.
+	 * @param  string $template The template file name to include.
 	 * @return string
 	 */
 	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) {

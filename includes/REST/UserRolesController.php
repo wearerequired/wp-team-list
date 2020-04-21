@@ -5,7 +5,6 @@
 
 namespace Required\WPTeamList\REST;
 
-use WP_Error;
 use WP_REST_Controller;
 use WP_REST_Server;
 
@@ -47,7 +46,7 @@ class UserRolesController extends WP_REST_Controller {
 	 */
 	public function get_items_permissions_check( $request ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		if ( ! current_user_can( 'edit_posts' ) ) {
-			return new WP_Error( 'rest_forbidden_list_roles', __( 'Sorry, you are not allowed to list user roles.', 'wp-team-list' ), [ 'status' => rest_authorization_required_code() ] );
+			return new \WP_Error( 'rest_forbidden_list_roles', __( 'Sorry, you are not allowed to list user roles.', 'wp-team-list' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 
 		return true;
