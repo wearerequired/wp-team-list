@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 3.0.3 - 2020-08-11
+#### Changed
+* Tested compatibility with WordPress 5.5
+
+### Fixed
+* Allow to remove all roles from block settings
+
 ## 3.0.2 - 2020-04-16
 #### Changed
 * Tested compatibility with WordPress 5.3 & 5.4
