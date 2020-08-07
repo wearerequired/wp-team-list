@@ -17,7 +17,7 @@ import { debounce } from 'lodash';
  * Internal dependencies
  */
 import './accessible-autocomplete.css';
-import './style.css';
+import './edit.css';
 
 class PostSelector extends Component {
 	constructor() {

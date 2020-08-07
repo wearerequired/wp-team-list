@@ -1,5 +1,4 @@
 const path = require( 'path' );
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const defaultConfig = require("./node_modules/@wordpress/scripts/config/webpack.config");
 
@@ -7,7 +6,7 @@ module.exports = {
 	...defaultConfig,
 
 	optimization: {
-		runtimeChunk: false,
+		...defaultConfig.optimization,
 		minimizer: [
 			new TerserPlugin( {
 				cache: true,
@@ -29,31 +28,16 @@ module.exports = {
 	},
 
 	output: {
-		path: path.resolve( __dirname, 'assets/js' ),
+		path: path.resolve( __dirname, 'assets/js/dist' ),
 		filename: '[name].js',
 	},
 
-	module: {
-		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.css$/,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-					},
-					'css-loader',
-					'postcss-loader',
-				]
-			},
-		]
-	},
-
 	plugins: [
-		...defaultConfig.plugins,
-		new MiniCssExtractPlugin( {
-			filename: '../css/[name].css',
+		...defaultConfig.plugins.map( ( plugin ) => {
+			if ( plugin.constructor.name === 'MiniCssExtractPlugin' ) {
+				plugin.options.filename = '../../css/[name].css';
+			}
+			return plugin;
 		} ),
 	],
 };

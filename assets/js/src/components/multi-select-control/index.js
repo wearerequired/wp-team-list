@@ -13,7 +13,7 @@ import { BaseControl } from '@wordpress/components';
 /**
  * Internal dependencies
  */
-import './style.css';
+import './edit.css';
 
 function MultiSelectControl( {
 	help,
