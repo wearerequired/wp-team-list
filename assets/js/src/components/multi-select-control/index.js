@@ -28,7 +28,7 @@ function MultiSelectControl( {
 	const id = `inspector-multi-select-control-${ instanceId }`;
 
 	const onChangeValue = ( values ) => {
-		const newValues = values.map( ( { value } ) => value );
+		const newValues = ( values || [] ).map( ( { value } ) => value );
 		onChange( newValues );
 	};
 
