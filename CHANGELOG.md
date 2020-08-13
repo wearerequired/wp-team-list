@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## 3.0.3 - 2020-08-11
+## 3.0.3 - 2020-08-13
 #### Changed
 * Tested compatibility with WordPress 5.5
 
