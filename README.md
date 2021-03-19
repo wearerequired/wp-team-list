@@ -2,7 +2,7 @@
 Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich  
 Tags: authors, widget, users, team, blocks  
 Requires at least: 5.0  
-Tested up to: 5.6  
+Tested up to: 5.7  
 Requires PHP: 5.6  
 Stable tag: 3.0.2  
 License: GPLv2 or later  
