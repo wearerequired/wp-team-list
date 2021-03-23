@@ -2,6 +2,7 @@
 .github
 .wordpress-org
 .babelrc
+.browserslistrc
 .distignore
 .editorconfig
 .eslintignore
@@ -9,6 +10,7 @@
 .rtlcssrc
 .gitignore
 .travis.yml
+babel.config.js
 composer.json
 composer.lock
 package.json
