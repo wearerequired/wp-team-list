@@ -13,12 +13,5 @@ updates:
     interval: daily
     time: "07:30"
     timezone: Europe/Zurich
-  open-pull-requests-limit: 10
-  reviewers:
-  - ocean90
-  ignore:
-  - dependency-name: phpunit/phpunit
-    versions:
-    - "> 6.5"
   registries:
   - composer-repository-composer-required-ch
