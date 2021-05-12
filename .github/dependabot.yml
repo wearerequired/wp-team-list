@@ -1,0 +1,17 @@
+version: 2
+registries:
+  composer-repository-composer-required-ch:
+    type: composer-repository
+    url: https://composer.required.ch
+    username: dependabot
+    password: "${{secrets.COMPOSER_REPOSITORY_COMPOSER_REQUIRED_CH_PASSWORD}}"
+
+updates:
+- package-ecosystem: composer
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "07:30"
+    timezone: Europe/Zurich
+  registries:
+  - composer-repository-composer-required-ch
