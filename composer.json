@@ -1,61 +1,59 @@
 {
   "name": "wearerequired/wp-team-list",
-  "description": "Create a simple yet highly customizable team site by leveraging your existing WordPress users.",
   "type": "wordpress-plugin",
+  "description": "Create a simple yet highly customizable team site by leveraging your existing WordPress users.",
+  "keywords": [
+    "wordpress",
+    "users",
+    "widget"
+  ],
   "license": "GPL-2.0-or-later",
   "authors": [
     {
-        "name": "required",
-        "email": "info@required.com",
-        "homepage": "https://required.com",
-        "role": "Company"
+      "name": "required",
+      "email": "info@required.com",
+      "homepage": "https://required.com",
+      "role": "Company"
     },
     {
-        "name": "Silvan Hagen",
-        "role": "Developer"
+      "name": "Silvan Hagen",
+      "role": "Developer"
     },
     {
-        "name": "Pascal Birchler",
-        "role": "Developer"
+      "name": "Pascal Birchler",
+      "role": "Developer"
     },
     {
-        "name": "Stefan Pasch",
-        "email": "stefan@required.com",
-        "role": "Developer"
+      "name": "Stefan Pasch",
+      "email": "stefan@required.com",
+      "role": "Developer"
     },
     {
-        "name": "Dominik Schilling",
-        "email": "dominik@required.com",
-        "role": "Developer"
+      "name": "Dominik Schilling",
+      "email": "dominik@required.com",
+      "role": "Developer"
     }
   ],
-  "keywords": [
-      "wordpress",
-      "users",
-      "widget"
-  ],
-  "config": {
-    "sort-packages": true
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "require": {
     "php": ">=5.6",
     "wearerequired/wp-requirements-check": "^1.0"
   },
-  "require-dev":  {
+  "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "phpunit/phpunit": "~4.8 || ~6.5",
     "wearerequired/coding-standards": "dev-master"
+  },
+  "config": {
+    "sort-packages": true
   },
   "autoload": {
     "psr-4": {
       "Required\\WPTeamList\\": "includes"
     }
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "scripts": {
     "format": "vendor/bin/phpcbf --report-summary --report-source .",
-    "lint": "vendor/bin/phpcs --report-summary --report-source .",
-    "test": "vendor/bin/phpunit"
+    "lint": "vendor/bin/phpcs --report-summary --report-source ."
   }
 }
