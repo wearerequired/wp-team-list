@@ -19,8 +19,9 @@ class Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = [
-			'classname'   => 'widget_wp_team_list',
-			'description' => __( 'Display users as team members.', 'wp-team-list' ),
+			'classname'             => 'widget_wp_team_list',
+			'description'           => __( 'Display users as team members.', 'wp-team-list' ),
+			'show_instance_in_rest' => true,
 		];
 
 		parent::__construct( 'wp-team-list', __( 'WP Team List', 'wp-team-list' ), $widget_ops );
@@ -121,7 +122,17 @@ class Widget extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'role' ) ); ?>"><?php esc_html_e( 'Role:', 'wp-team-list' ); ?></label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'role' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'role' ) ); ?>" class="widefat">
 				<option value="all" <?php selected( 'all', $role ); ?>><?php esc_html_e( 'All', 'wp-team-list' ); ?></option>
-				<?php wp_dropdown_roles( $role ); ?>
+				<?php
+				// Check if function exists when used with REST API.
+				if ( ! function_exists( 'wp_dropdown_roles' ) ) {
+					require_once ABSPATH . 'wp-admin/includes/template.php';
+				}
+				// Used by wp_dropdown_roles.
+				if ( ! function_exists( 'get_editable_roles' ) ) {
+					require_once ABSPATH . 'wp-admin/includes/user.php';
+				}
+				wp_dropdown_roles( $role );
+				?>
 			</select>
 		</p>
 
