@@ -8,7 +8,6 @@ import { combineReducers } from '@wordpress/data';
  *
  * @param {Object} state  Current state.
  * @param {Object} action Dispatched action.
- *
  * @return {Object} Updated state.
  */
 export function users( state = { queries: {}, isLoading: {} }, action ) {
@@ -40,7 +39,6 @@ export function users( state = { queries: {}, isLoading: {} }, action ) {
  *
  * @param {Object} state  Current state.
  * @param {Object} action Dispatched action.
- *
  * @return {Object} Updated state.
  */
 export function roles( state = [], action ) {

@@ -11,9 +11,7 @@ import {
 	ToggleControl,
 	RangeControl,
 } from '@wordpress/components';
-const {
-	InspectorControls,
-} = wp.blockEditor || wp.editor;
+const { InspectorControls } = wp.blockEditor || wp.editor;
 
 /**
  * Internal dependencies
@@ -26,13 +24,7 @@ class TeamListEdit extends Component {
 			className,
 			post,
 			availableRoles,
-			attributes: {
-				number,
-				showDescription,
-				roles,
-				orderBy,
-				order,
-			},
+			attributes: { number, showDescription, roles, orderBy, order },
 			setAttributes,
 		} = this.props;
 
@@ -50,16 +42,25 @@ class TeamListEdit extends Component {
 				<InspectorControls>
 					<PanelBody>
 						<RangeControl
-							label={ __( 'Number of users to display', 'wp-team-list' ) }
+							label={ __(
+								'Number of users to display',
+								'wp-team-list'
+							) }
 							value={ number }
-							onChange={ ( number ) => setAttributes( { number } ) }
+							onChange={ ( value ) => setAttributes( { value } ) }
 							min={ 1 }
 							max={ 100 }
 						/>
 						<MultiSelectControl
 							label={ __( 'Roles', 'wp-team-list' ) }
-							help={ __( 'Only show users with the selected roles', 'wp-team-list' ) }
-							placeholder={ __( 'Select or leave empty for all', 'wp-team-list' ) }
+							help={ __(
+								'Only show users with the selected roles',
+								'wp-team-list'
+							) }
+							placeholder={ __(
+								'Select or leave empty for all',
+								'wp-team-list'
+							) }
 							value={ roles }
 							options={ availableRoles }
 							onChange={ ( newValue ) => {
@@ -106,7 +107,10 @@ class TeamListEdit extends Component {
 							} }
 						/>
 						<ToggleControl
-							label={ __( 'Show user description', 'wp-team-list' ) }
+							label={ __(
+								'Show user description',
+								'wp-team-list'
+							) }
 							checked={ showDescription }
 							onChange={ ( newValue ) => {
 								setAttributes( { showDescription: newValue } );
@@ -114,18 +118,27 @@ class TeamListEdit extends Component {
 						/>
 						<PostSelector
 							label={ __( 'Link to', 'wp-team-list' ) }
-							help={ __( 'Select a team page to link to.', 'wp-team-list' ) }
+							help={ __(
+								'Select a team page to link to.',
+								'wp-team-list'
+							) }
 							searchablePostTypes={ [ 'page' ] }
 							post={ post }
-							onUpdatePost={ ( { id: postId, subtype: postType } ) => {
+							onUpdatePost={ ( {
+								id: postId,
+								subtype: postType,
+							} ) => {
 								setAttributes( { postId, postType } );
 							} }
 						/>
-						{ post &&
+						{ post && (
 							<p>
 								<Button
 									onClick={ () => {
-										setAttributes( { postId: null, postType: null } );
+										setAttributes( {
+											postId: null,
+											postType: null,
+										} );
 									} }
 									isLink
 									isDestructive
@@ -133,7 +146,7 @@ class TeamListEdit extends Component {
 									{ __( 'Clear selection', 'wp-team-list' ) }
 								</Button>
 							</p>
-						}
+						) }
 					</PanelBody>
 				</InspectorControls>
 			</Fragment>
@@ -142,11 +155,20 @@ class TeamListEdit extends Component {
 }
 
 export default withSelect( ( select, ownProps ) => {
-	const { attributes: { postId, postType } } = ownProps;
+	const {
+		attributes: { postId, postType },
+	} = ownProps;
 	const { getUserRoles } = select( 'wp-team-list' );
 
 	return {
-		post: ( postType && postId ) ? select( 'core' ).getEntityRecord( 'postType', postType, postId ) : null,
+		post:
+			postType && postId
+				? select( 'core' ).getEntityRecord(
+						'postType',
+						postType,
+						postId
+				  )
+				: null,
 		availableRoles: getUserRoles(),
 	};
 } )( TeamListEdit );

@@ -1,10 +1,7 @@
 /**
  * WordPress dependencies
  */
-import {
-	Component,
-	Fragment,
-} from '@wordpress/element';
+import { Component, Fragment } from '@wordpress/element';
 import { Spinner } from '@wordpress/components';
 import { withSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -26,29 +23,42 @@ class TeamList extends Component {
 
 		if ( ! users || ! users.length ) {
 			return (
-				<p>
-					{ __( 'There are no users to show.', 'wp-team-list' ) }
-				</p>
+				<p>{ __( 'There are no users to show.', 'wp-team-list' ) }</p>
 			);
 		}
 
 		const teamList = users.map( ( user ) => {
-			return <TeamMember user={ user } showDescription={ showDescription } key={ user.id } />;
+			return (
+				<TeamMember
+					user={ user }
+					showDescription={ showDescription }
+					key={ user.id }
+				/>
+			);
 		} );
 
 		return (
 			<Fragment>
 				{ teamList }
-				{ linkTo &&
-					<a href={ linkTo } className="show-all">{ __( 'Show all team members', 'wp-team-list' ) }</a>
-				}
+				{ linkTo && (
+					<a href={ linkTo } className="show-all">
+						{ __( 'Show all team members', 'wp-team-list' ) }
+					</a>
+				) }
 			</Fragment>
 		);
 	}
 }
 
 export default withSelect( ( select, ownProps ) => {
-	const { number, roles, orderBy, order, showLink, showDescription } = ownProps;
+	const {
+		number,
+		roles,
+		orderBy,
+		order,
+		showLink,
+		showDescription,
+	} = ownProps;
 	const { getUsers, isLoading } = select( 'wp-team-list' );
 
 	const queryArgs = {

@@ -61,6 +61,8 @@ class Plugin {
 
 		// Register REST API route.
 		add_action( 'rest_api_init', [ $this, 'register_rest_routes' ] );
+
+		add_filter( 'rest_prepare_widget', [ $this, 'rest_prepare_widget' ], 10, 2 );
 	}
 
 	/**
@@ -669,6 +671,27 @@ class Plugin {
 
 		$controller = new REST\UserRolesController();
 		$controller->register_routes();
+	}
+
+	/**
+	 * Filters the REST API response for a widget.
+	 *
+	 * @param \WP_REST_Response $response The response object.
+	 * @param array             $widget   The registered widget data.
+	 */
+	public function rest_prepare_widget( $response, $widget ) {
+		if ( false !== strpos( $widget['id'], 'wp-team-list' ) ) {
+			/**
+			 * Add page URL to response for transforming legacy widget.
+			 *
+			 * This is needed as Block Transforms do not support async allowing
+			 * for fetching the permalink with the ID dynamically on transformation.
+			 *
+			 * @link https://github.com/WordPress/gutenberg/issues/14755
+			 */
+			$response->data['instance']['raw']['page_url'] = get_the_permalink( $response->data['instance']['raw']['page_link'] );
+		}
+		return $response;
 	}
 
 	/**

@@ -1,14 +1,8 @@
 /**
  * Internal dependencies
  */
-import {
-	dispatch,
-	apiFetch,
-} from './controls';
-import {
-	receiveUserRoles,
-	receiveUsers,
-} from './actions';
+import { dispatch, apiFetch } from './controls';
+import { receiveUserRoles, receiveUsers } from './actions';
 import { STORE_KEY } from './name';
 
 /**
@@ -25,20 +19,12 @@ export function* getUserRoles() {
  * @param {string} query
  */
 export function* getUsers( query ) {
-	yield dispatch(
-		STORE_KEY,
-		'setLoading',
-		query,
-		true,
-	);
+	yield dispatch( STORE_KEY, 'setLoading', query, true );
 
-	const users = yield apiFetch( { path: `/wp-team-list/v1/users${ query }` } );
+	const users = yield apiFetch( {
+		path: `/wp-team-list/v1/users${ query }`,
+	} );
 	yield receiveUsers( query, users );
 
-	yield dispatch(
-		STORE_KEY,
-		'setLoading',
-		query,
-		false,
-	);
+	yield dispatch( STORE_KEY, 'setLoading', query, false );
 }
