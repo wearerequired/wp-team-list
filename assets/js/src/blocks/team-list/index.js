@@ -76,13 +76,13 @@ export const settings = {
 				transform: ( { instance } ) => {
 					const blocks = [];
 
-					if ( instance.raw.title ) {
-						blocks.push(
-							createBlock( 'core/heading', {
-								content: instance.raw.title,
-							} )
-						);
-					}
+					blocks.push(
+						createBlock( 'core/heading', {
+							content:
+								instance.raw.title ||
+								__( 'Editors', 'wp-team-list' ),
+						} )
+					);
 
 					blocks.push(
 						createBlock( 'required/wp-team-list', {
