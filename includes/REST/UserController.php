@@ -46,7 +46,7 @@ class UserController extends WP_REST_Controller {
 	 * @return true|\WP_Error True if the request has read access, otherwise WP_Error object.
 	 */
 	public function get_items_permissions_check( $request ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
-		$types    = get_post_types( [ 'show_in_rest' => true ], 'objects' );
+		$types = get_post_types( [ 'show_in_rest' => true ], 'objects' );
 
 		foreach ( $types as $type ) {
 			if (
