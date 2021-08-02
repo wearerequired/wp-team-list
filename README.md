@@ -2,7 +2,7 @@
 Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich  
 Tags: authors, widget, users, team, blocks  
 Requires at least: 5.0  
-Tested up to: 5.7  
+Tested up to: 5.8  
 Requires PHP: 5.6  
 Stable tag: 3.0.2  
 License: GPLv2 or later  
@@ -92,6 +92,24 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 4. The configuration options of the built-in widget.
 
 ## Changelog ##
+
+### 3.0.4 ###
+
+#### Changed ####
+* Tested compatibility with WordPress 5.8
+
+#### Fixed ####
+* Fixed missing PHP functions when widget was used with legacy widget in the new WordPress 5.8 widget area.
+
+#### Added ####
+* Allow transformation from legacy widget to block
+
+### 3.0.3 ###
+#### Changed ####
+* Tested compatibility with WordPress 5.5
+
+#### Fixed ####
+* Allow to remove all roles from block settings
 
 ### 3.0.2 ###
 

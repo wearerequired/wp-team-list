@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 3.0.4 - 2021-08-02
+
+### Changed
+* Tested compatibility with WordPress 5.8
+
+### Fixed
+* Fixed missing PHP functions when widget was used with legacy widget in the new WordPress 5.8 widget area.
+
+### Added
+* Allow transformation from legacy widget to block
+
 ## 3.0.3 - 2020-08-13
 #### Changed
 * Tested compatibility with WordPress 5.5
