@@ -702,11 +702,13 @@ class Plugin {
 	 */
 	public function render_team_list_block( $attributes ) {
 		$attributes_mappings = [
-			'number'          => 'number',
-			'showDescription' => 'show_description',
-			'order'           => 'order',
-			'orderBy'         => 'orderby',
-			'roles'           => 'role',
+			'number'            => 'number',
+			'showDescription'   => 'show_description',
+			'order'             => 'order',
+			'orderBy'           => 'orderby',
+			'roles'             => 'role',
+			'include'           => 'include',
+			'hasPublishedPosts' => 'has_published_posts',
 		];
 
 		$prepared_args = [];
@@ -715,6 +717,11 @@ class Plugin {
 			if ( isset( $attributes[ $block_attr ] ) ) {
 				$prepared_args[ $wp_param ] = $attributes[ $block_attr ];
 			}
+		}
+
+		// Convert array to comma-separated string.
+		if ( \is_array( $prepared_args['has_published_posts'] ) ) {
+			$prepared_args['has_published_posts'] = implode( ',', $prepared_args['has_published_posts'] );
 		}
 
 		$html = wp_team_list()->render( $prepared_args );
