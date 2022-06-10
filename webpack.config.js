@@ -9,13 +9,15 @@ module.exports = {
 		...defaultConfig.optimization,
 		minimizer: [
 			new TerserPlugin( {
-				cache: true,
 				parallel: true,
 				extractComments: false,
 				terserOptions: {
 					output: {
 						comments: false,
-					}
+					},
+					compress: {
+						passes: 2,
+					},
 				}
 			} )
 		]
