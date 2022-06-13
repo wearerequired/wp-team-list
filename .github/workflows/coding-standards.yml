@@ -58,3 +58,4 @@ jobs:
           stylelint: true
           stylelint_args: "--allow-empty-input"
           php_codesniffer: true
+          php_codesniffer_args: "--runtime-set testVersion 5.6-"
