@@ -74,7 +74,7 @@ Want do display the team members in your sidebar? Use the built-in WordPress wid
 
 ### How do I contribute to Team List? ###
 
-Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](https://github.com/wearerequired/rplus-wp-team-list).
+Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](https://github.com/wearerequired/wp-team-list).
 
 ### What kind of filters / hooks are available? ###
 * `wp_team_list_user_role` - Filter the user role displayed in the team list.
@@ -88,7 +88,7 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 1. This is how your team list can look like with some additional CSS.
 2. The plugin only provides limited styling. It's up to you to adjust it.
-3. The block in the block editor with its settings.
+3. The block in the block editor with its settings and custom styling.
 4. The configuration options of the built-in widget.
 
 ## Changelog ##
