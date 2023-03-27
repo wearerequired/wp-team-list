@@ -68,7 +68,7 @@ class Plugin {
 	public function register_stylesheet() {
 		wp_register_style(
 			'wp-team-list',
-			plugins_url( 'assets/dist/style-main.css', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/dist/style-main.css', \Required\WPTeamList\PLUGIN_FILE ),
 			[],
 			self::VERSION
 		);
@@ -523,7 +523,7 @@ class Plugin {
 		$styles = explode( ',', $stylesheets );
 
 		$style    = is_rtl() ? 'assets/dist/style-main-rtl.css' : 'assets/dist/style-main.css';
-		$styles[] = plugins_url( $style, plugin_dir_path( __FILE__ ) );
+		$styles[] = plugins_url( $style, \Required\WPTeamList\PLUGIN_FILE );
 
 		return implode( ',', $styles );
 	}
@@ -555,11 +555,11 @@ class Plugin {
 	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
 	 */
 	public function register_block_type() {
-		$script_asset = require_once plugin_dir_path( __DIR__ ) . 'assets/dist/main.asset.php';
+		$script_asset = require_once \Required\WPTeamList\PLUGIN_DIR . '/assets/dist/main.asset.php';
 
 		wp_register_script(
 			'wp-team-list-block-editor',
-			plugins_url( 'assets/dist/main.js', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/dist/main.js', \Required\WPTeamList\PLUGIN_FILE ),
 			$script_asset['dependencies'],
 			$script_asset['version'],
 			true
@@ -569,7 +569,7 @@ class Plugin {
 
 		wp_register_style(
 			'wp-team-list-editor',
-			plugins_url( 'assets/dist/main.css', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/dist/main.css', \Required\WPTeamList\PLUGIN_FILE ),
 			[],
 			self::VERSION
 		);

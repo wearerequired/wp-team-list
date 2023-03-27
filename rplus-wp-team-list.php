@@ -31,8 +31,8 @@
 
 // phpcs:disable Generic.Arrays.DisallowLongArraySyntax -- File needs to be parsable by PHP 5.2.4.
 
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require __DIR__ . '/vendor/autoload.php';
+if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
+	require dirname( __FILE__ ) . '/vendor/autoload.php';
 }
 
 // phpcs:ignore WordPress.NamingConventions -- Variable gets unset.
@@ -45,7 +45,9 @@ $requirements_check = new WP_Requirements_Check(
 	)
 );
 if ( $requirements_check->passes() ) {
-	require_once __DIR__ . '/init.php';
+	define( 'Required\WPTeamList\PLUGIN_FILE', __FILE__ );
+
+	require_once dirname( __FILE__ ) . '/init.php';
 }
 
 unset( $requirements_check );
