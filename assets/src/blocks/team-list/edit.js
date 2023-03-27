@@ -49,7 +49,7 @@ const TeamListEdit = ( { className, attributes, setAttributes } ) => {
 					<RangeControl
 						label={ __( 'Number of users to display', 'wp-team-list' ) }
 						value={ number }
-						onChange={ ( value ) => setAttributes( { value } ) }
+						onChange={ ( newValue ) => setAttributes( { number: newValue } ) }
 						min={ 1 }
 						max={ 100 }
 					/>
