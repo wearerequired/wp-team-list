@@ -614,11 +614,11 @@ class Plugin {
 						'maximum' => 100,
 					],
 					'showLink'        => [
-						'type'    => 'bool',
+						'type'    => 'boolean',
 						'default' => true,
 					],
 					'showDescription' => [
-						'type'    => 'bool',
+						'type'    => 'boolean',
 						'default' => true,
 					],
 					'roles'           => [
