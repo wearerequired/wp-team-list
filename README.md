@@ -4,7 +4,7 @@ Tags: authors, widget, users, team, blocks
 Requires at least: 6.0  
 Tested up to: 6.2  
 Requires PHP: 7.4  
-Stable tag: 3.0.4  
+Stable tag: 4.0.0  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -96,7 +96,7 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 ### 4.0.0 - 2023-03-27 ###
 
 #### Changed ####
-* Add colors, spacing and alignment support for team list block.
+* Add colors, spacing, and alignment support for team list block.
 * Require at least PHP 7.4 and WordPress 6.0.
 * Tested compatibility with WordPress 6.2.
 

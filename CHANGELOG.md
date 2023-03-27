@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [4.0.0] - 2023-03-27
 
 ### Changed
-* Add colors, spacing and alignment support for team list block.
+* Add colors, spacing, and alignment support for team list block.
 * Require at least PHP 7.4 and WordPress 6.0.
 * Tested compatibility with WordPress 6.2.
 
