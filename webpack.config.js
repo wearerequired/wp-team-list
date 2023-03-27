@@ -1,6 +1,6 @@
 const path = require( 'path' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
-const defaultConfig = require("./node_modules/@wordpress/scripts/config/webpack.config");
+const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config' );
 
 module.exports = {
 	...defaultConfig,
@@ -8,7 +8,7 @@ module.exports = {
 	context: path.resolve( __dirname, 'assets/src' ),
 
 	entry: {
-		'main': './main.js',
+		main: './main.js',
 	},
 
 	// https://webpack.js.org/configuration/output/
@@ -24,5 +24,5 @@ module.exports = {
 		new RtlCssPlugin( {
 			filename: `[name]-rtl.css`,
 		} ),
-	]
+	],
 };
