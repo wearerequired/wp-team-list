@@ -11,7 +11,7 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import './editor.css';
-import { TeamMember } from '../';
+import { TeamMember } from '..';
 
 class TeamList extends Component {
 	render() {

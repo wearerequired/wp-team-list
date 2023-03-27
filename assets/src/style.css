@@ -3,21 +3,21 @@
  */
 
 .wp-team-member {
-  clear: both;
+	clear: both;
 
-  .author-image {
-    float: left;
-    margin: 0 1em 1em 0;
-  }
+	.author-image {
+		float: left;
+		margin: 0 1em 1em 0;
+	}
 
-  h2 {
-    clear: none;
-    margin-top: 0;
-  }
+	h2 {
+		clear: none;
+		margin-top: 0;
+	}
 
-  + .wp-team-member {
-    margin-top: 1em;
-  }
+	+ .wp-team-member {
+		margin-top: 1em;
+	}
 }
 
 .wp-block-wp-team-list-wp-team-list {

@@ -91,7 +91,7 @@ class Plugin {
 	public function register_stylesheet() {
 		wp_register_style(
 			'wp-team-list',
-			plugins_url( 'assets/css/style.css', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/dist/style-main.css', plugin_dir_path( __FILE__ ) ),
 			[],
 			self::VERSION
 		);
@@ -545,7 +545,7 @@ class Plugin {
 	public function filter_mce_css( $stylesheets ) {
 		$styles = explode( ',', $stylesheets );
 
-		$style    = is_rtl() ? 'assets/css/style-rtl.css' : 'assets/css/style.css';
+		$style    = is_rtl() ? 'assets/dist/style-main-rtl.css' : 'assets/dist/style-main.css';
 		$styles[] = plugins_url( $style, plugin_dir_path( __FILE__ ) );
 
 		return implode( ',', $styles );
@@ -578,25 +578,11 @@ class Plugin {
 	 * @see https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type/#enqueuing-block-scripts
 	 */
 	public function register_block_type() {
-		$script_asset_path = plugin_dir_path( __DIR__ ) . 'assets/js/dist/editor.asset.php';
-		if ( file_exists( $script_asset_path ) ) {
-			$script_asset = require $script_asset_path;
-		} else {
-			$script_asset = [
-				'dependencies' => [],
-				'version'      => filemtime( plugin_dir_path( __DIR__ ) . 'assets/js/dist/editor.js' ),
-			];
-		}
-		// Backwards compatbity for InspectorControls. To be removed once minimum support is 5.2.
-		if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
-			$script_asset['dependencies'][] = 'wp-editor';
-		} else {
-			$script_asset['dependencies'][] = 'wp-block-editor';
-		}
+		$script_asset = require_once plugin_dir_path( __DIR__ ) . 'assets/dist/main.asset.php';
 
 		wp_register_script(
 			'wp-team-list-block-editor',
-			plugins_url( 'assets/js/dist/editor.js', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/dist/main.js', plugin_dir_path( __FILE__ ) ),
 			$script_asset['dependencies'],
 			$script_asset['version'],
 			true
@@ -606,7 +592,7 @@ class Plugin {
 
 		wp_register_style(
 			'wp-team-list-editor',
-			plugins_url( 'assets/css/editor.css', plugin_dir_path( __FILE__ ) ),
+			plugins_url( 'assets/dist/main.css', plugin_dir_path( __FILE__ ) ),
 			[],
 			self::VERSION
 		);

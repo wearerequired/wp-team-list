@@ -1,45 +1,28 @@
 const path = require( 'path' );
-const TerserPlugin = require( 'terser-webpack-plugin' );
+const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
 const defaultConfig = require("./node_modules/@wordpress/scripts/config/webpack.config");
 
 module.exports = {
 	...defaultConfig,
 
-	optimization: {
-		...defaultConfig.optimization,
-		minimizer: [
-			new TerserPlugin( {
-				parallel: true,
-				extractComments: false,
-				terserOptions: {
-					output: {
-						comments: false,
-					},
-					compress: {
-						passes: 2,
-					},
-				}
-			} )
-		]
-	},
-
-	context: path.resolve( __dirname, 'assets/js/src' ),
+	context: path.resolve( __dirname, 'assets/src' ),
 
 	entry: {
-		'editor': './editor.js',
+		'main': './main.js',
 	},
 
+	// https://webpack.js.org/configuration/output/
 	output: {
-		path: path.resolve( __dirname, 'assets/js/dist' ),
+		...defaultConfig.output,
+		uniqueName: '@wearerequired/wp-team-list',
+		path: path.resolve( __dirname, 'assets/dist' ),
 		filename: '[name].js',
 	},
 
 	plugins: [
-		...defaultConfig.plugins.map( ( plugin ) => {
-			if ( plugin.constructor.name === 'MiniCssExtractPlugin' ) {
-				plugin.options.filename = '../../css/[name].css';
-			}
-			return plugin;
+		...defaultConfig.plugins,
+		new RtlCssPlugin( {
+			filename: `[name]-rtl.css`,
 		} ),
-	],
+	]
 };
