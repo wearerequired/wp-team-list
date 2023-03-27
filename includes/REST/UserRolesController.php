@@ -67,8 +67,7 @@ class UserRolesController extends WP_REST_Controller {
 		foreach ( get_editable_roles() as $role => $data ) {
 			$user_roles[] = [
 				'value' => $role,
-				// phpcs:ignore WordPress.WP.I18n
-				'label' => translate_with_gettext_context( $data['name'], 'User role', 'wp-team-list' ),
+				'label' => translate_user_role( $data['name'] ),
 			];
 		}
 
