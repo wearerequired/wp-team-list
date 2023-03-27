@@ -1,3 +1,5 @@
-node_modules
-/*.js
-assets/src/*.js
+/**/node_modules/*
+/vendor
+assets/*
+!assets/src
+!.*.js
