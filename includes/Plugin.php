@@ -73,7 +73,7 @@ class Plugin {
 			self::VERSION
 		);
 
-		wp_styles()->add_data( 'wp-team-list', 'rtl', true );
+		wp_styles()->add_data( 'wp-team-list', 'rtl', 'replace' );
 	}
 
 	/**
@@ -574,7 +574,7 @@ class Plugin {
 			self::VERSION
 		);
 
-		wp_styles()->add_data( 'wp-team-list-editor', 'rtl', true );
+		wp_styles()->add_data( 'wp-team-list-editor', 'rtl', 'replace' );
 
 		register_block_type(
 			'required/wp-team-list',
