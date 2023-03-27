@@ -2,10 +2,7 @@
  * WordPress dependencies
  */
 import { default as triggerApiFetch } from '@wordpress/api-fetch';
-import {
-	select as selectData,
-	dispatch as dispatchData,
-} from '@wordpress/data';
+import { select as selectData, dispatch as dispatchData } from '@wordpress/data';
 
 /**
  * Trigger an API Fetch request.

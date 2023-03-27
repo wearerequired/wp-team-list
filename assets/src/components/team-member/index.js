@@ -10,24 +10,22 @@ export default class TeamMember extends Component {
 			user: {
 				id,
 				role,
-				role_display_name,
-				display_name,
-				avatar_urls,
+				role_display_name: roleDisplayName,
+				display_name: displayName,
+				avatar_urls: avatarUrls,
 				description,
 				link,
-				post_count,
+				post_count: postCount,
 			},
 			showDescription,
 		} = this.props;
 
 		return (
-			<div
-				className={ `wp-team-member wp-team-list-item author-${ id } role-${ role }` }
-			>
+			<div className={ `wp-team-member wp-team-list-item author-${ id } role-${ role }` }>
 				<figure className="wp-team-member-avatar author-image">
 					<img
-						src={ avatar_urls[ 90 ] }
-						srcSet={ `${ avatar_urls[ 180 ] } 2x` }
+						src={ avatarUrls[ 90 ] }
+						srcSet={ `${ avatarUrls[ 180 ] } 2x` }
 						alt=""
 						className="avatar avatar-90 photo"
 						height="90"
@@ -35,30 +33,19 @@ export default class TeamMember extends Component {
 					/>
 				</figure>
 
-				<h2 className="wp-team-member-name">{ display_name }</h2>
+				<h2 className="wp-team-member-name">{ displayName }</h2>
 
-				{ role_display_name && (
-					<p className="wp-team-member-role">{ role_display_name }</p>
-				) }
+				{ roleDisplayName && <p className="wp-team-member-role">{ roleDisplayName }</p> }
 
-				{ showDescription && (
-					<p className="wp-team-member-description">
-						{ description }
-					</p>
-				) }
+				{ showDescription && <p className="wp-team-member-description">{ description }</p> }
 
-				{ post_count > 0 && (
+				{ postCount > 0 && (
 					<p className="wp-team-member-posts-link">
 						<a href={ link }>
 							{ sprintf(
 								/* translators: %s: number of posts */
-								_n(
-									'View %s post',
-									'View %s posts',
-									post_count,
-									'wp-team-list'
-								),
-								post_count
+								_n( 'View %s post', 'View %s posts', postCount, 'wp-team-list' ),
+								postCount
 							) }
 						</a>
 					</p>

@@ -22,19 +22,11 @@ class TeamList extends Component {
 		}
 
 		if ( ! users || ! users.length ) {
-			return (
-				<p>{ __( 'There are no users to show.', 'wp-team-list' ) }</p>
-			);
+			return <p>{ __( 'There are no users to show.', 'wp-team-list' ) }</p>;
 		}
 
 		const teamList = users.map( ( user ) => {
-			return (
-				<TeamMember
-					user={ user }
-					showDescription={ showDescription }
-					key={ user.id }
-				/>
-			);
+			return <TeamMember user={ user } showDescription={ showDescription } key={ user.id } />;
 		} );
 
 		return (
@@ -51,14 +43,7 @@ class TeamList extends Component {
 }
 
 export default withSelect( ( select, ownProps ) => {
-	const {
-		number,
-		roles,
-		orderBy,
-		order,
-		showLink,
-		showDescription,
-	} = ownProps;
+	const { number, roles, orderBy, order, showLink, showDescription } = ownProps;
 	const { getUsers, isLoading } = select( 'wp-team-list' );
 
 	const queryArgs = {

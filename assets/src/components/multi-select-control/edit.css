@@ -35,6 +35,7 @@
 	color: #fff;
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 .components-multi-select-control__multi-value__remove:hover {
 	color: #d94f4f;
 	background-color: #f9e2e2;

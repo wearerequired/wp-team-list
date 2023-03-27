@@ -78,9 +78,7 @@ export const settings = {
 
 					blocks.push(
 						createBlock( 'core/heading', {
-							content:
-								instance.raw.title ||
-								__( 'Editors', 'wp-team-list' ),
+							content: instance.raw.title || __( 'Editors', 'wp-team-list' ),
 						} )
 					);
 
@@ -98,10 +96,7 @@ export const settings = {
 									'<a href="' +
 									instance.raw.page_url +
 									'">' +
-									__(
-										'Show all team members',
-										'wp-team-list'
-									) +
+									__( 'Show all team members', 'wp-team-list' ) +
 									'</a>',
 							} )
 						);

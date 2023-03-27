@@ -27,25 +27,20 @@ function MultiSelectControl( {
 } ) {
 	const id = `inspector-multi-select-control-${ instanceId }`;
 
-	const onChangeValue = ( values ) => {
-		const newValues = ( values || [] ).map( ( { value } ) => value );
+	const onChangeValue = ( selectedOptions ) => {
+		const newValues = ( selectedOptions || [] ).map(
+			( selectedOption ) => selectedOption.value
+		);
 		onChange( newValues );
 	};
 
 	const optionsByValue = ( values ) => {
-		return filter( options, ( option ) =>
-			includes( values, option.value )
-		);
+		return filter( options, ( option ) => includes( values, option.value ) );
 	};
 
 	return (
 		! isEmpty( options ) && (
-			<BaseControl
-				label={ label }
-				id={ id }
-				help={ help }
-				className={ className }
-			>
+			<BaseControl label={ label } id={ id } help={ help } className={ className }>
 				<Select
 					className="components-multi-select-control"
 					classNamePrefix="components-multi-select-control"

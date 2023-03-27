@@ -44,12 +44,10 @@ class PostSelector extends Component {
 			return;
 		}
 
-		const searchablePostTypes = this.props.searchablePostTypes || [
-			'post',
-		];
-		const payload = `?subtype=${ searchablePostTypes.join(
-			','
-		) }&search=${ encodeURIComponent( query ) }`;
+		const searchablePostTypes = this.props.searchablePostTypes || [ 'post' ];
+		const payload = `?subtype=${ searchablePostTypes.join( ',' ) }&search=${ encodeURIComponent(
+			query
+		) }`;
 		apiFetch( { path: '/wp/v2/search/' + payload } ).then( ( posts ) => {
 			populateResults( posts );
 		} );
@@ -77,26 +75,16 @@ class PostSelector extends Component {
 					tStatusQueryTooShort={ ( minQueryLength ) =>
 						sprintf(
 							/* translators: %s: minimum character length */
-							__(
-								'Type in %s or more characters for results',
-								'wp-team-list'
-							),
+							__( 'Type in %s or more characters for results', 'wp-team-list' ),
 							minQueryLength
 						)
 					}
-					tNoResults={ () =>
-						__( 'No results found', 'wp-team-list' )
-					}
-					tStatusNoResults={ () =>
-						__( 'No search results.', 'wp-team-list' )
-					}
+					tNoResults={ () => __( 'No results found', 'wp-team-list' ) }
+					tStatusNoResults={ () => __( 'No search results.', 'wp-team-list' ) }
 					tStatusSelectedOption={ ( selectedOption, length, index ) =>
 						sprintf(
 							/* translators: 1: selected option, 2: index of selected option, 3: count of available options */
-							__(
-								'%1$s (%2$s of %3$s) is selected',
-								'wp-team-list'
-							),
+							__( '%1$s (%2$s of %3$s) is selected', 'wp-team-list' ),
 							selectedOption,
 							index + 1,
 							length

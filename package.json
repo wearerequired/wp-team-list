@@ -17,8 +17,10 @@
   "scripts": {
     "build": "wp-scripts build",
     "start": "WP_DEVTOOL=eval wp-scripts start",
-    "lint": "wp-scripts lint-js ./assets/src",
-    "lint-fix": "wp-scripts lint-js ./assets/src --fix"
+    "lint:js": "wp-scripts lint-js ./assets/src",
+    "lint:js:fix": "wp-scripts lint-js ./assets/src --fix",
+    "lint:css": "wp-scripts lint-style \"./assets/src/**/*.css\"",
+    "lint:css:fix": "wp-scripts lint-style \"./assets/src/**/*.css\" --fix"
   },
   "devDependencies": {
     "@wearerequired/browserslist-config": "0.3.0",
