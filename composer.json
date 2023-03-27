@@ -1,13 +1,13 @@
 {
   "name": "wearerequired/wp-team-list",
-  "type": "wordpress-plugin",
   "description": "Create a simple yet highly customizable team site by leveraging your existing WordPress users.",
+  "license": "GPL-2.0-or-later",
+  "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
     "users",
     "widget"
   ],
-  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "required",
@@ -35,23 +35,27 @@
     }
   ],
   "require": {
-    "php": ">=5.6",
+    "php": ">=7.4",
     "wearerequired/wp-requirements-check": "^1.0"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "wearerequired/coding-standards": "^3.0"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7 || ^1.0",
+    "wearerequired/coding-standards": "^5.0"
   },
-  "config": {
-    "sort-packages": true
-  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Required\\WPTeamList\\": "includes"
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "platform-check": false,
+    "sort-packages": true
+  },
   "scripts": {
     "format": "vendor/bin/phpcbf --report-summary --report-source .",
     "lint": "vendor/bin/phpcs --report-summary --report-source ."

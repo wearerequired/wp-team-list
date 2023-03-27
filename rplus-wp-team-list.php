@@ -1,16 +1,18 @@
 <?php
 /**
- * Plugin Name: Team List
- * Plugin URI:  https://github.com/wearerequired/wp-team-list
- * Description: Display your teammates anywhere on your WordPress site using this easy-to-use plugin. Provides you with a block, a widget, a shortcode, and a template function to list the users of your site.
- * Version:     3.0.4
- * Author:      required
- * Author URI:  https://required.com
- * Text Domain: wp-team-list
- * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Plugin Name:       Team List
+ * Plugin URI:        https://github.com/wearerequired/wp-team-list
+ * Description:       Display your teammates anywhere on your WordPress site using this easy-to-use plugin. Provides you with a block, a widget, a shortcode, and a template function to list the users of your site.
+ * Version:           3.0.4
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
+ * Author:            required
+ * Author URI:        https://required.com
+ * Text Domain:       wp-team-list
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  *
- * Copyright (c) 2014-2019 required (email: info@required.ch)
+ * Copyright (c) 2014-2023 required (email: info@required.ch)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -37,8 +39,8 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 $requirements_check = new WP_Requirements_Check(
 	array(
 		'title' => 'WP Team List',
-		'php'   => '5.6',
-		'wp'    => '5.0',
+		'php'   => '7.4',
+		'wp'    => '6.0',
 		'file'  => __FILE__,
 	)
 );
