@@ -19,7 +19,7 @@ class Plugin {
 	 *
 	 * @var string
 	 */
-	public const VERSION = '3.0.4';
+	public const VERSION = '4.0.0';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.

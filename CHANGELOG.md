@@ -4,9 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [4.0.0] - 2023-03-27
 
-## 3.0.4 - 2021-08-02
+### Changed
+* Add colors, spacing and alignment support for team list block.
+* Require at least PHP 7.4 and WordPress 6.0.
+* Tested compatibility with WordPress 6.2.
+
+### Fixed
+* Fix incorrect type registration for block attributes.
+* Fix updating the number of users to display in block.
+* Fix misalignment of the show all link by providing a block wrapper.
+
+## [3.0.4] - 2021-08-02
 
 ### Changed
 * Tested compatibility with WordPress 5.8
@@ -17,18 +27,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Allow transformation from legacy widget to block
 
-## 3.0.3 - 2020-08-13
+## [3.0.3] - 2020-08-13
 #### Changed
 * Tested compatibility with WordPress 5.5
 
 ### Fixed
 * Allow to remove all roles from block settings
 
-## 3.0.2 - 2020-04-16
+## [3.0.2] - 2020-04-16
 #### Changed
 * Tested compatibility with WordPress 5.3 & 5.4
 
-## 3.0.1 - 2019-05-07
+## [3.0.1] - 2019-05-07
 ### Fixed
 * Path for stylesheet enqueued in the classic editor
 
@@ -126,7 +136,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Initial Release
 
-[Unreleased]: https://github.com/wearerequired/wp-team-list/compare/3.0.2...HEAD
+[Unreleased]: https://github.com/wearerequired/wp-team-list/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/wearerequired/wp-team-list/compare/3.0.2...4.0.0
 [3.0.2]: https://github.com/wearerequired/wp-team-list/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/wearerequired/wp-team-list/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/wearerequired/wp-team-list/compare/2.0.1...3.0.0

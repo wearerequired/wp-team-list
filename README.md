@@ -93,7 +93,19 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 
 ## Changelog ##
 
-### 3.0.4 ###
+### 4.0.0 - 2023-03-27 ###
+
+#### Changed ####
+* Add colors, spacing and alignment support for team list block.
+* Require at least PHP 7.4 and WordPress 6.0.
+* Tested compatibility with WordPress 6.2.
+
+### Fixed ####
+* Fix incorrect type registration for block attributes.
+* Fix updating the number of users to display in block.
+* Fix misalignment of the show all link by providing a block wrapper.
+
+### 3.0.4 - 2021-08-02 ###
 
 #### Changed ####
 * Tested compatibility with WordPress 5.8
@@ -104,49 +116,4 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 #### Added ####
 * Allow transformation from legacy widget to block
 
-### 3.0.3 ###
-#### Changed ####
-* Tested compatibility with WordPress 5.5
-
-#### Fixed ####
-* Allow to remove all roles from block settings
-
-### 3.0.2 ###
-
-#### Changed ####
-* Tested compatibility with WordPress 5.3
-
-### 3.0.1 ###
-
-#### Fixed ####
-* Path for stylesheet enqueued in the classic editor
-
-#### Changed ####
-* Tested compatibility with WordPress 5.2
-
-### 3.0.0 ###
-
-#### Added ####
-* Block for the block editor to insert a team list in any post type.
-
-#### Fixed ####
-* PHP warning when saving a widget.
-
-#### Changed ####
-* Refactoring by using PHP namespaces.
-* Bumped WordPress minimum requirement to 5.0.
-* Bumped PHP minimum requirement to 5.6.
-
-#### Deprecated ####
-* `rplus_wp_team_list_default_classes` filter, use `wp_team_list_default_classes`.
-
-#### Removed ####
-* `rplus_wp_team_list()` and `rplus_wp_team_list_classes()`.
-
-For older versions see CHANGELOG.md.
-
-## Upgrade Notice ##
-
-### 3.0.0 ###
-
-Introduces a block for the block-based editor and requires now WordPress 5.0 and PHP 5.6.
+For previous updates see [CHANGELOG.md](https://github.com/wearerequired/wp-team-list/blob/master/CHANGELOG.md).
