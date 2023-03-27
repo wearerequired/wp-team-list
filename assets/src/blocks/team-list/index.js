@@ -12,6 +12,8 @@ import edit from './edit';
 export const name = 'required/wp-team-list';
 
 export const settings = {
+	apiVersion: 2,
+
 	title: __( 'Team List', 'wp-team-list' ),
 
 	description: __( 'Display website authors.', 'wp-team-list' ),
@@ -30,6 +32,17 @@ export const settings = {
 		anchor: false,
 		customClassName: false,
 		html: false,
+		align: [ 'wide', 'full' ],
+		color: {
+			text: true,
+			background: true,
+			gradients: true,
+			link: true,
+		},
+		spacing: {
+			margin: true,
+			padding: true,
+		},
 	},
 
 	attributes: {

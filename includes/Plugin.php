@@ -583,6 +583,19 @@ class Plugin {
 				'editor_style'    => 'wp-team-list-editor',
 				'style'           => 'wp-team-list-block',
 				'render_callback' => [ $this, 'render_team_list_block' ],
+				'supports'        => [
+					'align'   => [ 'wide', 'full' ],
+					'color'   => [
+						'background' => true,
+						'text'       => true,
+						'link'       => true,
+						'gradients'  => true,
+					],
+					'spacing' => [
+						'margin'  => true,
+						'padding' => true,
+					],
+				],
 				'attributes'      => [
 					'number'          => [
 						'type'    => 'integer',
@@ -690,6 +703,8 @@ class Plugin {
 			);
 		}
 
-		return $html;
+		$wrapper_attributes = get_block_wrapper_attributes();
+
+		return sprintf( '<div %s>%s</div>', $wrapper_attributes, $html );
 	}
 }
