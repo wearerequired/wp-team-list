@@ -67,22 +67,9 @@ class Plugin {
 
 	/**
 	 * Load the plugin text domain for translation.
-	 *
-	 * Makes dummy gettext calls to get user role strings in the catalog.
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'wp-team-list' );
-
-		/* translators: user role */
-		_x( 'Administrator', 'User role', 'wp-team-list' );
-		/* translators: user role */
-		_x( 'Editor', 'User role', 'wp-team-list' );
-		/* translators: user role */
-		_x( 'Author', 'User role', 'wp-team-list' );
-		/* translators: user role */
-		_x( 'Contributor', 'User role', 'wp-team-list' );
-		/* translators: user role */
-		_x( 'Subscriber', 'User role', 'wp-team-list' );
 	}
 
 	/**
