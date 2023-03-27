@@ -25,9 +25,6 @@ class Plugin {
 	 * Initialize the plugin by setting localization, filters, and administration functions.
 	 */
 	public function add_hooks() {
-		// Load plugin text domain.
-		add_action( 'init', [ $this, 'load_plugin_textdomain' ] );
-
 		// Register the team list widget.
 		add_action( 'widgets_init', [ $this, 'register_widgets' ] );
 
@@ -63,13 +60,6 @@ class Plugin {
 		add_action( 'rest_api_init', [ $this, 'register_rest_routes' ] );
 
 		add_filter( 'rest_prepare_widget', [ $this, 'rest_prepare_widget' ], 10, 2 );
-	}
-
-	/**
-	 * Load the plugin text domain for translation.
-	 */
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wp-team-list' );
 	}
 
 	/**
