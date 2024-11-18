@@ -24,13 +24,14 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once 'wordpress/wp-load.php'; wp_insert_user( [ 'user_login' => 'author1', 'user_pass' => 'author1', 'user_email' => 'author1@localhost', 'first_name' => 'Stevie', 'last_name' => 'Turner', 'display_name' => 'Stevie Turner', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'role' => 'author',] ); wp_insert_user( [ 'user_login' => 'author2', 'user_pass' => 'author2', 'user_email' => 'author2@localhost', 'first_name' => 'Hannah', 'last_name' => 'Baker', 'display_name' => 'Hannah Baker', 'description' => 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'role' => 'author',] ); wp_insert_post( [ 'post_title' => 'Our Authors', 'post_type' => 'page', 'post_name' => 'our-authors', 'post_content' => '<!-- wp:required/wp-team-list {\"roles\":[\"author\"]} /-->', 'post_status' => 'publish', 'post_author' => 1,] );"
+      "code": "<?php require_once 'wordpress/wp-load.php'; wp_insert_user( [ 'user_login' => 'author1', 'user_pass' => 'author1', 'user_email' => 'turner@localhost.com', 'first_name' => 'Stevie', 'last_name' => 'Turner', 'display_name' => 'Stevie Turner', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'role' => 'author',] ); wp_insert_user( [ 'user_login' => 'author2', 'user_pass' => 'author2', 'user_email' => 'baker@localhost.com', 'first_name' => 'Hannah', 'last_name' => 'Baker', 'display_name' => 'Hannah Baker', 'description' => 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'role' => 'author',] ); wp_insert_post( [ 'post_title' => 'Our Authors', 'post_type' => 'page', 'post_name' => 'our-authors', 'post_content' => '<!-- wp:paragraph --><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p><!-- /wp:paragraph --> <!-- wp:required/wp-team-list {\"roles\":[\"author\"],\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|40\",\"bottom\":\"var:preset|spacing|40\"}}}} /-->', 'post_status' => 'publish', 'post_author' => 1,] );"
     },
     {
       "step": "setSiteOptions",
       "options": {
         "blogname": "Team List Demo",
-        "permalink_structure": "/%postname%/"
+        "permalink_structure": "/%postname%/",
+        "avatar_default": "identicon"
       }
     }
   ]
