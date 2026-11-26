@@ -31,7 +31,8 @@ $user_posts = (int) count_user_posts( $user->ID );
 		printf( '<p class="wp-team-member-role">%s</p>', esc_html( $role_display_name ) );
 	}
 
-	if ( '' !== $description ) {
+	// $show_description is provided by Plugin::load_template().
+	if ( $show_description && '' !== $description ) {
 		printf( '<p class="wp-team-member-description">%s</p>', wp_kses_post( $description ) );
 	}
 	?>
