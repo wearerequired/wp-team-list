@@ -255,10 +255,11 @@ class Plugin {
 	 *
 	 * First looks in your theme and falls back to the bundled template file.
 	 *
-	 * @param \Required\WPTeamList\WP_User $user The user object that is needed by the template.
-	 * @param string                       $template Name of the template file to load.
+	 * @param \Required\WPTeamList\WP_User $user             The user object that is needed by the template.
+	 * @param string                       $template         Name of the template file to load.
+	 * @param bool                         $show_description Whether the template should output the user description.
 	 */
-	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php' ) {
+	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php', $show_description = true ) {
 		if ( 'rplus-wp-team-list.php' !== $template ) {
 			_deprecated_argument(
 				__FUNCTION__,
@@ -328,10 +329,15 @@ class Plugin {
 	/**
 	 * Render the team list.
 	 *
-	 * @param array $args WP_User_Query arguments.
+	 * @param array $args WP_User_Query arguments. Additionally accepts `show_description`
+	 *                    to hide the user description, defaults to true.
 	 * @return string
 	 */
 	public function render( array $args ) {
+		// A display option for the template, not a WP_User_Query argument.
+		$show_description = ! isset( $args['show_description'] ) || (bool) $args['show_description'];
+		unset( $args['show_description'] );
+
 		$users = $this->get_users( $args );
 
 		if ( ! $users ) {
@@ -344,7 +350,7 @@ class Plugin {
 
 		foreach ( $users as $user_id ) {
 			$user = get_userdata( $user_id );
-			$this->load_template( $user );
+			$this->load_template( $user, 'rplus-wp-team-list.php', $show_description );
 		}
 
 		return ob_get_clean();
