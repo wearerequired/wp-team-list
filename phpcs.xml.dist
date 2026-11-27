@@ -17,14 +17,25 @@
 
   <rule ref="WordPress.WP.I18n">
     <properties>
-      <property name="text_domain" type="array" value="wp-team-list" />
+      <property name="text_domain" type="array">
+        <element value="wp-team-list"/>
+      </property>
     </properties>
   </rule>
 
   <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
     <properties>
-      <property name="prefixes" type="array" value="rplus_wp_team_list,wp_team_list,Required\WPTeamList"/>
+      <property name="prefixes" type="array">
+        <element value="rplus_wp_team_list"/>
+        <element value="wp_team_list"/>
+        <element value="Required\WPTeamList"/>
+      </property>
     </properties>
+  </rule>
+
+  <!-- The main plugin file defines its bootstrap function and hooks it up. -->
+  <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+    <exclude-pattern>/rplus-wp-team-list\.php$</exclude-pattern>
   </rule>
 
   <exclude-pattern>*/tests/*</exclude-pattern>

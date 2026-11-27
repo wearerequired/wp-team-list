@@ -124,11 +124,11 @@ class Widget extends WP_Widget {
 				<option value="all" <?php selected( 'all', $role ); ?>><?php esc_html_e( 'All', 'wp-team-list' ); ?></option>
 				<?php
 				// Check if function exists when used with REST API.
-				if ( ! function_exists( 'wp_dropdown_roles' ) ) {
+				if ( ! \function_exists( 'wp_dropdown_roles' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/template.php';
 				}
 				// Used by wp_dropdown_roles.
-				if ( ! function_exists( 'get_editable_roles' ) ) {
+				if ( ! \function_exists( 'get_editable_roles' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/user.php';
 				}
 				wp_dropdown_roles( $role );

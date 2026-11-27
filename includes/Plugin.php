@@ -259,13 +259,13 @@ class Plugin {
 	 * @param string                       $template         Name of the template file to load.
 	 * @param bool                         $show_description Whether the template should output the user description.
 	 */
-	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php', $show_description = true ) {
+	protected function load_template( WP_User $user, $template = 'rplus-wp-team-list.php', $show_description = true ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed, VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable -- Read by the included template.
 		if ( 'rplus-wp-team-list.php' !== $template ) {
 			_deprecated_argument(
 				__FUNCTION__,
 				'2.0.0',
 				/* translators: %s: wp_team_list_template */
-				sprintf( __( 'Use the %s filter instead.', 'wp-team-list' ), '<code>wp_team_list_template</code>' )
+				\sprintf( __( 'Use the %s filter instead.', 'wp-team-list' ), '<code>wp_team_list_template</code>' )
 			);
 		}
 
@@ -364,7 +364,7 @@ class Plugin {
 	 * @param  string $template The template file name to include.
 	 * @return string
 	 */
-	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) {
+	public function render_team_list( $args, $echo = true, $template = 'rplus-wp-team-list.php' ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.echoFound -- Renaming would break callers using named arguments.
 		$users = $this->get_users( $args );
 
 		$output = '';
@@ -411,7 +411,7 @@ class Plugin {
 			_deprecated_argument(
 				'do_shortcode_tag()',
 				'2.0.0',
-				sprintf(
+				\sprintf(
 					/* translators: 1: [rplus_team_list], 2: [wp_team_list] */
 					__( 'The %1$s shortcode has been replaced with %2$s.', 'wp-team-list' ),
 					'<code>[rplus_team_list]</code>',
@@ -439,7 +439,7 @@ class Plugin {
 	 * Register a UI for the Shortcode using Shortcake
 	 */
 	public function register_shortcode_ui() {
-		if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		if ( ! \function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 			return;
 		}
 
@@ -702,7 +702,7 @@ class Plugin {
 		$html = wp_team_list()->render( $prepared_args );
 
 		if ( ! empty( $attributes['postId'] ) ) {
-			$html .= sprintf(
+			$html .= \sprintf(
 				'<a href="%s" class="show-all">%s</a>',
 				esc_url( get_permalink( $attributes['postId'] ) ),
 				esc_html__( 'Show all team members', 'wp-team-list' )
@@ -711,6 +711,6 @@ class Plugin {
 
 		$wrapper_attributes = get_block_wrapper_attributes();
 
-		return sprintf( '<div %s>%s</div>', $wrapper_attributes, $html );
+		return \sprintf( '<div %s>%s</div>', $wrapper_attributes, $html );
 	}
 }
