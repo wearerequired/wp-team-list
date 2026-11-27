@@ -21,7 +21,7 @@ $user_posts = (int) count_user_posts( $user->ID );
 ?>
 <div class="wp-team-member wp-team-list-item author-<?php echo esc_attr( $user->ID ); ?> <?php echo esc_attr( $role_class ); ?>">
 	<figure class="wp-team-member-avatar author-image">
-		<?php echo wp_team_list()->get_avatar( $user ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
+		<?php echo wp_team_list()->get_avatar( $user ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Avatar markup from get_avatar(). ?>
 	</figure>
 
 	<h2 class="wp-team-member-name"><?php echo esc_html( $user->data->display_name ); ?></h2>
