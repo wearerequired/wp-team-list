@@ -2,7 +2,7 @@
 Contributors: wearerequired, swissspidy, neverything, hubersen, ocean90, grapplerulrich  
 Tags: authors, widget, users, team, blocks  
 Tested up to: 7.2  
-Stable tag: 4.0.0  
+Stable tag: 4.0.1  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -90,6 +90,14 @@ Easy! You can report bugs, with reproduction steps, or post patches on [GitHub](
 4. The configuration options of the built-in widget.
 
 ## Changelog ##
+
+### 4.0.1 - 2026-11-27 ###
+
+#### Changed ####
+* Tested compatibility with WordPress 7.2.
+
+#### Fixed ####
+* Respect the "Show user description" setting of the team list block on the front end.
 
 ### 4.0.0 - 2023-03-27 ###
 
